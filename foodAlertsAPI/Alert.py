@@ -1,8 +1,28 @@
+from Problem import Problem
+from RelatedMedia import RelatedMedia
+from Country import Country
+
 class Alert:
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
         
+        # assigning different values to some attributes
+        if "problem" in list(dict.keys()):
+            this.problem = Problem(dict["problem"])
+        
+        if "relatedMedia" in list(dict.keys()):
+            relatedMediaID = dict["relatedMedia"]["@id"]
+            relatedMediaTitle = dict["relatedMedia"]["title"]
+
+            this.relatedMedia = RelatedMedia(relatedMediaID, relatedMediaTitle)
+
+        if "country" in list(dict.keys()):
+            countryID = dict["country"]["@id"]
+            countryLabel = dict["country"]["label"]
+
+            this.country = Country(countryID, countryLabel)
+
         # add optional attributes as None if not specified
         optionals = [
             "actionTaken", 
@@ -12,7 +32,6 @@ class Alert:
             "alertURL",
             "shortURL",
             "relatedMedia",
-            "relatedMediaTitle",
             "problem",
             "productDetails",
             "reportingBusiness",
