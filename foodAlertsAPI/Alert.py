@@ -3,7 +3,7 @@ class Alert:
         for k, v in dict.items():
             setattr(self, k, v)
         
-        # add optional attributes as None
+        # add optional attributes as None if not specified
         optionals = [
             "actionTaken", 
             "consumerAdvice",
@@ -18,6 +18,11 @@ class Alert:
             "reportingBusiness",
             "otherBusiness",
             "previousAlert"]
+
+
+        for entry in optionals:
+            if (entry not in list(dict.keys())):
+                setattr(self, entry, None)
 
     # def __init__(self,
     #             title,
