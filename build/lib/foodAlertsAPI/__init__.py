@@ -1,4 +1,3 @@
-from foodAlertsAPI.foodAlertsAPI import foodAlertsAPI
 from foodAlertsAPI.Alert import Alert
 from foodAlertsAPI.Allergen import Allergen
 from foodAlertsAPI.BatchDescription import BatchDescription

@@ -1,9 +1,9 @@
-from foodAlertsAPI.Problem import Problem
-from foodAlertsAPI.ProductDetails import ProductDetails
-from foodAlertsAPI.Status import Status
-from foodAlertsAPI.RelatedMedia import RelatedMedia
-from foodAlertsAPI.Country import Country
-from foodAlertsAPI.Business import Business
+from Problem import Problem
+from ProductDetails import ProductDetails
+from Status import Status
+from RelatedMedia import RelatedMedia
+from Country import Country
+from Business import Business
 
 class Alert:
     def __init__(self, dict):
