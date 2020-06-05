@@ -1,4 +1,7 @@
 class Country:
-    def __init__(self, ID, label):
-        self.id = ID;
-        self.label = label;
+    def __init__(self, dict):
+        for k, v in dict.items():
+            setattr(self, k, v)
+
+        # id is written @id in the API
+        self.id = dict["@id"]

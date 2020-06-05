@@ -4,18 +4,21 @@ from foodAlertsAPI.Alert import Alert;
 class foodAlertsAPI:
 
     # a negative limit value would return all entries
-    def getAlerts(self, quantifier=None):
+    def getAlerts(self, quantifier=None, params={}):
+        print(params)
 
         # if quantifier is an int, then use the limit param
         try:
             limit = int(quantifier)
-            r = requests.get(f"https://data.food.gov.uk/food-alerts/id?_limit={limit}")
-        
+            r = requests.get(f"https://data.food.gov.uk/food-alerts/id?_limit={limit}", params=params)
+            print(r.url)
+
         except ValueError:
             # if quantifier is not an int, try if it works as an iso datetime string
             try: 
                 since = quantifier
-                r = requests.get(f"https://data.food.gov.uk/food-alerts/id?since={since}")
+                r = requests.get(f"https://data.food.gov.uk/food-alerts/id?since={since}", params=params)
+                print(r.url)
                 r.raise_for_status()
         
             except requests.HTTPError:
@@ -26,9 +29,10 @@ class foodAlertsAPI:
 
         return alerts
 
-    def searchAlerts(self, query):
+    def searchAlerts(self, query, params={}):
+
         try:
-            r = requests.get(f"https://data.food.gov.uk/food-alerts/id?search={query}")
+            r = requests.get(f"https://data.food.gov.uk/food-alerts/id?search={query}", params=params)
             r.raise_for_status()
 
             items = r.json()["items"]   

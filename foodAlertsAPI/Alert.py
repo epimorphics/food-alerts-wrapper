@@ -2,7 +2,6 @@ from foodAlertsAPI.Problem import Problem
 from foodAlertsAPI.ProductDetails import ProductDetails
 from foodAlertsAPI.Status import Status
 from foodAlertsAPI.BatchDescription import BatchDescription
-from foodAlertsAPI.RelatedMedia import RelatedMedia
 from foodAlertsAPI.Country import Country
 from foodAlertsAPI.Business import Business
 
@@ -16,35 +15,26 @@ class Alert:
         
         # assigning different values to some attributes
         if "problem" in list(dict.keys()):
-            problems = [Problem(p) for p in dict["problem"]]
-            self.problem = problems
+            self.problem = [Problem(p) for p in dict["problem"]]
 
         if "productDetails" in list(dict.keys()):
-            productDetails = [ProductDetails(d) for d in dict["productDetails"]]
-            self.productDetails = productDetails
+            self.productDetails = [ProductDetails(d) for d in dict["productDetails"]]
         
         if "status" in list(dict.keys()):
             self.status = Status(dict["status"])
-        
-        if "relatedMedia" in list(dict.keys()):
-            self.relatedMedia = [RelatedMedia(r) for r in dict["relatedMedia"]]
 
         if "country" in list(dict.keys()):
-            countries = []
+            self.country = [Country(c) for c in dict["country"]]
 
-            # instantiate a Country instance for each country returned
-            for country in dict["country"]:
-                countryID = country["@id"]
-                countryLabel = country["label"]
-                countries.append(Country(countryID, countryLabel))
-
-            self.country = countries
-
-        if "reportingBusiness" in list(dict.keys()):
+        if "reportingBusiness" in list(dict.keys()):#
             self.reportingBusiness = Business(dict["reportingBusiness"])
 
+        # otherBusiness can be a single object or a list of objects
         if "otherBusiness" in list(dict.keys()):
-            self.otherBusiness = Business(dict["otherBusiness"])
+            try:
+                self.otherBusiness = Business(dict["otherBusiness"])
+            except AttributeError: 
+                self.otherBusiness = [Business(b) for b in dict["otherBusiness"]]
 
 
         # add optional attributes as None if not specified
@@ -56,6 +46,7 @@ class Alert:
             "twitterText",
             "alertURL",
             "shortURL",
+            "shortTitle",
             "relatedMedia",
             "problem",
             "productDetails",
@@ -63,7 +54,18 @@ class Alert:
             "otherBusiness",
             "previousAlert"]
 
-
         for entry in optionals:
             if (entry not in list(dict.keys())):
                 setattr(self, entry, None)
+
+
+        # set strings appropriately if not specified
+        strings = [
+            "SMStext",
+            "twitterText",
+            "shortTitle"
+        ]
+
+        for entry in strings:
+            if (entry not in list(dict.keys())):
+                setattr(self, entry, "No text specified")
