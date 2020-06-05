@@ -3,8 +3,6 @@ class BatchDescription:
         for k, v in dict.items():
             setattr(self, k, v)
 
-        # all attributes optional
-
         # add optional attributes as None
 
         optionals = [

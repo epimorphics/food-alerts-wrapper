@@ -13,7 +13,8 @@ class ProductDetails:
         self.id = dict["@id"]
 
         if "batchDescription" in list(dict.keys()):
-            self.batchDescription = BatchDescription(dict["batchDescription"])
+            batchDescriptions = [BatchDescription(b) for b in dict["batchDescription"]]
+            self.batchDescription = batchDescriptions
 
         # add optional attributes as None
 

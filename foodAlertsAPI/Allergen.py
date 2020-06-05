@@ -1,5 +1,5 @@
 class Allergen:
-    def __init__(self):
+    def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
 

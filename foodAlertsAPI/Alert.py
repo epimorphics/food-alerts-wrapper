@@ -1,6 +1,7 @@
 from foodAlertsAPI.Problem import Problem
 from foodAlertsAPI.ProductDetails import ProductDetails
 from foodAlertsAPI.Status import Status
+from foodAlertsAPI.BatchDescription import BatchDescription
 from foodAlertsAPI.RelatedMedia import RelatedMedia
 from foodAlertsAPI.Country import Country
 from foodAlertsAPI.Business import Business
@@ -26,16 +27,18 @@ class Alert:
             self.status = Status(dict["status"])
         
         if "relatedMedia" in list(dict.keys()):
-            relatedMediaID = dict["relatedMedia"]["@id"]
-            relatedMediaTitle = dict["relatedMedia"]["title"]
-
-            self.relatedMedia = RelatedMedia(relatedMediaID, relatedMediaTitle)
+            self.relatedMedia = [RelatedMedia(r) for r in dict["relatedMedia"]]
 
         if "country" in list(dict.keys()):
-            countryID = dict["country"]["@id"]
-            countryLabel = dict["country"]["label"]
+            countries = []
 
-            self.country = Country(countryID, countryLabel)
+            # instantiate a Country instance for each country returned
+            for country in dict["country"]:
+                countryID = country["@id"]
+                countryLabel = country["label"]
+                countries.append(Country(countryID, countryLabel))
+
+            self.country = countries
 
         if "reportingBusiness" in list(dict.keys()):
             self.reportingBusiness = Business(dict["reportingBusiness"])

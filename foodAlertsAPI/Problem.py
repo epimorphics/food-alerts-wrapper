@@ -1,3 +1,5 @@
+from foodAlertsAPI.Allergen import Allergen
+
 class Problem:
     def __init__(self, dict):
         for k, v in dict.items():
@@ -11,6 +13,10 @@ class Problem:
 
         # id is written @id in the API
         self.id = dict["@id"]
+
+        if "allergen" in list(dict.keys()):
+            allergen = [Allergen(a) for a in dict["allergen"]]
+            self.allergen = allergen
 
         # add optional attributes as None
 
