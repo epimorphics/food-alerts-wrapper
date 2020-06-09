@@ -4,14 +4,33 @@ from foodAlertsAPI.Alert import Alert;
 class foodAlertsAPI:
 
     # a negative limit value would return all entries
-    def getAlerts(self, quantifier=None, params={}):
+    def getAlerts(self, quantifier=None, detailed=False, limit=None, sortBy=None):
         """Gets alerts from the FSA Food Alerts API
 
         Args:
-            quantifier: The quantifier can be an int n, in which case the function returns the last n
+            quantifier: the quantifier can be an int n, in which case the function returns the last n
                         alerts. The quantifier can also be a date string in ISO format, in which case 
-                        the function returns the alerts published since the given date.
+                        the function returns the alerts published since the given date
+
+        Returns:
+            A list of `foodAlertsAPI.Alert` objects
+
+        Raises:
+            ValueError: occurs when an invalid value for the quantifier is provided
         """
+
+        params = {}
+
+        if detailed:
+            params["_view"] = "full"
+
+        if limit != None:
+            params["_limit"] = limit
+
+        if sortBy != None:
+            params["_sort"] = sortBy
+
+        print(params)
 
         # if quantifier is an int, then use the limit param
         try:

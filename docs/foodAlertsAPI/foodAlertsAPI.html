@@ -34,9 +34,15 @@ class foodAlertsAPI:
         &#34;&#34;&#34;Gets alerts from the FSA Food Alerts API
 
         Args:
-            quantifier: The quantifier can be an int n, in which case the function returns the last n
+            quantifier: the quantifier can be an int n, in which case the function returns the last n
                         alerts. The quantifier can also be a date string in ISO format, in which case 
-                        the function returns the alerts published since the given date.
+                        the function returns the alerts published since the given date
+
+        Returns:
+            A list of `foodAlertsAPI.Alert` objects
+
+        Raises:
+            ValueError: occurs when an invalid value for the quantifier is provided
         &#34;&#34;&#34;
 
         # if quantifier is an int, then use the limit param
@@ -118,9 +124,15 @@ class foodAlertsAPI:
         &#34;&#34;&#34;Gets alerts from the FSA Food Alerts API
 
         Args:
-            quantifier: The quantifier can be an int n, in which case the function returns the last n
+            quantifier: the quantifier can be an int n, in which case the function returns the last n
                         alerts. The quantifier can also be a date string in ISO format, in which case 
-                        the function returns the alerts published since the given date.
+                        the function returns the alerts published since the given date
+
+        Returns:
+            A list of `foodAlertsAPI.Alert` objects
+
+        Raises:
+            ValueError: occurs when an invalid value for the quantifier is provided
         &#34;&#34;&#34;
 
         # if quantifier is an int, then use the limit param
@@ -207,9 +219,16 @@ class foodAlertsAPI:
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>quantifier</code></strong></dt>
-<dd>The quantifier can be an int n, in which case the function returns the last n
+<dd>the quantifier can be an int n, in which case the function returns the last n
 alerts. The quantifier can also be a date string in ISO format, in which case
-the function returns the alerts published since the given date.</dd>
+the function returns the alerts published since the given date</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A list of <a title="foodAlertsAPI.Alert" href="Alert.html"><code>foodAlertsAPI.Alert</code></a> objects</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><strong><code>ValueError</code></strong></dt>
+<dd>occurs when an invalid value for the quantifier is provided</dd>
 </dl></section>
 <details class="source">
 <summary>
@@ -219,9 +238,15 @@ the function returns the alerts published since the given date.</dd>
     &#34;&#34;&#34;Gets alerts from the FSA Food Alerts API
 
     Args:
-        quantifier: The quantifier can be an int n, in which case the function returns the last n
+        quantifier: the quantifier can be an int n, in which case the function returns the last n
                     alerts. The quantifier can also be a date string in ISO format, in which case 
-                    the function returns the alerts published since the given date.
+                    the function returns the alerts published since the given date
+
+    Returns:
+        A list of `foodAlertsAPI.Alert` objects
+
+    Raises:
+        ValueError: occurs when an invalid value for the quantifier is provided
     &#34;&#34;&#34;
 
     # if quantifier is an int, then use the limit param

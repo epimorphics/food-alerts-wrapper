@@ -72,7 +72,13 @@ class Alert:
             try:
                 self.relatedMedia = [RelatedMedia(dict["relatedMedia"])]
             except AttributeError: 
-                self.relatedMedia = [RelatedMedia(m) for m in dict["relatedMedia"]]
+                if (isinstance(dict["relatedMedia"][0], str)):
+                    # if relatedMedia is a list of strings, turn the strings into dictionaries to
+                    # instantiate relatedMediaObjects
+                    self.relatedMedia = [RelatedMedia({"title" : t}) for t in dict["relatedMedia"]]
+
+                else:
+                    self.relatedMedia = [RelatedMedia(m) for m in dict["relatedMedia"]]
 
         # add optional attributes as None if not specified
         optionals = [

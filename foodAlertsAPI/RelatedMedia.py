@@ -4,4 +4,7 @@ class RelatedMedia:
             setattr(self, k, v)
 
         # id is written @id in the API
-        self.id = dict["@id"]
+        try:
+            self.id = dict["@id"]
+        except KeyError:
+            pass
