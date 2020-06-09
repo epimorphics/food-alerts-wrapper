@@ -9,4 +9,5 @@ from foodAlertsAPI.PathogenRisk import PathogenRisk
 from foodAlertsAPI.Problem import Problem
 from foodAlertsAPI.ProductDetails import ProductDetails
 from foodAlertsAPI.Reason import Reason
+from foodAlertsAPI.RelatedMedia import RelatedMedia
 from foodAlertsAPI.Status import Status
