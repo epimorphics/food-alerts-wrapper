@@ -25,6 +25,19 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class BatchDescription:
+    &#34;&#34;&#34;
+    
+    Attributes:
+
+        bestBeforeDescription (string, optional): &#34;best before&#34; date range for the batch
+        bestBeforeDate (string, optional): &#34;best before&#34; date (or dates) for the batch
+        useByDescription (string, optional): &#34;use by&#34; date range for the batch
+        useByDate (string, optional): &#34;use by&#34; date (or dates) for the batch
+        batchCode (string, optional): batch number or code for the batch
+        lotNumber (string, optional): lot number for the batch
+        batchTextDescription (string, optional): other textual description for the batch        
+    &#34;&#34;&#34;
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
@@ -60,12 +73,41 @@
 <span>(</span><span>dict)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>bestBeforeDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>"best before" date range for the batch</dd>
+<dt><strong><code>bestBeforeDate</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>"best before" date (or dates) for the batch</dd>
+<dt><strong><code>useByDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>"use by" date range for the batch</dd>
+<dt><strong><code>useByDate</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>"use by" date (or dates) for the batch</dd>
+<dt><strong><code>batchCode</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>batch number or code for the batch</dd>
+<dt><strong><code>lotNumber</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>lot number for the batch</dd>
+<dt><strong><code>batchTextDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>other textual description for the batch</dd>
+</dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class BatchDescription:
+    &#34;&#34;&#34;
+    
+    Attributes:
+
+        bestBeforeDescription (string, optional): &#34;best before&#34; date range for the batch
+        bestBeforeDate (string, optional): &#34;best before&#34; date (or dates) for the batch
+        useByDescription (string, optional): &#34;use by&#34; date range for the batch
+        useByDate (string, optional): &#34;use by&#34; date (or dates) for the batch
+        batchCode (string, optional): batch number or code for the batch
+        lotNumber (string, optional): lot number for the batch
+        batchTextDescription (string, optional): other textual description for the batch        
+    &#34;&#34;&#34;
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)

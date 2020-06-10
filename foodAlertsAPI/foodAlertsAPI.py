@@ -11,14 +11,10 @@ class foodAlertsAPI:
             quantifier: the quantifier can be an int n, in which case the function returns the last n
                         alerts. The quantifier can also be a date string in ISO format, in which case 
                         the function returns the alerts published since the given date
-
             detailed (bool, optional): determines whether the Alert objects returned will contain all properties. When this
                              is set to false, only the summary properties are included. Defaults to False if unspecified
-
             limit (int, optional): specifies the maximum number of Alert objects that can be returned
-
             offset (int, optional): return the list of items starting with the nth item, together with limit this enables paging through a long set of results
-
             sortBy (string, optional): reorder the list of results in ascending order of the given property (or property chain). 
                                        To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order
                              
@@ -72,17 +68,12 @@ class foodAlertsAPI:
 
         Args:
             query (string): the search query
-
             detailed (bool, optional): determines whether the Alert objects returned will contain all properties. When this
                                        is set to false, only the summary properties are included. Defaults to False if unspecified
-
             limit (int, optional): specifies the maximum number of Alert objects that can be returned
-
             offset (int, optional): return the list of items starting with the nth item, together with limit this enables paging through a long set of results
-
             sortBy (string, optional): reorder the list of results in ascending order of the given property (or property chain). 
-                                       To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order
-                             
+                                       To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order        
 
         Returns:
             A list of `foodAlertsAPI.Alert` objects

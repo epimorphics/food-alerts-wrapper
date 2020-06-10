@@ -1,4 +1,10 @@
 class Country:
+    """
+    Attributes:
+
+        label (string): name of country for which the alert applies
+    """
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)

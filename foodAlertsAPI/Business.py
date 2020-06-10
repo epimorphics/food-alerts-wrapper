@@ -1,4 +1,12 @@
 class Business:
+    """
+    Attributes:
+
+        commonName (string): name by which the organisation is commonly known 
+        identifier (string, optional): unique identifier for the organisation
+        legalName (string, optional): legal (registered) name of the organisation   
+    """
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)

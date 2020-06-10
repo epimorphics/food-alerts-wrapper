@@ -25,6 +25,14 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Business:
+    &#34;&#34;&#34;
+    Attributes:
+
+        commonName (string): name by which the organisation is commonly known 
+        identifier (string, optional): unique identifier for the organisation
+        legalName (string, optional): legal (registered) name of the organisation   
+    &#34;&#34;&#34;
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
@@ -56,12 +64,28 @@
 <span>(</span><span>dict)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>commonName</code></strong> :&ensp;<code>string</code></dt>
+<dd>name by which the organisation is commonly known </dd>
+<dt><strong><code>identifier</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>unique identifier for the organisation</dd>
+<dt><strong><code>legalName</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>legal (registered) name of the organisation</dd>
+</dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Business:
+    &#34;&#34;&#34;
+    Attributes:
+
+        commonName (string): name by which the organisation is commonly known 
+        identifier (string, optional): unique identifier for the organisation
+        legalName (string, optional): legal (registered) name of the organisation   
+    &#34;&#34;&#34;
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
