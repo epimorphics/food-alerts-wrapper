@@ -124,4 +124,14 @@ class Alert:
                     allergens.append(allergen.label)
         
         return allergens
+
+    def getPathogenRisks(self):
+        pathogenRisks = []
+
+        for p in self.problem:
+            if (p.pathogenRisk != None):
+                for risk in p.pathogenRisk:
+                    pathogenRisks.append(risk.label)
+        
+        return pathogenRisks
                 
