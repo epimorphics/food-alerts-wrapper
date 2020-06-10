@@ -25,6 +25,17 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Allergen:
+    &#34;&#34;&#34; Array of allergens drawn from the controlled list of allergens. 
+    For an Allergen Alert there will also be at least one allergen present on the problem statement.
+
+    Attributes:
+
+        label (string): name for the allergen
+        notation (string): a unique identifier for the allergen
+        riskStatement (string): text describing the risk from the allergen
+    &#34;&#34;&#34;
+
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
@@ -47,12 +58,33 @@
 <span>(</span><span>dict)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Array of allergens drawn from the controlled list of allergens.
+For an Allergen Alert there will also be at least one allergen present on the problem statement.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>label</code></strong> :&ensp;<code>string</code></dt>
+<dd>name for the allergen</dd>
+<dt><strong><code>notation</code></strong> :&ensp;<code>string</code></dt>
+<dd>a unique identifier for the allergen</dd>
+<dt><strong><code>riskStatement</code></strong> :&ensp;<code>string</code></dt>
+<dd>text describing the risk from the allergen</dd>
+</dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Allergen:
+    &#34;&#34;&#34; Array of allergens drawn from the controlled list of allergens. 
+    For an Allergen Alert there will also be at least one allergen present on the problem statement.
+
+    Attributes:
+
+        label (string): name for the allergen
+        notation (string): a unique identifier for the allergen
+        riskStatement (string): text describing the risk from the allergen
+    &#34;&#34;&#34;
+
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)

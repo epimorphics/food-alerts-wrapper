@@ -25,6 +25,16 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Reason:
+    &#34;&#34;&#34;Classifies the reason for the problem as being one of a standard set of reasons. 
+    This information is useful for analysis and retrieval but does not directly affect the default textual presentation of the alert. 
+    Support for this field is under discussion.
+    
+    Attributes:
+
+        label (string): name for the reason
+        notation (string): unique identifier for the reason
+    &#34;&#34;&#34;
+
     def __init__(self):
         for k, v in dict.items():
             setattr(self, k, v)</code></pre>
@@ -43,12 +53,31 @@
 <span>class <span class="ident">Reason</span></span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Classifies the reason for the problem as being one of a standard set of reasons.
+This information is useful for analysis and retrieval but does not directly affect the default textual presentation of the alert.
+Support for this field is under discussion.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>label</code></strong> :&ensp;<code>string</code></dt>
+<dd>name for the reason</dd>
+<dt><strong><code>notation</code></strong> :&ensp;<code>string</code></dt>
+<dd>unique identifier for the reason</dd>
+</dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Reason:
+    &#34;&#34;&#34;Classifies the reason for the problem as being one of a standard set of reasons. 
+    This information is useful for analysis and retrieval but does not directly affect the default textual presentation of the alert. 
+    Support for this field is under discussion.
+    
+    Attributes:
+
+        label (string): name for the reason
+        notation (string): unique identifier for the reason
+    &#34;&#34;&#34;
+
     def __init__(self):
         for k, v in dict.items():
             setattr(self, k, v)</code></pre>

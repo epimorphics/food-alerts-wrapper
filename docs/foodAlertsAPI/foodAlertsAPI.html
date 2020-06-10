@@ -30,7 +30,7 @@ from foodAlertsAPI.Alert import Alert;
 class foodAlertsAPI:
 
     # a negative limit value would return all entries
-    def getAlerts(self, quantifier=None, params={}):
+    def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None):
         &#34;&#34;&#34;Gets alerts from the FSA Food Alerts API
 
         Args:
@@ -38,12 +38,38 @@ class foodAlertsAPI:
                         alerts. The quantifier can also be a date string in ISO format, in which case 
                         the function returns the alerts published since the given date
 
+            detailed (bool, optional): determines whether the Alert objects returned will contain all properties. When this
+                             is set to false, only the summary properties are included. Defaults to False if unspecified
+
+            limit (int, optional): specifies the maximum number of Alert objects that can be returned
+
+            offset (int, optional): return the list of items starting with the nth item, together with limit this enables paging through a long set of results
+
+            sortBy (string, optional): reorder the list of results in ascending order of the given property (or property chain). 
+                                       To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order
+                             
         Returns:
             A list of `foodAlertsAPI.Alert` objects
 
         Raises:
-            ValueError: occurs when an invalid value for the quantifier is provided
+            ValueError: occurs when an invalid value for the quantifier or optional arguments is provided
         &#34;&#34;&#34;
+
+        params = {}
+
+        if detailed:
+            params[&#34;_view&#34;] = &#34;full&#34;
+
+        if limit != None:
+            params[&#34;_limit&#34;] = limit
+
+        if offset != None:
+            params[&#34;_offset&#34;] = offset
+
+        if sortBy != None:
+            params[&#34;_sort&#34;] = sortBy
+
+        print(params)
 
         # if quantifier is an int, then use the limit param
         try:
@@ -60,15 +86,50 @@ class foodAlertsAPI:
                 r.raise_for_status()
         
             except requests.HTTPError:
-                raise ValueError(&#34;&#34;&#34;Quantifier must be an integer or an ISO datetime string
-            and params should be a valid string:string dictionary&#34;&#34;&#34;)
+                raise ValueError(&#34;&#34;&#34;Quantifier must be an integer or an ISO datetime string&#34;&#34;&#34;)
 
         items = r.json()[&#34;items&#34;]   
         alerts = [Alert(a) for a in items]
 
         return alerts
  
-    def searchAlerts(self, query, params={}):
+    def searchAlerts(self, query, detailed=False, limit=None, offset=None, sortBy=None):
+        &#34;&#34;&#34;Search for query in alerts from the FSA Food Alerts API
+
+        Args:
+            query (string): the search query
+
+            detailed (bool, optional): determines whether the Alert objects returned will contain all properties. When this
+                                       is set to false, only the summary properties are included. Defaults to False if unspecified
+
+            limit (int, optional): specifies the maximum number of Alert objects that can be returned
+
+            offset (int, optional): return the list of items starting with the nth item, together with limit this enables paging through a long set of results
+
+            sortBy (string, optional): reorder the list of results in ascending order of the given property (or property chain). 
+                                       To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order
+                             
+
+        Returns:
+            A list of `foodAlertsAPI.Alert` objects
+
+        Raises:
+            ValueError: occurs when an invalid value for the query or optional arguments is provided
+        &#34;&#34;&#34;
+
+        params = {}
+
+        if detailed:
+            params[&#34;_view&#34;] = &#34;full&#34;
+
+        if limit != None:
+            params[&#34;_limit&#34;] = limit
+
+        if offset != None:
+            params[&#34;_offset&#34;] = offset
+
+        if sortBy != None:
+            params[&#34;_sort&#34;] = sortBy
 
         try:
             r = requests.get(f&#34;https://data.food.gov.uk/food-alerts/id?search={query}&#34;, params=params)
@@ -78,12 +139,22 @@ class foodAlertsAPI:
             alerts = [Alert(a) for a in items]
         
         except requests.HTTPError:
-            raise ValueError(&#34;&#34;&#34;Query must be a valid search query string 
-        and params should be a valid string:string dictionary&#34;&#34;&#34;)
+            raise ValueError(&#34;&#34;&#34;Query must be a valid search query string&#34;&#34;&#34;)
 
         return alerts
 
     def getAlert(self, ID):
+        &#34;&#34;&#34;Get a specific alert based on its notation, e.g. (FSA-AA-01-2018)
+
+        Args:
+            ID (string): the alert ID                 
+
+        Returns:
+            A `foodAlertsAPI.Alert` object
+
+        Raises:
+            ValueError: occurs when an invalid value for the notation is provided
+        &#34;&#34;&#34;
         
         try:
             r = requests.get(f&#34;https://data.food.gov.uk/food-alerts/id/{ID}&#34;)
@@ -120,7 +191,7 @@ class foodAlertsAPI:
 <pre><code class="python">class foodAlertsAPI:
 
     # a negative limit value would return all entries
-    def getAlerts(self, quantifier=None, params={}):
+    def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None):
         &#34;&#34;&#34;Gets alerts from the FSA Food Alerts API
 
         Args:
@@ -128,12 +199,38 @@ class foodAlertsAPI:
                         alerts. The quantifier can also be a date string in ISO format, in which case 
                         the function returns the alerts published since the given date
 
+            detailed (bool, optional): determines whether the Alert objects returned will contain all properties. When this
+                             is set to false, only the summary properties are included. Defaults to False if unspecified
+
+            limit (int, optional): specifies the maximum number of Alert objects that can be returned
+
+            offset (int, optional): return the list of items starting with the nth item, together with limit this enables paging through a long set of results
+
+            sortBy (string, optional): reorder the list of results in ascending order of the given property (or property chain). 
+                                       To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order
+                             
         Returns:
             A list of `foodAlertsAPI.Alert` objects
 
         Raises:
-            ValueError: occurs when an invalid value for the quantifier is provided
+            ValueError: occurs when an invalid value for the quantifier or optional arguments is provided
         &#34;&#34;&#34;
+
+        params = {}
+
+        if detailed:
+            params[&#34;_view&#34;] = &#34;full&#34;
+
+        if limit != None:
+            params[&#34;_limit&#34;] = limit
+
+        if offset != None:
+            params[&#34;_offset&#34;] = offset
+
+        if sortBy != None:
+            params[&#34;_sort&#34;] = sortBy
+
+        print(params)
 
         # if quantifier is an int, then use the limit param
         try:
@@ -150,15 +247,50 @@ class foodAlertsAPI:
                 r.raise_for_status()
         
             except requests.HTTPError:
-                raise ValueError(&#34;&#34;&#34;Quantifier must be an integer or an ISO datetime string
-            and params should be a valid string:string dictionary&#34;&#34;&#34;)
+                raise ValueError(&#34;&#34;&#34;Quantifier must be an integer or an ISO datetime string&#34;&#34;&#34;)
 
         items = r.json()[&#34;items&#34;]   
         alerts = [Alert(a) for a in items]
 
         return alerts
  
-    def searchAlerts(self, query, params={}):
+    def searchAlerts(self, query, detailed=False, limit=None, offset=None, sortBy=None):
+        &#34;&#34;&#34;Search for query in alerts from the FSA Food Alerts API
+
+        Args:
+            query (string): the search query
+
+            detailed (bool, optional): determines whether the Alert objects returned will contain all properties. When this
+                                       is set to false, only the summary properties are included. Defaults to False if unspecified
+
+            limit (int, optional): specifies the maximum number of Alert objects that can be returned
+
+            offset (int, optional): return the list of items starting with the nth item, together with limit this enables paging through a long set of results
+
+            sortBy (string, optional): reorder the list of results in ascending order of the given property (or property chain). 
+                                       To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order
+                             
+
+        Returns:
+            A list of `foodAlertsAPI.Alert` objects
+
+        Raises:
+            ValueError: occurs when an invalid value for the query or optional arguments is provided
+        &#34;&#34;&#34;
+
+        params = {}
+
+        if detailed:
+            params[&#34;_view&#34;] = &#34;full&#34;
+
+        if limit != None:
+            params[&#34;_limit&#34;] = limit
+
+        if offset != None:
+            params[&#34;_offset&#34;] = offset
+
+        if sortBy != None:
+            params[&#34;_sort&#34;] = sortBy
 
         try:
             r = requests.get(f&#34;https://data.food.gov.uk/food-alerts/id?search={query}&#34;, params=params)
@@ -168,12 +300,22 @@ class foodAlertsAPI:
             alerts = [Alert(a) for a in items]
         
         except requests.HTTPError:
-            raise ValueError(&#34;&#34;&#34;Query must be a valid search query string 
-        and params should be a valid string:string dictionary&#34;&#34;&#34;)
+            raise ValueError(&#34;&#34;&#34;Query must be a valid search query string&#34;&#34;&#34;)
 
         return alerts
 
     def getAlert(self, ID):
+        &#34;&#34;&#34;Get a specific alert based on its notation, e.g. (FSA-AA-01-2018)
+
+        Args:
+            ID (string): the alert ID                 
+
+        Returns:
+            A `foodAlertsAPI.Alert` object
+
+        Raises:
+            ValueError: occurs when an invalid value for the notation is provided
+        &#34;&#34;&#34;
         
         try:
             r = requests.get(f&#34;https://data.food.gov.uk/food-alerts/id/{ID}&#34;)
@@ -192,12 +334,36 @@ class foodAlertsAPI:
 <span>def <span class="ident">getAlert</span></span>(<span>self, ID)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Get a specific alert based on its notation, e.g. (FSA-AA-01-2018)</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>ID</code></strong> :&ensp;<code>string</code></dt>
+<dd>the alert ID
+</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A <a title="foodAlertsAPI.Alert" href="Alert.html"><code>foodAlertsAPI.Alert</code></a> object</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><strong><code>ValueError</code></strong></dt>
+<dd>occurs when an invalid value for the notation is provided</dd>
+</dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def getAlert(self, ID):
+    &#34;&#34;&#34;Get a specific alert based on its notation, e.g. (FSA-AA-01-2018)
+
+    Args:
+        ID (string): the alert ID                 
+
+    Returns:
+        A `foodAlertsAPI.Alert` object
+
+    Raises:
+        ValueError: occurs when an invalid value for the notation is provided
+    &#34;&#34;&#34;
     
     try:
         r = requests.get(f&#34;https://data.food.gov.uk/food-alerts/id/{ID}&#34;)
@@ -212,7 +378,7 @@ class foodAlertsAPI:
 </details>
 </dd>
 <dt id="foodAlertsAPI.foodAlertsAPI.foodAlertsAPI.getAlerts"><code class="name flex">
-<span>def <span class="ident">getAlerts</span></span>(<span>self, quantifier=None, params={})</span>
+<span>def <span class="ident">getAlerts</span></span>(<span>self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None)</span>
 </code></dt>
 <dd>
 <section class="desc"><p>Gets alerts from the FSA Food Alerts API</p>
@@ -222,19 +388,29 @@ class foodAlertsAPI:
 <dd>the quantifier can be an int n, in which case the function returns the last n
 alerts. The quantifier can also be a date string in ISO format, in which case
 the function returns the alerts published since the given date</dd>
+<dt><strong><code>detailed</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>determines whether the Alert objects returned will contain all properties. When this
+is set to false, only the summary properties are included. Defaults to False if unspecified</dd>
+<dt><strong><code>limit</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>specifies the maximum number of Alert objects that can be returned</dd>
+<dt><strong><code>offset</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>return the list of items starting with the nth item, together with limit this enables paging through a long set of results</dd>
+<dt><strong><code>sortBy</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>reorder the list of results in ascending order of the given property (or property chain).
+To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <p>A list of <a title="foodAlertsAPI.Alert" href="Alert.html"><code>foodAlertsAPI.Alert</code></a> objects</p>
 <h2 id="raises">Raises</h2>
 <dl>
 <dt><strong><code>ValueError</code></strong></dt>
-<dd>occurs when an invalid value for the quantifier is provided</dd>
+<dd>occurs when an invalid value for the quantifier or optional arguments is provided</dd>
 </dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def getAlerts(self, quantifier=None, params={}):
+<pre><code class="python">def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None):
     &#34;&#34;&#34;Gets alerts from the FSA Food Alerts API
 
     Args:
@@ -242,12 +418,38 @@ the function returns the alerts published since the given date</dd>
                     alerts. The quantifier can also be a date string in ISO format, in which case 
                     the function returns the alerts published since the given date
 
+        detailed (bool, optional): determines whether the Alert objects returned will contain all properties. When this
+                         is set to false, only the summary properties are included. Defaults to False if unspecified
+
+        limit (int, optional): specifies the maximum number of Alert objects that can be returned
+
+        offset (int, optional): return the list of items starting with the nth item, together with limit this enables paging through a long set of results
+
+        sortBy (string, optional): reorder the list of results in ascending order of the given property (or property chain). 
+                                   To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order
+                         
     Returns:
         A list of `foodAlertsAPI.Alert` objects
 
     Raises:
-        ValueError: occurs when an invalid value for the quantifier is provided
+        ValueError: occurs when an invalid value for the quantifier or optional arguments is provided
     &#34;&#34;&#34;
+
+    params = {}
+
+    if detailed:
+        params[&#34;_view&#34;] = &#34;full&#34;
+
+    if limit != None:
+        params[&#34;_limit&#34;] = limit
+
+    if offset != None:
+        params[&#34;_offset&#34;] = offset
+
+    if sortBy != None:
+        params[&#34;_sort&#34;] = sortBy
+
+    print(params)
 
     # if quantifier is an int, then use the limit param
     try:
@@ -264,8 +466,7 @@ the function returns the alerts published since the given date</dd>
             r.raise_for_status()
     
         except requests.HTTPError:
-            raise ValueError(&#34;&#34;&#34;Quantifier must be an integer or an ISO datetime string
-        and params should be a valid string:string dictionary&#34;&#34;&#34;)
+            raise ValueError(&#34;&#34;&#34;Quantifier must be an integer or an ISO datetime string&#34;&#34;&#34;)
 
     items = r.json()[&#34;items&#34;]   
     alerts = [Alert(a) for a in items]
@@ -274,15 +475,73 @@ the function returns the alerts published since the given date</dd>
 </details>
 </dd>
 <dt id="foodAlertsAPI.foodAlertsAPI.foodAlertsAPI.searchAlerts"><code class="name flex">
-<span>def <span class="ident">searchAlerts</span></span>(<span>self, query, params={})</span>
+<span>def <span class="ident">searchAlerts</span></span>(<span>self, query, detailed=False, limit=None, offset=None, sortBy=None)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Search for query in alerts from the FSA Food Alerts API</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>query</code></strong> :&ensp;<code>string</code></dt>
+<dd>the search query</dd>
+<dt><strong><code>detailed</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>determines whether the Alert objects returned will contain all properties. When this
+is set to false, only the summary properties are included. Defaults to False if unspecified</dd>
+<dt><strong><code>limit</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>specifies the maximum number of Alert objects that can be returned</dd>
+<dt><strong><code>offset</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>return the list of items starting with the nth item, together with limit this enables paging through a long set of results</dd>
+<dt><strong><code>sortBy</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>reorder the list of results in ascending order of the given property (or property chain).
+To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A list of <a title="foodAlertsAPI.Alert" href="Alert.html"><code>foodAlertsAPI.Alert</code></a> objects</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><strong><code>ValueError</code></strong></dt>
+<dd>occurs when an invalid value for the query or optional arguments is provided</dd>
+</dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def searchAlerts(self, query, params={}):
+<pre><code class="python">def searchAlerts(self, query, detailed=False, limit=None, offset=None, sortBy=None):
+    &#34;&#34;&#34;Search for query in alerts from the FSA Food Alerts API
+
+    Args:
+        query (string): the search query
+
+        detailed (bool, optional): determines whether the Alert objects returned will contain all properties. When this
+                                   is set to false, only the summary properties are included. Defaults to False if unspecified
+
+        limit (int, optional): specifies the maximum number of Alert objects that can be returned
+
+        offset (int, optional): return the list of items starting with the nth item, together with limit this enables paging through a long set of results
+
+        sortBy (string, optional): reorder the list of results in ascending order of the given property (or property chain). 
+                                   To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order
+                         
+
+    Returns:
+        A list of `foodAlertsAPI.Alert` objects
+
+    Raises:
+        ValueError: occurs when an invalid value for the query or optional arguments is provided
+    &#34;&#34;&#34;
+
+    params = {}
+
+    if detailed:
+        params[&#34;_view&#34;] = &#34;full&#34;
+
+    if limit != None:
+        params[&#34;_limit&#34;] = limit
+
+    if offset != None:
+        params[&#34;_offset&#34;] = offset
+
+    if sortBy != None:
+        params[&#34;_sort&#34;] = sortBy
 
     try:
         r = requests.get(f&#34;https://data.food.gov.uk/food-alerts/id?search={query}&#34;, params=params)
@@ -292,8 +551,7 @@ the function returns the alerts published since the given date</dd>
         alerts = [Alert(a) for a in items]
     
     except requests.HTTPError:
-        raise ValueError(&#34;&#34;&#34;Query must be a valid search query string 
-    and params should be a valid string:string dictionary&#34;&#34;&#34;)
+        raise ValueError(&#34;&#34;&#34;Query must be a valid search query string&#34;&#34;&#34;)
 
     return alerts</code></pre>
 </details>

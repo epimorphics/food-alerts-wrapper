@@ -48,18 +48,18 @@ class Alert:
         status (object): a `foodAlertsAPI.Status` object
         type (string[]): an array of strings (URLs, one corresponding to the Alert object in the API, 
                          and another to the type of alert corresponding to the Alert object (one of &#34;AA&#34; - allergen, &#34;FAFA&#34; - food action, or &#34;PRIN&#34; - product recall))
-        actionTaken (string):  description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority
-        consumerAdvice (string): text giving the advice to consumers
-        SMSText (string):       short description to be used in SMS notifications
-        twitterText (string):  short description to be used in Twitter notifications
-        alertURL (string):  URL for the alert on the FSA web site
-        shortURL (string):    
-        relatedMedia (object[]):  array of `foodAlertsAPI.RelatedMedia` objects
-        problem (object[]):  array of `foodAlertsAPI.Problem` objects
-        productDetails (object[]):  array of `foodAlertsAPI.ProductDetails` objects
-        reportingBusiness (object[]):  a `foodAlertsAPI.Business` object
-        otherBusiness (object[]):  an array of `foodAlertsAPI.Business` objects
-        previousAlert (object):  an `foodAlertsAPI.Alert` object
+        actionTaken (string, optional): description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority
+        consumerAdvice (string, optional): text giving the advice to consumers
+        SMSText (string, optional): short description to be used in SMS notifications
+        twitterText (string, optional): short description to be used in Twitter notifications
+        alertURL (string, optional): URL for the alert on the FSA web site
+        shortURL (string, optional):     
+        relatedMedia (object[], optional): array of `foodAlertsAPI.RelatedMedia` objects
+        problem (object[], optional): array of `foodAlertsAPI.Problem` objects
+        productDetails (object[], optional): array of `foodAlertsAPI.ProductDetails` objects
+        reportingBusiness (object[], optional): a `foodAlertsAPI.Business` object
+        otherBusiness (object[], optional): an array of `foodAlertsAPI.Business` objects
+        previousAlert (object, optional): an `foodAlertsAPI.Alert` object
     &#34;&#34;&#34;
 
 
@@ -98,7 +98,13 @@ class Alert:
             try:
                 self.relatedMedia = [RelatedMedia(dict[&#34;relatedMedia&#34;])]
             except AttributeError: 
-                self.relatedMedia = [RelatedMedia(m) for m in dict[&#34;relatedMedia&#34;]]
+                if (isinstance(dict[&#34;relatedMedia&#34;][0], str)):
+                    # if relatedMedia is a list of strings, turn the strings into dictionaries to
+                    # instantiate relatedMediaObjects
+                    self.relatedMedia = [RelatedMedia({&#34;title&#34; : t}) for t in dict[&#34;relatedMedia&#34;]]
+
+                else:
+                    self.relatedMedia = [RelatedMedia(m) for m in dict[&#34;relatedMedia&#34;]]
 
         # add optional attributes as None if not specified
         optionals = [
@@ -172,31 +178,29 @@ class Alert:
 <dt><strong><code>type</code></strong> :&ensp;<code>string</code>[]</dt>
 <dd>an array of strings (URLs, one corresponding to the Alert object in the API,
 and another to the type of alert corresponding to the Alert object (one of "AA" - allergen, "FAFA" - food action, or "PRIN" - product recall))</dd>
-<dt><strong><code>actionTaken</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>actionTaken</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority</dd>
-<dt><strong><code>consumerAdvice</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>consumerAdvice</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>text giving the advice to consumers</dd>
-<dt><strong><code>SMSText</code></strong> :&ensp;<code>string</code></dt>
-<dd>
-<p>short description to be used in SMS notifications</p>
-</dd>
-<dt><strong><code>twitterText</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>SMSText</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>short description to be used in SMS notifications</dd>
+<dt><strong><code>twitterText</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>short description to be used in Twitter notifications</dd>
-<dt><strong><code>alertURL</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>alertURL</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>URL for the alert on the FSA web site</dd>
-<dt><strong><code>shortURL</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>shortURL</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd></dd>
-<dt><strong><code>relatedMedia</code></strong> :&ensp;<code>object</code>[]</dt>
+<dt><strong><code>relatedMedia</code></strong> :&ensp;<code>object</code>[], optional</dt>
 <dd>array of <a title="foodAlertsAPI.RelatedMedia" href="RelatedMedia.html"><code>foodAlertsAPI.RelatedMedia</code></a> objects</dd>
-<dt><strong><code>problem</code></strong> :&ensp;<code>object</code>[]</dt>
+<dt><strong><code>problem</code></strong> :&ensp;<code>object</code>[], optional</dt>
 <dd>array of <a title="foodAlertsAPI.Problem" href="Problem.html"><code>foodAlertsAPI.Problem</code></a> objects</dd>
-<dt><strong><code>productDetails</code></strong> :&ensp;<code>object</code>[]</dt>
+<dt><strong><code>productDetails</code></strong> :&ensp;<code>object</code>[], optional</dt>
 <dd>array of <a title="foodAlertsAPI.ProductDetails" href="ProductDetails.html"><code>foodAlertsAPI.ProductDetails</code></a> objects</dd>
-<dt><strong><code>reportingBusiness</code></strong> :&ensp;<code>object</code>[]</dt>
+<dt><strong><code>reportingBusiness</code></strong> :&ensp;<code>object</code>[], optional</dt>
 <dd>a <a title="foodAlertsAPI.Business" href="Business.html"><code>foodAlertsAPI.Business</code></a> object</dd>
-<dt><strong><code>otherBusiness</code></strong> :&ensp;<code>object</code>[]</dt>
+<dt><strong><code>otherBusiness</code></strong> :&ensp;<code>object</code>[], optional</dt>
 <dd>an array of <a title="foodAlertsAPI.Business" href="Business.html"><code>foodAlertsAPI.Business</code></a> objects</dd>
-<dt><strong><code>previousAlert</code></strong> :&ensp;<code>object</code></dt>
+<dt><strong><code>previousAlert</code></strong> :&ensp;<code>object</code>, optional</dt>
 <dd>an <a title="foodAlertsAPI.Alert" href="#foodAlertsAPI.Alert"><code>foodAlertsAPI.Alert</code></a> object</dd>
 </dl></section>
 <details class="source">
@@ -219,18 +223,18 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
         status (object): a `foodAlertsAPI.Status` object
         type (string[]): an array of strings (URLs, one corresponding to the Alert object in the API, 
                          and another to the type of alert corresponding to the Alert object (one of &#34;AA&#34; - allergen, &#34;FAFA&#34; - food action, or &#34;PRIN&#34; - product recall))
-        actionTaken (string):  description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority
-        consumerAdvice (string): text giving the advice to consumers
-        SMSText (string):       short description to be used in SMS notifications
-        twitterText (string):  short description to be used in Twitter notifications
-        alertURL (string):  URL for the alert on the FSA web site
-        shortURL (string):    
-        relatedMedia (object[]):  array of `foodAlertsAPI.RelatedMedia` objects
-        problem (object[]):  array of `foodAlertsAPI.Problem` objects
-        productDetails (object[]):  array of `foodAlertsAPI.ProductDetails` objects
-        reportingBusiness (object[]):  a `foodAlertsAPI.Business` object
-        otherBusiness (object[]):  an array of `foodAlertsAPI.Business` objects
-        previousAlert (object):  an `foodAlertsAPI.Alert` object
+        actionTaken (string, optional): description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority
+        consumerAdvice (string, optional): text giving the advice to consumers
+        SMSText (string, optional): short description to be used in SMS notifications
+        twitterText (string, optional): short description to be used in Twitter notifications
+        alertURL (string, optional): URL for the alert on the FSA web site
+        shortURL (string, optional):     
+        relatedMedia (object[], optional): array of `foodAlertsAPI.RelatedMedia` objects
+        problem (object[], optional): array of `foodAlertsAPI.Problem` objects
+        productDetails (object[], optional): array of `foodAlertsAPI.ProductDetails` objects
+        reportingBusiness (object[], optional): a `foodAlertsAPI.Business` object
+        otherBusiness (object[], optional): an array of `foodAlertsAPI.Business` objects
+        previousAlert (object, optional): an `foodAlertsAPI.Alert` object
     &#34;&#34;&#34;
 
 
@@ -269,7 +273,13 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
             try:
                 self.relatedMedia = [RelatedMedia(dict[&#34;relatedMedia&#34;])]
             except AttributeError: 
-                self.relatedMedia = [RelatedMedia(m) for m in dict[&#34;relatedMedia&#34;]]
+                if (isinstance(dict[&#34;relatedMedia&#34;][0], str)):
+                    # if relatedMedia is a list of strings, turn the strings into dictionaries to
+                    # instantiate relatedMediaObjects
+                    self.relatedMedia = [RelatedMedia({&#34;title&#34; : t}) for t in dict[&#34;relatedMedia&#34;]]
+
+                else:
+                    self.relatedMedia = [RelatedMedia(m) for m in dict[&#34;relatedMedia&#34;]]
 
         # add optional attributes as None if not specified
         optionals = [

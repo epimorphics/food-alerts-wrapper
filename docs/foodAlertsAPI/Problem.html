@@ -27,15 +27,22 @@
 <pre><code class="python">from foodAlertsAPI.Allergen import Allergen
 
 class Problem:
+    &#34;&#34;&#34;
+    Attributes:
+
+        riskStatement (string): text describing the problem in terms of the risk to consumers
+        allergen (object[]): a list of `foodAlertsAPI.Allergen` objects
+        hazardCategory (object, optional): a `foodAlertsAPI.HazardCategory` object. Classifies the problem as into one of the hazard categories. 
+                                   Support for this field is under discussion.
+        pathogenRisk (object, optional): classifies the problem as being due to actual or possible contamination with a pathogen.
+        reason (object, optional): a `foodAlertsAPI.Reason` object
+    &#34;&#34;&#34;
+
+
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
-
-        
-        # only seems to have attributes:
-        #   id
-        #   allergen (some don&#39;t)
-        #   riskStatement
 
         # id is written @id in the API
         self.id = dict[&#34;@id&#34;]
@@ -72,21 +79,41 @@ class Problem:
 <span>(</span><span>dict)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>riskStatement</code></strong> :&ensp;<code>string</code></dt>
+<dd>text describing the problem in terms of the risk to consumers</dd>
+<dt><strong><code>allergen</code></strong> :&ensp;<code>object</code>[]</dt>
+<dd>a list of <a title="foodAlertsAPI.Allergen" href="Allergen.html"><code>foodAlertsAPI.Allergen</code></a> objects</dd>
+<dt><strong><code>hazardCategory</code></strong> :&ensp;<code>object</code>, optional</dt>
+<dd>a <a title="foodAlertsAPI.HazardCategory" href="HazardCategory.html"><code>foodAlertsAPI.HazardCategory</code></a> object. Classifies the problem as into one of the hazard categories.
+Support for this field is under discussion.</dd>
+<dt><strong><code>pathogenRisk</code></strong> :&ensp;<code>object</code>, optional</dt>
+<dd>classifies the problem as being due to actual or possible contamination with a pathogen.</dd>
+<dt><strong><code>reason</code></strong> :&ensp;<code>object</code>, optional</dt>
+<dd>a <a title="foodAlertsAPI.Reason" href="Reason.html"><code>foodAlertsAPI.Reason</code></a> object</dd>
+</dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Problem:
+    &#34;&#34;&#34;
+    Attributes:
+
+        riskStatement (string): text describing the problem in terms of the risk to consumers
+        allergen (object[]): a list of `foodAlertsAPI.Allergen` objects
+        hazardCategory (object, optional): a `foodAlertsAPI.HazardCategory` object. Classifies the problem as into one of the hazard categories. 
+                                   Support for this field is under discussion.
+        pathogenRisk (object, optional): classifies the problem as being due to actual or possible contamination with a pathogen.
+        reason (object, optional): a `foodAlertsAPI.Reason` object
+    &#34;&#34;&#34;
+
+
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
-
-        
-        # only seems to have attributes:
-        #   id
-        #   allergen (some don&#39;t)
-        #   riskStatement
 
         # id is written @id in the API
         self.id = dict[&#34;@id&#34;]

@@ -7,6 +7,7 @@ from foodAlertsAPI.Country import Country
 from foodAlertsAPI.HazardCategory import HazardCategory
 from foodAlertsAPI.PathogenRisk import PathogenRisk
 from foodAlertsAPI.Problem import Problem
+from foodAlertsAPI.ProductCategory import ProductCategory
 from foodAlertsAPI.ProductDetails import ProductDetails
 from foodAlertsAPI.Reason import Reason
 from foodAlertsAPI.RelatedMedia import RelatedMedia

@@ -25,8 +25,21 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">from foodAlertsAPI.BatchDescription import BatchDescription
+from foodAlertsAPI.Allergen import Allergen
 
 class ProductDetails:
+    &#34;&#34;&#34;
+    Attributes:
+
+        productName (string): name of the affected product
+        productCode (string, optional): identifying code for the affected product
+        packSizeDescription (string, optional): description of the package size affected - may be weight, volume or other description
+        allergen (object[]): array of allergens drawn from the controlled list of allergens
+        batchDescription (object[]): an array of `foodAlertsAPI.BatchDescription` objects
+        productCategory (object, optional): a `foodAlertsAPI.ProductCategory` object. Identifies the category of the affected product. 
+                                  This information is used to support search and analysis and does not need to be separately included in the alert presentation.
+        
+    &#34;&#34;&#34;
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
@@ -41,6 +54,10 @@ class ProductDetails:
         if &#34;batchDescription&#34; in list(dict.keys()):
             batchDescriptions = [BatchDescription(b) for b in dict[&#34;batchDescription&#34;]]
             self.batchDescription = batchDescriptions
+
+        if &#34;allergen&#34; in list(dict.keys()):
+            allergen = [Allergen(a) for a in dict[&#34;allergen&#34;]]
+            self.allergen = allergen
 
         # add optional attributes as None
 
@@ -71,12 +88,39 @@ class ProductDetails:
 <span>(</span><span>dict)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>productName</code></strong> :&ensp;<code>string</code></dt>
+<dd>name of the affected product</dd>
+<dt><strong><code>productCode</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>identifying code for the affected product</dd>
+<dt><strong><code>packSizeDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>description of the package size affected - may be weight, volume or other description</dd>
+<dt><strong><code>allergen</code></strong> :&ensp;<code>object</code>[]</dt>
+<dd>array of allergens drawn from the controlled list of allergens</dd>
+<dt><strong><code>batchDescription</code></strong> :&ensp;<code>object</code>[]</dt>
+<dd>an array of <a title="foodAlertsAPI.BatchDescription" href="BatchDescription.html"><code>foodAlertsAPI.BatchDescription</code></a> objects</dd>
+<dt><strong><code>productCategory</code></strong> :&ensp;<code>object</code>, optional</dt>
+<dd>a <a title="foodAlertsAPI.ProductCategory" href="ProductCategory.html"><code>foodAlertsAPI.ProductCategory</code></a> object. Identifies the category of the affected product.
+This information is used to support search and analysis and does not need to be separately included in the alert presentation.</dd>
+</dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class ProductDetails:
+    &#34;&#34;&#34;
+    Attributes:
+
+        productName (string): name of the affected product
+        productCode (string, optional): identifying code for the affected product
+        packSizeDescription (string, optional): description of the package size affected - may be weight, volume or other description
+        allergen (object[]): array of allergens drawn from the controlled list of allergens
+        batchDescription (object[]): an array of `foodAlertsAPI.BatchDescription` objects
+        productCategory (object, optional): a `foodAlertsAPI.ProductCategory` object. Identifies the category of the affected product. 
+                                  This information is used to support search and analysis and does not need to be separately included in the alert presentation.
+        
+    &#34;&#34;&#34;
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
@@ -91,6 +135,10 @@ class ProductDetails:
         if &#34;batchDescription&#34; in list(dict.keys()):
             batchDescriptions = [BatchDescription(b) for b in dict[&#34;batchDescription&#34;]]
             self.batchDescription = batchDescriptions
+
+        if &#34;allergen&#34; in list(dict.keys()):
+            allergen = [Allergen(a) for a in dict[&#34;allergen&#34;]]
+            self.allergen = allergen
 
         # add optional attributes as None
 

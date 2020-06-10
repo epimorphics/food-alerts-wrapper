@@ -22,18 +22,18 @@ class Alert:
         status (object): a `foodAlertsAPI.Status` object
         type (string[]): an array of strings (URLs, one corresponding to the Alert object in the API, 
                          and another to the type of alert corresponding to the Alert object (one of "AA" - allergen, "FAFA" - food action, or "PRIN" - product recall))
-        actionTaken (string):  description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority
-        consumerAdvice (string): text giving the advice to consumers
-        SMSText (string):  	short description to be used in SMS notifications
-        twitterText (string):  short description to be used in Twitter notifications
-        alertURL (string):  URL for the alert on the FSA web site
-        shortURL (string):    
-        relatedMedia (object[]):  array of `foodAlertsAPI.RelatedMedia` objects
-        problem (object[]):  array of `foodAlertsAPI.Problem` objects
-        productDetails (object[]):  array of `foodAlertsAPI.ProductDetails` objects
-        reportingBusiness (object[]):  a `foodAlertsAPI.Business` object
-        otherBusiness (object[]):  an array of `foodAlertsAPI.Business` objects
-        previousAlert (object):  an `foodAlertsAPI.Alert` object
+        actionTaken (string, optional): description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority
+        consumerAdvice (string, optional): text giving the advice to consumers
+        SMSText (string, optional): short description to be used in SMS notifications
+        twitterText (string, optional): short description to be used in Twitter notifications
+        alertURL (string, optional): URL for the alert on the FSA web site
+        shortURL (string, optional):     
+        relatedMedia (object[], optional): array of `foodAlertsAPI.RelatedMedia` objects
+        problem (object[], optional): array of `foodAlertsAPI.Problem` objects
+        productDetails (object[], optional): array of `foodAlertsAPI.ProductDetails` objects
+        reportingBusiness (object[], optional): a `foodAlertsAPI.Business` object
+        otherBusiness (object[], optional): an array of `foodAlertsAPI.Business` objects
+        previousAlert (object, optional): an `foodAlertsAPI.Alert` object
     """
 
 

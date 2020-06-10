@@ -25,6 +25,16 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class PathogenRisk:
+    &#34;&#34;&#34;Classifies the problem as being due to actual or possible contamination with a pathogen.
+    
+    Attributes:
+
+        label (string): name for the pathogen risk
+        notation (string): unique identifier for the pathogen risk
+        pathogen (object): indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen.
+        riskStatement (string): text describing the risk from this pathogen, or possible pathogen
+    &#34;&#34;&#34;
+
     def __init__(self):
         for k, v in dict.items():
             setattr(self, k, v)
@@ -46,12 +56,33 @@
 <span>class <span class="ident">PathogenRisk</span></span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Classifies the problem as being due to actual or possible contamination with a pathogen.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>label</code></strong> :&ensp;<code>string</code></dt>
+<dd>name for the pathogen risk</dd>
+<dt><strong><code>notation</code></strong> :&ensp;<code>string</code></dt>
+<dd>unique identifier for the pathogen risk</dd>
+<dt><strong><code>pathogen</code></strong> :&ensp;<code>object</code></dt>
+<dd>indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen.</dd>
+<dt><strong><code>riskStatement</code></strong> :&ensp;<code>string</code></dt>
+<dd>text describing the risk from this pathogen, or possible pathogen</dd>
+</dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class PathogenRisk:
+    &#34;&#34;&#34;Classifies the problem as being due to actual or possible contamination with a pathogen.
+    
+    Attributes:
+
+        label (string): name for the pathogen risk
+        notation (string): unique identifier for the pathogen risk
+        pathogen (object): indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen.
+        riskStatement (string): text describing the risk from this pathogen, or possible pathogen
+    &#34;&#34;&#34;
+
     def __init__(self):
         for k, v in dict.items():
             setattr(self, k, v)

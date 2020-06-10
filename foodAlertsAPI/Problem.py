@@ -1,15 +1,22 @@
 from foodAlertsAPI.Allergen import Allergen
 
 class Problem:
+    """
+    Attributes:
+
+        riskStatement (string): text describing the problem in terms of the risk to consumers
+        allergen (object[]): a list of `foodAlertsAPI.Allergen` objects
+        hazardCategory (object, optional): a `foodAlertsAPI.HazardCategory` object. Classifies the problem as into one of the hazard categories. 
+                                   Support for this field is under discussion.
+        pathogenRisk (object, optional): classifies the problem as being due to actual or possible contamination with a pathogen.
+        reason (object, optional): a `foodAlertsAPI.Reason` object
+    """
+
+
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
-
-        
-        # only seems to have attributes:
-        #   id
-        #   allergen (some don't)
-        #   riskStatement
 
         # id is written @id in the API
         self.id = dict["@id"]
