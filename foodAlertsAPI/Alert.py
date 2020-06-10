@@ -5,6 +5,7 @@ from foodAlertsAPI.BatchDescription import BatchDescription
 from foodAlertsAPI.Country import Country
 from foodAlertsAPI.Business import Business
 from foodAlertsAPI.RelatedMedia import RelatedMedia
+from collections import defaultdict
 
 class Alert:
     """Alert is the base class representing the details of an FSA Food Alert.
@@ -112,3 +113,15 @@ class Alert:
         for entry in strings:
             if (entry not in list(dict.keys())):
                 setattr(self, entry, "No text specified")
+
+    
+    def getAllergens(self):
+        allergens = []
+
+        for p in self.problem:
+            if (p.allergen != None):
+                for allergen in p.allergen:
+                    allergens.append(allergen.label)
+        
+        return allergens
+                
