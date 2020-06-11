@@ -116,6 +116,12 @@ class Alert:
 
     
     def getAllergens(self):
+        """Get the list of allergens in this Alert
+
+        Returns:
+            string[]: list of allergens as strings
+        """
+        
         allergens = []
 
         for p in self.problem:
@@ -126,6 +132,12 @@ class Alert:
         return allergens
 
     def getPathogenRisks(self):
+        """Get the list of pathogen risks in this Alert
+
+        Returns:
+            string[]: list of pathogen risks as strings
+        """
+
         pathogenRisks = []
 
         for p in self.problem:

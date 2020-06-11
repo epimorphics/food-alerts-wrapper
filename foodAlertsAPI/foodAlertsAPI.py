@@ -39,20 +39,16 @@ class foodAlertsAPI:
         if sortBy != None:
             params["_sort"] = sortBy
 
-        print(params)
-
         # if quantifier is an int, then use the limit param
         try:
             limit = int(quantifier)
             r = requests.get(f"https://data.food.gov.uk/food-alerts/id?_limit={limit}", params=params)
-            print(r.url)
 
         except ValueError:
             # if quantifier is not an int, try if it works as an iso datetime string
             try: 
                 since = quantifier
                 r = requests.get(f"https://data.food.gov.uk/food-alerts/id?since={since}", params=params)
-                print(r.url)
                 r.raise_for_status()
         
             except requests.HTTPError:
