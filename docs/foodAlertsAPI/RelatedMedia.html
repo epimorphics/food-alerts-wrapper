@@ -25,6 +25,12 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class RelatedMedia:
+    &#34;&#34;&#34;
+    Attributes:
+
+        title (string, optional): title for the related media
+    &#34;&#34;&#34;
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
@@ -50,12 +56,22 @@
 <span>(</span><span>dict)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>title</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>title for the related media</dd>
+</dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class RelatedMedia:
+    &#34;&#34;&#34;
+    Attributes:
+
+        title (string, optional): title for the related media
+    &#34;&#34;&#34;
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)

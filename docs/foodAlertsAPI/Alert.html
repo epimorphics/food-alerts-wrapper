@@ -31,6 +31,7 @@ from foodAlertsAPI.BatchDescription import BatchDescription
 from foodAlertsAPI.Country import Country
 from foodAlertsAPI.Business import Business
 from foodAlertsAPI.RelatedMedia import RelatedMedia
+from collections import defaultdict
 
 class Alert:
     &#34;&#34;&#34;Alert is the base class representing the details of an FSA Food Alert.
@@ -137,7 +138,41 @@ class Alert:
 
         for entry in strings:
             if (entry not in list(dict.keys())):
-                setattr(self, entry, &#34;No text specified&#34;)</code></pre>
+                setattr(self, entry, &#34;No text specified&#34;)
+
+    
+    def getAllergens(self):
+        &#34;&#34;&#34;Get the list of allergens in this Alert
+
+        Returns:
+            string[]: list of allergens as strings
+        &#34;&#34;&#34;
+        
+        allergens = []
+
+        for p in self.problem:
+            if (p.allergen != None):
+                for allergen in p.allergen:
+                    allergens.append(allergen.label)
+        
+        return allergens
+
+    def getPathogenRisks(self):
+        &#34;&#34;&#34;Get the list of pathogen risks in this Alert
+
+        Returns:
+            string[]: list of pathogen risks as strings
+        &#34;&#34;&#34;
+
+        pathogenRisks = []
+
+        for p in self.problem:
+            if (p.pathogenRisk != None):
+                for risk in p.pathogenRisk:
+                    pathogenRisks.append(risk.label)
+        
+        return pathogenRisks
+                </code></pre>
 </details>
 </section>
 <section>
@@ -312,8 +347,106 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
 
         for entry in strings:
             if (entry not in list(dict.keys())):
-                setattr(self, entry, &#34;No text specified&#34;)</code></pre>
+                setattr(self, entry, &#34;No text specified&#34;)
+
+    
+    def getAllergens(self):
+        &#34;&#34;&#34;Get the list of allergens in this Alert
+
+        Returns:
+            string[]: list of allergens as strings
+        &#34;&#34;&#34;
+        
+        allergens = []
+
+        for p in self.problem:
+            if (p.allergen != None):
+                for allergen in p.allergen:
+                    allergens.append(allergen.label)
+        
+        return allergens
+
+    def getPathogenRisks(self):
+        &#34;&#34;&#34;Get the list of pathogen risks in this Alert
+
+        Returns:
+            string[]: list of pathogen risks as strings
+        &#34;&#34;&#34;
+
+        pathogenRisks = []
+
+        for p in self.problem:
+            if (p.pathogenRisk != None):
+                for risk in p.pathogenRisk:
+                    pathogenRisks.append(risk.label)
+        
+        return pathogenRisks</code></pre>
 </details>
+<h3>Methods</h3>
+<dl>
+<dt id="foodAlertsAPI.Alert.Alert.getAllergens"><code class="name flex">
+<span>def <span class="ident">getAllergens</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Get the list of allergens in this Alert</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>string</code>[]: <code>list</code> of <code>allergens</code> <code>as</code> <code>strings</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAllergens(self):
+    &#34;&#34;&#34;Get the list of allergens in this Alert
+
+    Returns:
+        string[]: list of allergens as strings
+    &#34;&#34;&#34;
+    
+    allergens = []
+
+    for p in self.problem:
+        if (p.allergen != None):
+            for allergen in p.allergen:
+                allergens.append(allergen.label)
+    
+    return allergens</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.Alert.Alert.getPathogenRisks"><code class="name flex">
+<span>def <span class="ident">getPathogenRisks</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Get the list of pathogen risks in this Alert</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>string</code>[]: <code>list</code> of <code>pathogen</code> <code>risks</code> <code>as</code> <code>strings</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPathogenRisks(self):
+    &#34;&#34;&#34;Get the list of pathogen risks in this Alert
+
+    Returns:
+        string[]: list of pathogen risks as strings
+    &#34;&#34;&#34;
+
+    pathogenRisks = []
+
+    for p in self.problem:
+        if (p.pathogenRisk != None):
+            for risk in p.pathogenRisk:
+                pathogenRisks.append(risk.label)
+    
+    return pathogenRisks</code></pre>
+</details>
+</dd>
+</dl>
 </dd>
 </dl>
 </section>
@@ -333,6 +466,10 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
 <ul>
 <li>
 <h4><code><a title="foodAlertsAPI.Alert.Alert" href="#foodAlertsAPI.Alert.Alert">Alert</a></code></h4>
+<ul class="">
+<li><code><a title="foodAlertsAPI.Alert.Alert.getAllergens" href="#foodAlertsAPI.Alert.Alert.getAllergens">getAllergens</a></code></li>
+<li><code><a title="foodAlertsAPI.Alert.Alert.getPathogenRisks" href="#foodAlertsAPI.Alert.Alert.getPathogenRisks">getPathogenRisks</a></code></li>
+</ul>
 </li>
 </ul>
 </li>

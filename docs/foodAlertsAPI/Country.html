@@ -25,6 +25,12 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Country:
+    &#34;&#34;&#34;
+    Attributes:
+
+        label (string): name of country for which the alert applies
+    &#34;&#34;&#34;
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
@@ -47,12 +53,22 @@
 <span>(</span><span>dict)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>label</code></strong> :&ensp;<code>string</code></dt>
+<dd>name of country for which the alert applies</dd>
+</dl></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Country:
+    &#34;&#34;&#34;
+    Attributes:
+
+        label (string): name of country for which the alert applies
+    &#34;&#34;&#34;
+
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)

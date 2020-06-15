@@ -81,39 +81,9 @@ class Alert:
                 else:
                     self.relatedMedia = [RelatedMedia(m) for m in dict["relatedMedia"]]
 
-        # add optional attributes as None if not specified
-        optionals = [
-            "actionTaken", 
-            "consumerAdvice",
-            "country",
-            "SMStext",
-            "twitterText",
-            "alertURL",
-            "shortURL",
-            "shortTitle",
-            "relatedMedia",
-            "problem",
-            "productDetails",
-            "reportingBusiness",
-            "otherBusiness",
-            "previousAlert"]
-
-        for entry in optionals:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, None)
-
-
-        # set strings appropriately if not specified
-        strings = [
-            "SMStext",
-            "twitterText",
-            "shortTitle"
-        ]
-
-        for entry in strings:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, "No text specified")
-
+    def __getattr__(self, attribute):
+        return None
+    
     
     def getAllergens(self):
         """Get the list of allergens in this Alert
@@ -146,4 +116,6 @@ class Alert:
                     pathogenRisks.append(risk.label)
         
         return pathogenRisks
+
+    
                 
