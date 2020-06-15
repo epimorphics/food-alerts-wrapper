@@ -10,3 +10,6 @@ class Status:
 
         # id is written @id in the API
         self.id = dict["@id"]
+
+    def __getattr__(self, attribute):
+        return None

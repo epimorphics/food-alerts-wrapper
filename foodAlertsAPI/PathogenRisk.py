@@ -15,3 +15,6 @@ class PathogenRisk:
 
         # id is written @id in the APi
         self.id = dict["@id"]
+
+    def __getattr__(self, attribute):
+        return None

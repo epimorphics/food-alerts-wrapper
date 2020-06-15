@@ -37,3 +37,6 @@ class Problem:
         for entry in optionals:
             if (entry not in list(dict.keys())):
                 setattr(self, entry, None)
+
+    def __getattr__(self, attribute):
+        return None

@@ -8,3 +8,6 @@ class ProductCategory:
             self.id = dict["@id"]
         except KeyError:
             pass
+
+    def __getattr__(self, attribute):
+        return None
