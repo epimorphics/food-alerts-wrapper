@@ -34,7 +34,8 @@ from foodAlertsAPI.RelatedMedia import RelatedMedia
 from collections import defaultdict
 
 class Alert:
-    &#34;&#34;&#34;Alert is the base class representing the details of an FSA Food Alert.
+    &#34;&#34;&#34;Alert is the base class representing the details of an FSA Food Alert. Optional attributes have value `None`
+    if unspecified. This applies to all classes.
 
     Attributes:
         
@@ -107,39 +108,8 @@ class Alert:
                 else:
                     self.relatedMedia = [RelatedMedia(m) for m in dict[&#34;relatedMedia&#34;]]
 
-        # add optional attributes as None if not specified
-        optionals = [
-            &#34;actionTaken&#34;, 
-            &#34;consumerAdvice&#34;,
-            &#34;country&#34;,
-            &#34;SMStext&#34;,
-            &#34;twitterText&#34;,
-            &#34;alertURL&#34;,
-            &#34;shortURL&#34;,
-            &#34;shortTitle&#34;,
-            &#34;relatedMedia&#34;,
-            &#34;problem&#34;,
-            &#34;productDetails&#34;,
-            &#34;reportingBusiness&#34;,
-            &#34;otherBusiness&#34;,
-            &#34;previousAlert&#34;]
-
-        for entry in optionals:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, None)
-
-
-        # set strings appropriately if not specified
-        strings = [
-            &#34;SMStext&#34;,
-            &#34;twitterText&#34;,
-            &#34;shortTitle&#34;
-        ]
-
-        for entry in strings:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, &#34;No text specified&#34;)
-
+    def __getattr__(self, attribute):
+        return None
     
     def getAllergens(self):
         &#34;&#34;&#34;Get the list of allergens in this Alert
@@ -172,6 +142,8 @@ class Alert:
                     pathogenRisks.append(risk.label)
         
         return pathogenRisks
+
+    
                 </code></pre>
 </details>
 </section>
@@ -189,7 +161,8 @@ class Alert:
 <span>(</span><span>dict)</span>
 </code></dt>
 <dd>
-<section class="desc"><p>Alert is the base class representing the details of an FSA Food Alert.</p>
+<section class="desc"><p>Alert is the base class representing the details of an FSA Food Alert. Optional attributes have value <code>None</code>
+if unspecified. This applies to all classes.</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
 <dt><strong><code>id</code></strong> :&ensp;<code>string</code></dt>
@@ -243,7 +216,8 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Alert:
-    &#34;&#34;&#34;Alert is the base class representing the details of an FSA Food Alert.
+    &#34;&#34;&#34;Alert is the base class representing the details of an FSA Food Alert. Optional attributes have value `None`
+    if unspecified. This applies to all classes.
 
     Attributes:
         
@@ -316,39 +290,8 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
                 else:
                     self.relatedMedia = [RelatedMedia(m) for m in dict[&#34;relatedMedia&#34;]]
 
-        # add optional attributes as None if not specified
-        optionals = [
-            &#34;actionTaken&#34;, 
-            &#34;consumerAdvice&#34;,
-            &#34;country&#34;,
-            &#34;SMStext&#34;,
-            &#34;twitterText&#34;,
-            &#34;alertURL&#34;,
-            &#34;shortURL&#34;,
-            &#34;shortTitle&#34;,
-            &#34;relatedMedia&#34;,
-            &#34;problem&#34;,
-            &#34;productDetails&#34;,
-            &#34;reportingBusiness&#34;,
-            &#34;otherBusiness&#34;,
-            &#34;previousAlert&#34;]
-
-        for entry in optionals:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, None)
-
-
-        # set strings appropriately if not specified
-        strings = [
-            &#34;SMStext&#34;,
-            &#34;twitterText&#34;,
-            &#34;shortTitle&#34;
-        ]
-
-        for entry in strings:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, &#34;No text specified&#34;)
-
+    def __getattr__(self, attribute):
+        return None
     
     def getAllergens(self):
         &#34;&#34;&#34;Get the list of allergens in this Alert

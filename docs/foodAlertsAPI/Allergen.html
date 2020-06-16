@@ -41,7 +41,10 @@
             setattr(self, k, v)
 
         # id is written @id in the API
-        self.id = dict[&#34;@id&#34;]</code></pre>
+        self.id = dict[&#34;@id&#34;]
+
+    def __getattr__(self, attribute):
+        return None</code></pre>
 </details>
 </section>
 <section>
@@ -90,7 +93,10 @@ For an Allergen Alert there will also be at least one allergen present on the pr
             setattr(self, k, v)
 
         # id is written @id in the API
-        self.id = dict[&#34;@id&#34;]</code></pre>
+        self.id = dict[&#34;@id&#34;]
+
+    def __getattr__(self, attribute):
+        return None</code></pre>
 </details>
 </dd>
 </dl>

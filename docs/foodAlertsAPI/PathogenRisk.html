@@ -40,7 +40,10 @@
             setattr(self, k, v)
 
         # id is written @id in the APi
-        self.id = dict[&#34;@id&#34;]</code></pre>
+        self.id = dict[&#34;@id&#34;]
+
+    def __getattr__(self, attribute):
+        return None</code></pre>
 </details>
 </section>
 <section>
@@ -88,7 +91,10 @@
             setattr(self, k, v)
 
         # id is written @id in the APi
-        self.id = dict[&#34;@id&#34;]</code></pre>
+        self.id = dict[&#34;@id&#34;]
+
+    def __getattr__(self, attribute):
+        return None</code></pre>
 </details>
 </dd>
 </dl>

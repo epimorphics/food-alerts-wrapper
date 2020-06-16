@@ -33,7 +33,10 @@
         try:
             self.id = dict[&#34;@id&#34;]
         except KeyError:
-            pass</code></pre>
+            pass
+
+    def __getattr__(self, attribute):
+        return None</code></pre>
 </details>
 </section>
 <section>
@@ -64,7 +67,10 @@
         try:
             self.id = dict[&#34;@id&#34;]
         except KeyError:
-            pass</code></pre>
+            pass
+
+    def __getattr__(self, attribute):
+        return None</code></pre>
 </details>
 </dd>
 </dl>

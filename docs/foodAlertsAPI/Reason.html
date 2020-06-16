@@ -37,7 +37,10 @@
 
     def __init__(self):
         for k, v in dict.items():
-            setattr(self, k, v)</code></pre>
+            setattr(self, k, v)
+
+    def __getattr__(self, attribute):
+        return None</code></pre>
 </details>
 </section>
 <section>
@@ -80,7 +83,10 @@ Support for this field is under discussion.</p>
 
     def __init__(self):
         for k, v in dict.items():
-            setattr(self, k, v)</code></pre>
+            setattr(self, k, v)
+
+    def __getattr__(self, attribute):
+        return None</code></pre>
 </details>
 </dd>
 </dl>

@@ -8,7 +8,8 @@ from foodAlertsAPI.RelatedMedia import RelatedMedia
 from collections import defaultdict
 
 class Alert:
-    """Alert is the base class representing the details of an FSA Food Alert.
+    """Alert is the base class representing the details of an FSA Food Alert. Optional attributes have value `None`
+    if unspecified. This applies to all classes.
 
     Attributes:
         
@@ -34,7 +35,7 @@ class Alert:
         productDetails (object[], optional): array of `foodAlertsAPI.ProductDetails` objects
         reportingBusiness (object[], optional): a `foodAlertsAPI.Business` object
         otherBusiness (object[], optional): an array of `foodAlertsAPI.Business` objects
-        previousAlert (object, optional): an `foodAlertsAPI.Alert` object
+        previousAlert (object, optional): a `foodAlertsAPI.Alert` object
     """
 
 
@@ -60,7 +61,7 @@ class Alert:
         if "country" in keys:
             self.country = [Country(c) for c in dict["country"]]
 
-        if "reportingBusiness" in keys:#
+        if "reportingBusiness" in keys:
             self.reportingBusiness = Business(dict["reportingBusiness"])
 
         if "otherBusiness" in keys:
@@ -83,7 +84,6 @@ class Alert:
 
     def __getattr__(self, attribute):
         return None
-    
     
     def getAllergens(self):
         """Get the list of allergens in this Alert

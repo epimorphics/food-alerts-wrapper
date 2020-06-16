@@ -12,8 +12,6 @@ class Problem:
         reason (object, optional): a `foodAlertsAPI.Reason` object
     """
 
-
-
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, k, v)
