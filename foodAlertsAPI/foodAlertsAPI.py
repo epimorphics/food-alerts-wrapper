@@ -1,10 +1,11 @@
 import requests
 from foodAlertsAPI.Alert import Alert;
+from typing import List
 
 class foodAlertsAPI:
 
     # a negative limit value would return all entries
-    def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None):
+    def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None) -> List[Alert]:
         """Gets alerts from the FSA Food Alerts API
 
         Args:
@@ -127,4 +128,4 @@ class foodAlertsAPI:
             raise ValueError("Argument must be a valid alert ID")
 
         return alert
-            
+    

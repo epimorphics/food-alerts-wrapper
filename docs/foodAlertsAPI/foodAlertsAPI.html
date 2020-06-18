@@ -26,11 +26,12 @@
 </summary>
 <pre><code class="python">import requests
 from foodAlertsAPI.Alert import Alert;
+from typing import List
 
 class foodAlertsAPI:
 
     # a negative limit value would return all entries
-    def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None):
+    def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None) -&gt; List[Alert]:
         &#34;&#34;&#34;Gets alerts from the FSA Food Alerts API
 
         Args:
@@ -153,7 +154,7 @@ class foodAlertsAPI:
             raise ValueError(&#34;Argument must be a valid alert ID&#34;)
 
         return alert
-            </code></pre>
+    </code></pre>
 </details>
 </section>
 <section>
@@ -178,7 +179,7 @@ class foodAlertsAPI:
 <pre><code class="python">class foodAlertsAPI:
 
     # a negative limit value would return all entries
-    def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None):
+    def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None) -&gt; List[Alert]:
         &#34;&#34;&#34;Gets alerts from the FSA Food Alerts API
 
         Args:
@@ -384,7 +385,7 @@ To sort in descending order use sortBy=-prop. More than one sort can be included
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None):
+<pre><code class="python">def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None) -&gt; List[Alert]:
     &#34;&#34;&#34;Gets alerts from the FSA Food Alerts API
 
     Args:

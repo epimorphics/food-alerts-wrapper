@@ -5,8 +5,8 @@ class Reason:
     
     Attributes:
 
-        label (string): name for the reason
-        notation (string): unique identifier for the reason
+        _label (string): name for the reason
+        _notation (string): unique identifier for the reason
     """
 
     def __init__(self):
@@ -15,3 +15,32 @@ class Reason:
 
     def __getattr__(self, attribute):
         return None
+    
+    def label(self):
+        """
+        Returns:
+            label (string): name for the reason
+        """
+        
+        try:
+            value = self._label
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def notation(self):
+        """
+        Returns:
+            notation (string): unique identifier for the reason
+        """
+        
+        try:
+            value = self._notation
+        except AttributeError:
+            value = None
+
+        return value
+        
+
+    
