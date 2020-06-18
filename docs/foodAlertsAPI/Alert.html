@@ -412,7 +412,7 @@ class Alert:
     
 
     
-    def getAllergens(self):
+    def allergenLabels(self):
         &#34;&#34;&#34;Get the list of allergens in this Alert
 
         Returns:
@@ -428,7 +428,7 @@ class Alert:
         
         return allergens
 
-    def getPathogenRisks(self):
+    def pathogenRiskLabels(self):
         &#34;&#34;&#34;Get the list of pathogen risks in this Alert
 
         Returns:
@@ -891,7 +891,7 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
     
 
     
-    def getAllergens(self):
+    def allergenLabels(self):
         &#34;&#34;&#34;Get the list of allergens in this Alert
 
         Returns:
@@ -907,7 +907,7 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
         
         return allergens
 
-    def getPathogenRisks(self):
+    def pathogenRiskLabels(self):
         &#34;&#34;&#34;Get the list of pathogen risks in this Alert
 
         Returns:
@@ -1004,6 +1004,37 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
         value = None
 
     return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.Alert.Alert.allergenLabels"><code class="name flex">
+<span>def <span class="ident">allergenLabels</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Get the list of allergens in this Alert</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>allergens</code></strong> :&ensp;<code>string</code>[]</dt>
+<dd>list of allergens as strings</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def allergenLabels(self):
+    &#34;&#34;&#34;Get the list of allergens in this Alert
+
+    Returns:
+        allergens (string[]): list of allergens as strings
+    &#34;&#34;&#34;
+    
+    allergens = []
+
+    for p in self._problem:
+        if (p._allergen != None):
+            for allergen in p._allergen:
+                allergens.append(allergen._label)
+    
+    return allergens</code></pre>
 </details>
 </dd>
 <dt id="foodAlertsAPI.Alert.Alert.consumerAdvice"><code class="name flex">
@@ -1140,68 +1171,6 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
     return value</code></pre>
 </details>
 </dd>
-<dt id="foodAlertsAPI.Alert.Alert.getAllergens"><code class="name flex">
-<span>def <span class="ident">getAllergens</span></span>(<span>self)</span>
-</code></dt>
-<dd>
-<section class="desc"><p>Get the list of allergens in this Alert</p>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><strong><code>allergens</code></strong> :&ensp;<code>string</code>[]</dt>
-<dd>list of allergens as strings</dd>
-</dl></section>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def getAllergens(self):
-    &#34;&#34;&#34;Get the list of allergens in this Alert
-
-    Returns:
-        allergens (string[]): list of allergens as strings
-    &#34;&#34;&#34;
-    
-    allergens = []
-
-    for p in self._problem:
-        if (p._allergen != None):
-            for allergen in p._allergen:
-                allergens.append(allergen._label)
-    
-    return allergens</code></pre>
-</details>
-</dd>
-<dt id="foodAlertsAPI.Alert.Alert.getPathogenRisks"><code class="name flex">
-<span>def <span class="ident">getPathogenRisks</span></span>(<span>self)</span>
-</code></dt>
-<dd>
-<section class="desc"><p>Get the list of pathogen risks in this Alert</p>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><strong><code>pathogenRisks</code></strong> :&ensp;<code>string</code>[]</dt>
-<dd>list of pathogen risks as strings</dd>
-</dl></section>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def getPathogenRisks(self):
-    &#34;&#34;&#34;Get the list of pathogen risks in this Alert
-
-    Returns:
-        pathogenRisks (string[]): list of pathogen risks as strings
-    &#34;&#34;&#34;
-
-    pathogenRisks = []
-
-    for p in self._problem:
-        if (p._pathogenRisk != None):
-            for risk in p._pathogenRisk:
-                pathogenRisks.append(risk._label)
-    
-    return pathogenRisks</code></pre>
-</details>
-</dd>
 <dt id="foodAlertsAPI.Alert.Alert.id"><code class="name flex">
 <span>def <span class="ident">id</span></span>(<span>self)</span>
 </code></dt>
@@ -1307,6 +1276,37 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
         value = None
 
     return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.Alert.Alert.pathogenRiskLabels"><code class="name flex">
+<span>def <span class="ident">pathogenRiskLabels</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Get the list of pathogen risks in this Alert</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>pathogenRisks</code></strong> :&ensp;<code>string</code>[]</dt>
+<dd>list of pathogen risks as strings</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pathogenRiskLabels(self):
+    &#34;&#34;&#34;Get the list of pathogen risks in this Alert
+
+    Returns:
+        pathogenRisks (string[]): list of pathogen risks as strings
+    &#34;&#34;&#34;
+
+    pathogenRisks = []
+
+    for p in self._problem:
+        if (p._pathogenRisk != None):
+            for risk in p._pathogenRisk:
+                pathogenRisks.append(risk._label)
+    
+    return pathogenRisks</code></pre>
 </details>
 </dd>
 <dt id="foodAlertsAPI.Alert.Alert.previousAlert"><code class="name flex">
@@ -1631,17 +1631,17 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
 <li><code><a title="foodAlertsAPI.Alert.Alert.SMSText" href="#foodAlertsAPI.Alert.Alert.SMSText">SMSText</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.actionTaken" href="#foodAlertsAPI.Alert.Alert.actionTaken">actionTaken</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.alertURL" href="#foodAlertsAPI.Alert.Alert.alertURL">alertURL</a></code></li>
+<li><code><a title="foodAlertsAPI.Alert.Alert.allergenLabels" href="#foodAlertsAPI.Alert.Alert.allergenLabels">allergenLabels</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.consumerAdvice" href="#foodAlertsAPI.Alert.Alert.consumerAdvice">consumerAdvice</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.country" href="#foodAlertsAPI.Alert.Alert.country">country</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.countryLabel" href="#foodAlertsAPI.Alert.Alert.countryLabel">countryLabel</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.created" href="#foodAlertsAPI.Alert.Alert.created">created</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.description" href="#foodAlertsAPI.Alert.Alert.description">description</a></code></li>
-<li><code><a title="foodAlertsAPI.Alert.Alert.getAllergens" href="#foodAlertsAPI.Alert.Alert.getAllergens">getAllergens</a></code></li>
-<li><code><a title="foodAlertsAPI.Alert.Alert.getPathogenRisks" href="#foodAlertsAPI.Alert.Alert.getPathogenRisks">getPathogenRisks</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.id" href="#foodAlertsAPI.Alert.Alert.id">id</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.modified" href="#foodAlertsAPI.Alert.Alert.modified">modified</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.notation" href="#foodAlertsAPI.Alert.Alert.notation">notation</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.otherBusiness" href="#foodAlertsAPI.Alert.Alert.otherBusiness">otherBusiness</a></code></li>
+<li><code><a title="foodAlertsAPI.Alert.Alert.pathogenRiskLabels" href="#foodAlertsAPI.Alert.Alert.pathogenRiskLabels">pathogenRiskLabels</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.previousAlert" href="#foodAlertsAPI.Alert.Alert.previousAlert">previousAlert</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.problem" href="#foodAlertsAPI.Alert.Alert.problem">problem</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.productDetails" href="#foodAlertsAPI.Alert.Alert.productDetails">productDetails</a></code></li>

@@ -42,11 +42,7 @@ class ProductDetails:
     &#34;&#34;&#34;
     def __init__(self, dict):
         for k, v in dict.items():
-            setattr(self, k, v)
-
-        # only seems to have attributes:
-        #   id
-        #   productName
+            setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the API
         self.id = dict[&#34;@id&#34;]
@@ -74,7 +70,87 @@ class ProductDetails:
                 setattr(self, entry, None)
 
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def productName(self):
+        &#34;&#34;&#34;
+        Returns:
+            productName (string): name of the affected product
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._productName
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def productCode(self):
+        &#34;&#34;&#34;
+        Returns:
+            productCode (string, optional): identifying code for the affected product
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._productCode
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def packSizeDescription(self):
+        &#34;&#34;&#34;
+        Returns:
+            packSizeDescription (string, optional): description of the package size affected - may be weight, volume or other description
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._packSizeDescription
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def allergen(self):
+        &#34;&#34;&#34;
+        Returns:
+            allergen (object[]): array of allergens drawn from the controlled list of allergens
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._allergen
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def batchDescription(self):
+        &#34;&#34;&#34;
+        Returns:
+            batchDescription (object[]): an array of `foodAlertsAPI.BatchDescription` objects
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._batchDescription
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def productCategory(self):
+        &#34;&#34;&#34;
+        Returns:
+            productCategory (object, optional): a `foodAlertsAPI.ProductCategory` object. Identifies the category of the affected product. 
+                                                This information is used to support search and analysis and does not need to be separately included in the alert presentation.
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._productCategory
+        except AttributeError:
+            value = None
+
+        return value
+    </code></pre>
 </details>
 </section>
 <section>
@@ -126,11 +202,7 @@ This information is used to support search and analysis and does not need to be 
     &#34;&#34;&#34;
     def __init__(self, dict):
         for k, v in dict.items():
-            setattr(self, k, v)
-
-        # only seems to have attributes:
-        #   id
-        #   productName
+            setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the API
         self.id = dict[&#34;@id&#34;]
@@ -158,8 +230,254 @@ This information is used to support search and analysis and does not need to be 
                 setattr(self, entry, None)
 
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def productName(self):
+        &#34;&#34;&#34;
+        Returns:
+            productName (string): name of the affected product
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._productName
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def productCode(self):
+        &#34;&#34;&#34;
+        Returns:
+            productCode (string, optional): identifying code for the affected product
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._productCode
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def packSizeDescription(self):
+        &#34;&#34;&#34;
+        Returns:
+            packSizeDescription (string, optional): description of the package size affected - may be weight, volume or other description
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._packSizeDescription
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def allergen(self):
+        &#34;&#34;&#34;
+        Returns:
+            allergen (object[]): array of allergens drawn from the controlled list of allergens
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._allergen
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def batchDescription(self):
+        &#34;&#34;&#34;
+        Returns:
+            batchDescription (object[]): an array of `foodAlertsAPI.BatchDescription` objects
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._batchDescription
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def productCategory(self):
+        &#34;&#34;&#34;
+        Returns:
+            productCategory (object, optional): a `foodAlertsAPI.ProductCategory` object. Identifies the category of the affected product. 
+                                                This information is used to support search and analysis and does not need to be separately included in the alert presentation.
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._productCategory
+        except AttributeError:
+            value = None
+
+        return value</code></pre>
 </details>
+<h3>Methods</h3>
+<dl>
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.allergen"><code class="name flex">
+<span>def <span class="ident">allergen</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>allergen</code></strong> :&ensp;<code>object</code>[]</dt>
+<dd>array of allergens drawn from the controlled list of allergens</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def allergen(self):
+    &#34;&#34;&#34;
+    Returns:
+        allergen (object[]): array of allergens drawn from the controlled list of allergens
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._allergen
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.batchDescription"><code class="name flex">
+<span>def <span class="ident">batchDescription</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>batchDescription</code></strong> :&ensp;<code>object</code>[]</dt>
+<dd>an array of <a title="foodAlertsAPI.BatchDescription" href="BatchDescription.html"><code>foodAlertsAPI.BatchDescription</code></a> objects</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def batchDescription(self):
+    &#34;&#34;&#34;
+    Returns:
+        batchDescription (object[]): an array of `foodAlertsAPI.BatchDescription` objects
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._batchDescription
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.packSizeDescription"><code class="name flex">
+<span>def <span class="ident">packSizeDescription</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>packSizeDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>description of the package size affected - may be weight, volume or other description</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def packSizeDescription(self):
+    &#34;&#34;&#34;
+    Returns:
+        packSizeDescription (string, optional): description of the package size affected - may be weight, volume or other description
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._packSizeDescription
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.productCategory"><code class="name flex">
+<span>def <span class="ident">productCategory</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>productCategory</code></strong> :&ensp;<code>object</code>, optional</dt>
+<dd>a <a title="foodAlertsAPI.ProductCategory" href="ProductCategory.html"><code>foodAlertsAPI.ProductCategory</code></a> object. Identifies the category of the affected product.
+This information is used to support search and analysis and does not need to be separately included in the alert presentation.</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def productCategory(self):
+    &#34;&#34;&#34;
+    Returns:
+        productCategory (object, optional): a `foodAlertsAPI.ProductCategory` object. Identifies the category of the affected product. 
+                                            This information is used to support search and analysis and does not need to be separately included in the alert presentation.
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._productCategory
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.productCode"><code class="name flex">
+<span>def <span class="ident">productCode</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>productCode</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>identifying code for the affected product</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def productCode(self):
+    &#34;&#34;&#34;
+    Returns:
+        productCode (string, optional): identifying code for the affected product
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._productCode
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.productName"><code class="name flex">
+<span>def <span class="ident">productName</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>productName</code></strong> :&ensp;<code>string</code></dt>
+<dd>name of the affected product</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def productName(self):
+    &#34;&#34;&#34;
+    Returns:
+        productName (string): name of the affected product
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._productName
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
 </dd>
 </dl>
 </section>
@@ -179,6 +497,14 @@ This information is used to support search and analysis and does not need to be 
 <ul>
 <li>
 <h4><code><a title="foodAlertsAPI.ProductDetails.ProductDetails" href="#foodAlertsAPI.ProductDetails.ProductDetails">ProductDetails</a></code></h4>
+<ul class="two-column">
+<li><code><a title="foodAlertsAPI.ProductDetails.ProductDetails.allergen" href="#foodAlertsAPI.ProductDetails.ProductDetails.allergen">allergen</a></code></li>
+<li><code><a title="foodAlertsAPI.ProductDetails.ProductDetails.batchDescription" href="#foodAlertsAPI.ProductDetails.ProductDetails.batchDescription">batchDescription</a></code></li>
+<li><code><a title="foodAlertsAPI.ProductDetails.ProductDetails.packSizeDescription" href="#foodAlertsAPI.ProductDetails.ProductDetails.packSizeDescription">packSizeDescription</a></code></li>
+<li><code><a title="foodAlertsAPI.ProductDetails.ProductDetails.productCategory" href="#foodAlertsAPI.ProductDetails.ProductDetails.productCategory">productCategory</a></code></li>
+<li><code><a title="foodAlertsAPI.ProductDetails.ProductDetails.productCode" href="#foodAlertsAPI.ProductDetails.ProductDetails.productCode">productCode</a></code></li>
+<li><code><a title="foodAlertsAPI.ProductDetails.ProductDetails.productName" href="#foodAlertsAPI.ProductDetails.ProductDetails.productName">productName</a></code></li>
+</ul>
 </li>
 </ul>
 </li>

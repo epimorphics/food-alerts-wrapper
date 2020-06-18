@@ -30,21 +30,63 @@
 
     Attributes:
 
-        label (string): name for the allergen
-        notation (string): a unique identifier for the allergen
-        riskStatement (string): text describing the risk from the allergen
+        _label (string): name for the allergen
+        _notation (string): a unique identifier for the allergen
+        _riskStatement (string): text describing the risk from the allergen
     &#34;&#34;&#34;
 
 
     def __init__(self, dict):
         for k, v in dict.items():
-            setattr(self, k, v)
+            setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the API
-        self.id = dict[&#34;@id&#34;]
+        self._id = dict[&#34;@id&#34;]
 
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def label(self):
+        &#34;&#34;&#34;
+        Returns:
+            label (string): the allergen name
+        &#34;&#34;&#34;
+                        
+        try:
+            value = self._label
+        except AttributeError:
+            value = None
+                    
+
+        return value
+
+    def notation(self):
+        &#34;&#34;&#34;
+        Returns:
+            notation (string, optional): unique identifier for the allergen
+        &#34;&#34;&#34;
+                        
+        try:
+            value = self._notation
+        except AttributeError:
+            value = None
+                        
+
+        return value
+
+    def riskStatement(self):
+        &#34;&#34;&#34;
+        Returns:
+            riskStatement (string): text describing the risk from the allergen
+        &#34;&#34;&#34;
+                        
+        try:
+            value = self._riskStatement
+        except AttributeError:
+            value = None
+                        
+
+        return value</code></pre>
 </details>
 </section>
 <section>
@@ -65,11 +107,11 @@
 For an Allergen Alert there will also be at least one allergen present on the problem statement.</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
-<dt><strong><code>label</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>_label</code></strong> :&ensp;<code>string</code></dt>
 <dd>name for the allergen</dd>
-<dt><strong><code>notation</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>_notation</code></strong> :&ensp;<code>string</code></dt>
 <dd>a unique identifier for the allergen</dd>
-<dt><strong><code>riskStatement</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>_riskStatement</code></strong> :&ensp;<code>string</code></dt>
 <dd>text describing the risk from the allergen</dd>
 </dl></section>
 <details class="source">
@@ -82,22 +124,151 @@ For an Allergen Alert there will also be at least one allergen present on the pr
 
     Attributes:
 
-        label (string): name for the allergen
-        notation (string): a unique identifier for the allergen
-        riskStatement (string): text describing the risk from the allergen
+        _label (string): name for the allergen
+        _notation (string): a unique identifier for the allergen
+        _riskStatement (string): text describing the risk from the allergen
     &#34;&#34;&#34;
 
 
     def __init__(self, dict):
         for k, v in dict.items():
-            setattr(self, k, v)
+            setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the API
-        self.id = dict[&#34;@id&#34;]
+        self._id = dict[&#34;@id&#34;]
 
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def label(self):
+        &#34;&#34;&#34;
+        Returns:
+            label (string): the allergen name
+        &#34;&#34;&#34;
+                        
+        try:
+            value = self._label
+        except AttributeError:
+            value = None
+                    
+
+        return value
+
+    def notation(self):
+        &#34;&#34;&#34;
+        Returns:
+            notation (string, optional): unique identifier for the allergen
+        &#34;&#34;&#34;
+                        
+        try:
+            value = self._notation
+        except AttributeError:
+            value = None
+                        
+
+        return value
+
+    def riskStatement(self):
+        &#34;&#34;&#34;
+        Returns:
+            riskStatement (string): text describing the risk from the allergen
+        &#34;&#34;&#34;
+                        
+        try:
+            value = self._riskStatement
+        except AttributeError:
+            value = None
+                        
+
+        return value</code></pre>
 </details>
+<h3>Methods</h3>
+<dl>
+<dt id="foodAlertsAPI.Allergen.Allergen.label"><code class="name flex">
+<span>def <span class="ident">label</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>label</code></strong> :&ensp;<code>string</code></dt>
+<dd>the allergen name</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def label(self):
+    &#34;&#34;&#34;
+    Returns:
+        label (string): the allergen name
+    &#34;&#34;&#34;
+                    
+    try:
+        value = self._label
+    except AttributeError:
+        value = None
+                
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.Allergen.Allergen.notation"><code class="name flex">
+<span>def <span class="ident">notation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>notation</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>unique identifier for the allergen</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def notation(self):
+    &#34;&#34;&#34;
+    Returns:
+        notation (string, optional): unique identifier for the allergen
+    &#34;&#34;&#34;
+                    
+    try:
+        value = self._notation
+    except AttributeError:
+        value = None
+                    
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.Allergen.Allergen.riskStatement"><code class="name flex">
+<span>def <span class="ident">riskStatement</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>riskStatement</code></strong> :&ensp;<code>string</code></dt>
+<dd>text describing the risk from the allergen</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def riskStatement(self):
+    &#34;&#34;&#34;
+    Returns:
+        riskStatement (string): text describing the risk from the allergen
+    &#34;&#34;&#34;
+                    
+    try:
+        value = self._riskStatement
+    except AttributeError:
+        value = None
+                    
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
 </dd>
 </dl>
 </section>
@@ -117,6 +288,11 @@ For an Allergen Alert there will also be at least one allergen present on the pr
 <ul>
 <li>
 <h4><code><a title="foodAlertsAPI.Allergen.Allergen" href="#foodAlertsAPI.Allergen.Allergen">Allergen</a></code></h4>
+<ul class="">
+<li><code><a title="foodAlertsAPI.Allergen.Allergen.label" href="#foodAlertsAPI.Allergen.Allergen.label">label</a></code></li>
+<li><code><a title="foodAlertsAPI.Allergen.Allergen.notation" href="#foodAlertsAPI.Allergen.Allergen.notation">notation</a></code></li>
+<li><code><a title="foodAlertsAPI.Allergen.Allergen.riskStatement" href="#foodAlertsAPI.Allergen.Allergen.riskStatement">riskStatement</a></code></li>
+</ul>
 </li>
 </ul>
 </li>

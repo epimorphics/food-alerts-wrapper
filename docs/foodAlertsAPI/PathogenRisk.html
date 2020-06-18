@@ -29,21 +29,73 @@
     
     Attributes:
 
-        label (string): name for the pathogen risk
-        notation (string): unique identifier for the pathogen risk
-        pathogen (object): indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen.
-        riskStatement (string): text describing the risk from this pathogen, or possible pathogen
+        _label (string): name for the pathogen risk
+        _notation (string): unique identifier for the pathogen risk
+        _pathogen (object): indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen.
+        _riskStatement (string): text describing the risk from this pathogen, or possible pathogen
     &#34;&#34;&#34;
 
     def __init__(self):
         for k, v in dict.items():
-            setattr(self, k, v)
+            setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the APi
-        self.id = dict[&#34;@id&#34;]
+        self._id = dict[&#34;@id&#34;]
 
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def label(self):
+        &#34;&#34;&#34;
+        Returns:
+            label (string): name for the pathogen risk
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._label
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def notation(self):
+        &#34;&#34;&#34;
+        Returns:
+            notation (string): unique identifier for the pathogen risk
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._notation
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def pathogen(self):
+        &#34;&#34;&#34;
+        Returns:
+            pathogen (object): indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._pathogen
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def riskStatement(self):
+        &#34;&#34;&#34;
+        Returns:
+            riskStatement (string): text describing the risk from this pathogen, or possible pathogen
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._riskStatement
+        except AttributeError:
+            value = None
+
+        return value</code></pre>
 </details>
 </section>
 <section>
@@ -62,13 +114,13 @@
 <section class="desc"><p>Classifies the problem as being due to actual or possible contamination with a pathogen.</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
-<dt><strong><code>label</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>_label</code></strong> :&ensp;<code>string</code></dt>
 <dd>name for the pathogen risk</dd>
-<dt><strong><code>notation</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>_notation</code></strong> :&ensp;<code>string</code></dt>
 <dd>unique identifier for the pathogen risk</dd>
-<dt><strong><code>pathogen</code></strong> :&ensp;<code>object</code></dt>
+<dt><strong><code>_pathogen</code></strong> :&ensp;<code>object</code></dt>
 <dd>indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen.</dd>
-<dt><strong><code>riskStatement</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>_riskStatement</code></strong> :&ensp;<code>string</code></dt>
 <dd>text describing the risk from this pathogen, or possible pathogen</dd>
 </dl></section>
 <details class="source">
@@ -80,22 +132,185 @@
     
     Attributes:
 
-        label (string): name for the pathogen risk
-        notation (string): unique identifier for the pathogen risk
-        pathogen (object): indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen.
-        riskStatement (string): text describing the risk from this pathogen, or possible pathogen
+        _label (string): name for the pathogen risk
+        _notation (string): unique identifier for the pathogen risk
+        _pathogen (object): indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen.
+        _riskStatement (string): text describing the risk from this pathogen, or possible pathogen
     &#34;&#34;&#34;
 
     def __init__(self):
         for k, v in dict.items():
-            setattr(self, k, v)
+            setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the APi
-        self.id = dict[&#34;@id&#34;]
+        self._id = dict[&#34;@id&#34;]
 
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def label(self):
+        &#34;&#34;&#34;
+        Returns:
+            label (string): name for the pathogen risk
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._label
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def notation(self):
+        &#34;&#34;&#34;
+        Returns:
+            notation (string): unique identifier for the pathogen risk
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._notation
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def pathogen(self):
+        &#34;&#34;&#34;
+        Returns:
+            pathogen (object): indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._pathogen
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def riskStatement(self):
+        &#34;&#34;&#34;
+        Returns:
+            riskStatement (string): text describing the risk from this pathogen, or possible pathogen
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._riskStatement
+        except AttributeError:
+            value = None
+
+        return value</code></pre>
 </details>
+<h3>Methods</h3>
+<dl>
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk.label"><code class="name flex">
+<span>def <span class="ident">label</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>label</code></strong> :&ensp;<code>string</code></dt>
+<dd>name for the pathogen risk</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def label(self):
+    &#34;&#34;&#34;
+    Returns:
+        label (string): name for the pathogen risk
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._label
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk.notation"><code class="name flex">
+<span>def <span class="ident">notation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>notation</code></strong> :&ensp;<code>string</code></dt>
+<dd>unique identifier for the pathogen risk</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def notation(self):
+    &#34;&#34;&#34;
+    Returns:
+        notation (string): unique identifier for the pathogen risk
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._notation
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk.pathogen"><code class="name flex">
+<span>def <span class="ident">pathogen</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>pathogen</code></strong> :&ensp;<code>object</code></dt>
+<dd>indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pathogen(self):
+    &#34;&#34;&#34;
+    Returns:
+        pathogen (object): indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._pathogen
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk.riskStatement"><code class="name flex">
+<span>def <span class="ident">riskStatement</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>riskStatement</code></strong> :&ensp;<code>string</code></dt>
+<dd>text describing the risk from this pathogen, or possible pathogen</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def riskStatement(self):
+    &#34;&#34;&#34;
+    Returns:
+        riskStatement (string): text describing the risk from this pathogen, or possible pathogen
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._riskStatement
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
 </dd>
 </dl>
 </section>
@@ -115,6 +330,12 @@
 <ul>
 <li>
 <h4><code><a title="foodAlertsAPI.PathogenRisk.PathogenRisk" href="#foodAlertsAPI.PathogenRisk.PathogenRisk">PathogenRisk</a></code></h4>
+<ul class="">
+<li><code><a title="foodAlertsAPI.PathogenRisk.PathogenRisk.label" href="#foodAlertsAPI.PathogenRisk.PathogenRisk.label">label</a></code></li>
+<li><code><a title="foodAlertsAPI.PathogenRisk.PathogenRisk.notation" href="#foodAlertsAPI.PathogenRisk.PathogenRisk.notation">notation</a></code></li>
+<li><code><a title="foodAlertsAPI.PathogenRisk.PathogenRisk.pathogen" href="#foodAlertsAPI.PathogenRisk.PathogenRisk.pathogen">pathogen</a></code></li>
+<li><code><a title="foodAlertsAPI.PathogenRisk.PathogenRisk.riskStatement" href="#foodAlertsAPI.PathogenRisk.PathogenRisk.riskStatement">riskStatement</a></code></li>
+</ul>
 </li>
 </ul>
 </li>

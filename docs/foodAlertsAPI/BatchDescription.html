@@ -40,7 +40,7 @@
 
     def __init__(self, dict):
         for k, v in dict.items():
-            setattr(self, k, v)
+            setattr(self, &#34;_&#34;+k, v)
 
         # add optional attributes as None
 
@@ -113,7 +113,7 @@
 
     def __init__(self, dict):
         for k, v in dict.items():
-            setattr(self, k, v)
+            setattr(self, &#34;_&#34;+k, v)
 
         # add optional attributes as None
 

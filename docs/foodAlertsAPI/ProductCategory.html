@@ -27,7 +27,7 @@
 <pre><code class="python">class ProductCategory:
     def __init__(self, dict):
         for k, v in dict.items():
-            setattr(self, k, v)
+            setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the API
         try:
@@ -61,7 +61,7 @@
 <pre><code class="python">class ProductCategory:
     def __init__(self, dict):
         for k, v in dict.items():
-            setattr(self, k, v)
+            setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the API
         try:
