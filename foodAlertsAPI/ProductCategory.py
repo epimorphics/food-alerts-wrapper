@@ -5,7 +5,7 @@ class ProductCategory:
 
         # id is written @id in the API
         try:
-            self.id = dict["@id"]
+            self._id = dict["@id"]
         except KeyError:
             pass
 

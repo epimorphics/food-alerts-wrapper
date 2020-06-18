@@ -19,7 +19,7 @@ class ProductDetails:
             setattr(self, "_"+k, v)
 
         # id is written @id in the API
-        self.id = dict["@id"]
+        self._id = dict["@id"]
 
         if "batchDescription" in list(dict.keys()):
             batchDescriptions = [BatchDescription(b) for b in dict["batchDescription"]]
