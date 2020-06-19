@@ -22,7 +22,7 @@ class Alert:
         _modified (string): represents datetime in ISO format
         _notation (string): unique identifier for alert used in the `foodAlertsAPI.foodAlertsAPI` getAlert() function
         _country (object):  a `foodAlertsAPI.Country` object. None if unspecified by the API indicating that the alert may apply to any country in the UK
-        _status (object): a `foodAlertsAPI.Status` object
+        _status (string): the alert status, usually "Published", but in rare cases may be "Withdrawn"
         _type (string[]): an array of strings (URLs, one corresponding to the Alert object in the API, 
                          and another to the type of alert corresponding to the Alert object (one of "AA" - allergen, "FAFA" - food action, or "PRIN" - product recall))
         _actionTaken (string, optional): description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority

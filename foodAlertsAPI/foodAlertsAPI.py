@@ -1,11 +1,10 @@
 import requests
 from foodAlertsAPI.Alert import Alert;
-from typing import List
 
 class foodAlertsAPI:
 
     # a negative limit value would return all entries
-    def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None) -> List[Alert]:
+    def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None, filters={}):
         """Gets alerts from the FSA Food Alerts API
 
         Args:
@@ -18,6 +17,7 @@ class foodAlertsAPI:
             offset (int, optional): return the list of items starting with the nth item, together with limit this enables paging through a long set of results
             sortBy (string, optional): reorder the list of results in ascending order of the given property (or property chain). 
                                        To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order
+            filters (dict, optional): filters based on alert object properties, e.g. {"type":"AA"}
                              
         Returns:
             A list of `foodAlertsAPI.Alert` objects
@@ -39,7 +39,10 @@ class foodAlertsAPI:
 
         if sortBy != None:
             params["_sort"] = sortBy
-
+            
+        # combining the two dictionaries, params and filters
+        
+        params = {**params, **filters}
         # if quantifier is an int, then use the limit param
         try:
             limit = int(quantifier)
@@ -60,7 +63,7 @@ class foodAlertsAPI:
 
         return alerts
  
-    def searchAlerts(self, query, detailed=False, limit=None, offset=None, sortBy=None):
+    def searchAlerts(self, query, detailed=False, limit=None, offset=None, sortBy=None, filters={}):
         """Search for query in alerts from the FSA Food Alerts API
 
         Args:
@@ -70,7 +73,8 @@ class foodAlertsAPI:
             limit (int, optional): specifies the maximum number of Alert objects that can be returned
             offset (int, optional): return the list of items starting with the nth item, together with limit this enables paging through a long set of results
             sortBy (string, optional): reorder the list of results in ascending order of the given property (or property chain). 
-                                       To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order        
+                                       To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order
+            filters (dict, optional): filters based on alert object properties, e.g. {"type":"AA"}        
 
         Returns:
             A list of `foodAlertsAPI.Alert` objects
@@ -92,6 +96,8 @@ class foodAlertsAPI:
 
         if sortBy != None:
             params["_sort"] = sortBy
+            
+        params = {**params, **filters}
 
         try:
             r = requests.get(f"https://data.food.gov.uk/food-alerts/id?search={query}", params=params)
