@@ -48,21 +48,21 @@ class Alert:
         _modified (string): represents datetime in ISO format
         _notation (string): unique identifier for alert used in the `foodAlertsAPI.foodAlertsAPI` getAlert() function
         _country (object):  a `foodAlertsAPI.Country` object. None if unspecified by the API indicating that the alert may apply to any country in the UK
-        _status (object): a `foodAlertsAPI.Status` object
+        _status (string): the alert status, usually &#34;Published&#34;, but in rare cases may be &#34;Withdrawn&#34;
         _type (string[]): an array of strings (URLs, one corresponding to the Alert object in the API, 
                          and another to the type of alert corresponding to the Alert object (one of &#34;AA&#34; - allergen, &#34;FAFA&#34; - food action, or &#34;PRIN&#34; - product recall))
         _actionTaken (string, optional): description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority
         _consumerAdvice (string, optional): text giving the advice to consumers
         _SMSText (string, optional): short description to be used in SMS notifications
         _twitterText (string, optional): short description to be used in Twitter notifications
-        _alertURL (string, optional): URL for the alert on the FSA web site
-        _shortURL (string, optional):     
+        _alertURL (dict, optional): URL for the alert on the FSA web site
+        _shortURL (dict, optional):     
         _relatedMedia (object[], optional): array of `foodAlertsAPI.RelatedMedia` objects
         _problem (object[], optional): array of `foodAlertsAPI.Problem` objects
         _productDetails (object[], optional): array of `foodAlertsAPI.ProductDetails` objects
         _reportingBusiness (object[], optional): a `foodAlertsAPI.Business` object
         _otherBusiness (object[], optional): an array of `foodAlertsAPI.Business` objects
-        _previousAlert (object, optional): a `foodAlertsAPI.Alert` object
+        _previousAlert (string, optional): URL to previous alert. This exists if the Alert is an update to a previous one
     &#34;&#34;&#34;
 
 
@@ -100,15 +100,35 @@ class Alert:
         if &#34;relatedMedia&#34; in keys:
             try:
                 self._relatedMedia = [RelatedMedia(dict[&#34;relatedMedia&#34;])]
-            except AttributeError: 
+            except AttributeError:  
                 if (isinstance(dict[&#34;relatedMedia&#34;][0], str)):
                     # if relatedMedia is a list of strings, turn the strings into dictionaries to
                     # instantiate relatedMediaObjects
-                    self._relatedMedia = [RelatedMedia({&#34;title&#34; : t}) for t in dict[&#34;relatedMedia&#34;]]
+                    self._relatedMedia = [RelatedMedia({&#34;@id&#34; : i}) for i in dict[&#34;relatedMedia&#34;]]
 
                 else:
                     self._relatedMedia = [RelatedMedia(m) for m in dict[&#34;relatedMedia&#34;]]
-
+                    
+        if &#34;alertURL&#34; in keys:
+            if (isinstance(dict[&#34;alertURL&#34;], str)):
+                self._alertURL = dict[&#34;alertURL&#34;]
+            else:
+                self._alertURL = dict[&#34;alertURL&#34;][&#34;@id&#34;]
+                
+        if &#34;shortURL&#34; in keys:
+            if (isinstance(dict[&#34;shortURL&#34;], str)):
+                self._shortURL = dict[&#34;shortURL&#34;]
+            else:
+                self._shortURL = dict[&#34;shortURL&#34;][&#34;@id&#34;]
+                
+        if &#34;previousAlert&#34; in keys:
+            if (isinstance(dict[&#34;previousAlert&#34;], str)):
+                self._previousAlert = dict[&#34;previousAlert&#34;]
+            else:
+                self._previousAlert = dict[&#34;previousAlert&#34;][&#34;@id&#34;]
+                
+        
+                
     def __getattr__(self, attribute):
         return None
     
@@ -280,14 +300,14 @@ class Alert:
 
         return value
     
-    def SMSText(self):
+    def SMStext(self):
         &#34;&#34;&#34;
         Returns:
             SMSText (string, optional): short description to be used in SMS notifications
         &#34;&#34;&#34;
         
         try:
-            value = self._SMSText
+            value = self._SMStext
         except AttributeError:
             value = None
 
@@ -479,8 +499,8 @@ if unspecified. This applies to all classes.</p>
 <dd>unique identifier for alert used in the <a title="foodAlertsAPI.foodAlertsAPI" href="foodAlertsAPI.html"><code>foodAlertsAPI.foodAlertsAPI</code></a> getAlert() function</dd>
 <dt><strong><code>_country</code></strong> :&ensp;<code>object</code></dt>
 <dd>a <a title="foodAlertsAPI.Country" href="Country.html"><code>foodAlertsAPI.Country</code></a> object. None if unspecified by the API indicating that the alert may apply to any country in the UK</dd>
-<dt><strong><code>_status</code></strong> :&ensp;<code>object</code></dt>
-<dd>a <a title="foodAlertsAPI.Status" href="Status.html"><code>foodAlertsAPI.Status</code></a> object</dd>
+<dt><strong><code>_status</code></strong> :&ensp;<code>string</code></dt>
+<dd>the alert status, usually "Published", but in rare cases may be "Withdrawn"</dd>
 <dt><strong><code>_type</code></strong> :&ensp;<code>string</code>[]</dt>
 <dd>an array of strings (URLs, one corresponding to the Alert object in the API,
 and another to the type of alert corresponding to the Alert object (one of "AA" - allergen, "FAFA" - food action, or "PRIN" - product recall))</dd>
@@ -492,9 +512,9 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
 <dd>short description to be used in SMS notifications</dd>
 <dt><strong><code>_twitterText</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>short description to be used in Twitter notifications</dd>
-<dt><strong><code>_alertURL</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_alertURL</code></strong> :&ensp;<code>dict</code>, optional</dt>
 <dd>URL for the alert on the FSA web site</dd>
-<dt><strong><code>_shortURL</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_shortURL</code></strong> :&ensp;<code>dict</code>, optional</dt>
 <dd></dd>
 <dt><strong><code>_relatedMedia</code></strong> :&ensp;<code>object</code>[], optional</dt>
 <dd>array of <a title="foodAlertsAPI.RelatedMedia" href="RelatedMedia.html"><code>foodAlertsAPI.RelatedMedia</code></a> objects</dd>
@@ -506,8 +526,8 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
 <dd>a <a title="foodAlertsAPI.Business" href="Business.html"><code>foodAlertsAPI.Business</code></a> object</dd>
 <dt><strong><code>_otherBusiness</code></strong> :&ensp;<code>object</code>[], optional</dt>
 <dd>an array of <a title="foodAlertsAPI.Business" href="Business.html"><code>foodAlertsAPI.Business</code></a> objects</dd>
-<dt><strong><code>_previousAlert</code></strong> :&ensp;<code>object</code>, optional</dt>
-<dd>a <a title="foodAlertsAPI.Alert" href="#foodAlertsAPI.Alert"><code>foodAlertsAPI.Alert</code></a> object</dd>
+<dt><strong><code>_previousAlert</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>URL to previous alert. This exists if the Alert is an update to a previous one</dd>
 </dl></section>
 <details class="source">
 <summary>
@@ -527,21 +547,21 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
         _modified (string): represents datetime in ISO format
         _notation (string): unique identifier for alert used in the `foodAlertsAPI.foodAlertsAPI` getAlert() function
         _country (object):  a `foodAlertsAPI.Country` object. None if unspecified by the API indicating that the alert may apply to any country in the UK
-        _status (object): a `foodAlertsAPI.Status` object
+        _status (string): the alert status, usually &#34;Published&#34;, but in rare cases may be &#34;Withdrawn&#34;
         _type (string[]): an array of strings (URLs, one corresponding to the Alert object in the API, 
                          and another to the type of alert corresponding to the Alert object (one of &#34;AA&#34; - allergen, &#34;FAFA&#34; - food action, or &#34;PRIN&#34; - product recall))
         _actionTaken (string, optional): description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority
         _consumerAdvice (string, optional): text giving the advice to consumers
         _SMSText (string, optional): short description to be used in SMS notifications
         _twitterText (string, optional): short description to be used in Twitter notifications
-        _alertURL (string, optional): URL for the alert on the FSA web site
-        _shortURL (string, optional):     
+        _alertURL (dict, optional): URL for the alert on the FSA web site
+        _shortURL (dict, optional):     
         _relatedMedia (object[], optional): array of `foodAlertsAPI.RelatedMedia` objects
         _problem (object[], optional): array of `foodAlertsAPI.Problem` objects
         _productDetails (object[], optional): array of `foodAlertsAPI.ProductDetails` objects
         _reportingBusiness (object[], optional): a `foodAlertsAPI.Business` object
         _otherBusiness (object[], optional): an array of `foodAlertsAPI.Business` objects
-        _previousAlert (object, optional): a `foodAlertsAPI.Alert` object
+        _previousAlert (string, optional): URL to previous alert. This exists if the Alert is an update to a previous one
     &#34;&#34;&#34;
 
 
@@ -579,15 +599,35 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
         if &#34;relatedMedia&#34; in keys:
             try:
                 self._relatedMedia = [RelatedMedia(dict[&#34;relatedMedia&#34;])]
-            except AttributeError: 
+            except AttributeError:  
                 if (isinstance(dict[&#34;relatedMedia&#34;][0], str)):
                     # if relatedMedia is a list of strings, turn the strings into dictionaries to
                     # instantiate relatedMediaObjects
-                    self._relatedMedia = [RelatedMedia({&#34;title&#34; : t}) for t in dict[&#34;relatedMedia&#34;]]
+                    self._relatedMedia = [RelatedMedia({&#34;@id&#34; : i}) for i in dict[&#34;relatedMedia&#34;]]
 
                 else:
                     self._relatedMedia = [RelatedMedia(m) for m in dict[&#34;relatedMedia&#34;]]
-
+                    
+        if &#34;alertURL&#34; in keys:
+            if (isinstance(dict[&#34;alertURL&#34;], str)):
+                self._alertURL = dict[&#34;alertURL&#34;]
+            else:
+                self._alertURL = dict[&#34;alertURL&#34;][&#34;@id&#34;]
+                
+        if &#34;shortURL&#34; in keys:
+            if (isinstance(dict[&#34;shortURL&#34;], str)):
+                self._shortURL = dict[&#34;shortURL&#34;]
+            else:
+                self._shortURL = dict[&#34;shortURL&#34;][&#34;@id&#34;]
+                
+        if &#34;previousAlert&#34; in keys:
+            if (isinstance(dict[&#34;previousAlert&#34;], str)):
+                self._previousAlert = dict[&#34;previousAlert&#34;]
+            else:
+                self._previousAlert = dict[&#34;previousAlert&#34;][&#34;@id&#34;]
+                
+        
+                
     def __getattr__(self, attribute):
         return None
     
@@ -759,14 +799,14 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
 
         return value
     
-    def SMSText(self):
+    def SMStext(self):
         &#34;&#34;&#34;
         Returns:
             SMSText (string, optional): short description to be used in SMS notifications
         &#34;&#34;&#34;
         
         try:
-            value = self._SMSText
+            value = self._SMStext
         except AttributeError:
             value = None
 
@@ -925,8 +965,8 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="foodAlertsAPI.Alert.Alert.SMSText"><code class="name flex">
-<span>def <span class="ident">SMSText</span></span>(<span>self)</span>
+<dt id="foodAlertsAPI.Alert.Alert.SMStext"><code class="name flex">
+<span>def <span class="ident">SMStext</span></span>(<span>self)</span>
 </code></dt>
 <dd>
 <section class="desc"><h2 id="returns">Returns</h2>
@@ -938,14 +978,14 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def SMSText(self):
+<pre><code class="python">def SMStext(self):
     &#34;&#34;&#34;
     Returns:
         SMSText (string, optional): short description to be used in SMS notifications
     &#34;&#34;&#34;
     
     try:
-        value = self._SMSText
+        value = self._SMStext
     except AttributeError:
         value = None
 
@@ -1628,7 +1668,7 @@ and another to the type of alert corresponding to the Alert object (one of "AA" 
 <li>
 <h4><code><a title="foodAlertsAPI.Alert.Alert" href="#foodAlertsAPI.Alert.Alert">Alert</a></code></h4>
 <ul class="two-column">
-<li><code><a title="foodAlertsAPI.Alert.Alert.SMSText" href="#foodAlertsAPI.Alert.Alert.SMSText">SMSText</a></code></li>
+<li><code><a title="foodAlertsAPI.Alert.Alert.SMStext" href="#foodAlertsAPI.Alert.Alert.SMStext">SMStext</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.actionTaken" href="#foodAlertsAPI.Alert.Alert.actionTaken">actionTaken</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.alertURL" href="#foodAlertsAPI.Alert.Alert.alertURL">alertURL</a></code></li>
 <li><code><a title="foodAlertsAPI.Alert.Alert.allergenLabels" href="#foodAlertsAPI.Alert.Alert.allergenLabels">allergenLabels</a></code></li>

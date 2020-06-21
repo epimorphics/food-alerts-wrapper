@@ -28,9 +28,9 @@
     &#34;&#34;&#34;
     Attributes:
 
-        commonName (string): name by which the organisation is commonly known 
-        identifier (string, optional): unique identifier for the organisation
-        legalName (string, optional): legal (registered) name of the organisation   
+        _commonName (string): name by which the organisation is commonly known 
+        _identifier (string, optional): unique identifier for the organisation
+        _legalName (string, optional): legal (registered) name of the organisation   
     &#34;&#34;&#34;
 
     def __init__(self, dict):
@@ -40,17 +40,47 @@
         # only seems to have attribute:
         #   commonName
 
-        optionals = [
-           &#34;identifier&#34;,
-           &#34;legalName&#34;
-        ]
-
-        for entry in optionals:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, None)
-
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def commonName(self):
+        &#34;&#34;&#34;
+        Returns:
+            commonName (string): name by which the organisation is commonly known 
+        &#34;&#34;&#34;
+        try:
+            value = self._commonName
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def identifier(self):
+        &#34;&#34;&#34;
+        Returns:
+            identifier (string, optional): unique identifier for the organisation
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._identifier
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def legalName(self):
+        &#34;&#34;&#34;
+        Returns:
+            legalName (string, optional): legal (registered) name of the organisation  
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._legalName
+        except AttributeError:
+            value = None
+
+        return value
+        </code></pre>
 </details>
 </section>
 <section>
@@ -69,11 +99,11 @@
 <dd>
 <section class="desc"><h2 id="attributes">Attributes</h2>
 <dl>
-<dt><strong><code>commonName</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>_commonName</code></strong> :&ensp;<code>string</code></dt>
 <dd>name by which the organisation is commonly known </dd>
-<dt><strong><code>identifier</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_identifier</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>unique identifier for the organisation</dd>
-<dt><strong><code>legalName</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_legalName</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>legal (registered) name of the organisation</dd>
 </dl></section>
 <details class="source">
@@ -84,9 +114,9 @@
     &#34;&#34;&#34;
     Attributes:
 
-        commonName (string): name by which the organisation is commonly known 
-        identifier (string, optional): unique identifier for the organisation
-        legalName (string, optional): legal (registered) name of the organisation   
+        _commonName (string): name by which the organisation is commonly known 
+        _identifier (string, optional): unique identifier for the organisation
+        _legalName (string, optional): legal (registered) name of the organisation   
     &#34;&#34;&#34;
 
     def __init__(self, dict):
@@ -96,18 +126,130 @@
         # only seems to have attribute:
         #   commonName
 
-        optionals = [
-           &#34;identifier&#34;,
-           &#34;legalName&#34;
-        ]
-
-        for entry in optionals:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, None)
-
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def commonName(self):
+        &#34;&#34;&#34;
+        Returns:
+            commonName (string): name by which the organisation is commonly known 
+        &#34;&#34;&#34;
+        try:
+            value = self._commonName
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def identifier(self):
+        &#34;&#34;&#34;
+        Returns:
+            identifier (string, optional): unique identifier for the organisation
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._identifier
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def legalName(self):
+        &#34;&#34;&#34;
+        Returns:
+            legalName (string, optional): legal (registered) name of the organisation  
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._legalName
+        except AttributeError:
+            value = None
+
+        return value</code></pre>
 </details>
+<h3>Methods</h3>
+<dl>
+<dt id="foodAlertsAPI.Business.Business.commonName"><code class="name flex">
+<span>def <span class="ident">commonName</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>commonName</code></strong> :&ensp;<code>string</code></dt>
+<dd>name by which the organisation is commonly known</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def commonName(self):
+    &#34;&#34;&#34;
+    Returns:
+        commonName (string): name by which the organisation is commonly known 
+    &#34;&#34;&#34;
+    try:
+        value = self._commonName
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.Business.Business.identifier"><code class="name flex">
+<span>def <span class="ident">identifier</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>identifier</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>unique identifier for the organisation</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def identifier(self):
+    &#34;&#34;&#34;
+    Returns:
+        identifier (string, optional): unique identifier for the organisation
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._identifier
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.Business.Business.legalName"><code class="name flex">
+<span>def <span class="ident">legalName</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>legalName</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>legal (registered) name of the organisation</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def legalName(self):
+    &#34;&#34;&#34;
+    Returns:
+        legalName (string, optional): legal (registered) name of the organisation  
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._legalName
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
 </dd>
 </dl>
 </section>
@@ -127,6 +269,11 @@
 <ul>
 <li>
 <h4><code><a title="foodAlertsAPI.Business.Business" href="#foodAlertsAPI.Business.Business">Business</a></code></h4>
+<ul class="">
+<li><code><a title="foodAlertsAPI.Business.Business.commonName" href="#foodAlertsAPI.Business.Business.commonName">commonName</a></code></li>
+<li><code><a title="foodAlertsAPI.Business.Business.identifier" href="#foodAlertsAPI.Business.Business.identifier">identifier</a></code></li>
+<li><code><a title="foodAlertsAPI.Business.Business.legalName" href="#foodAlertsAPI.Business.Business.legalName">legalName</a></code></li>
+</ul>
 </li>
 </ul>
 </li>

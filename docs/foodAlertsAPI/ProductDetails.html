@@ -31,12 +31,12 @@ class ProductDetails:
     &#34;&#34;&#34;
     Attributes:
 
-        productName (string): name of the affected product
-        productCode (string, optional): identifying code for the affected product
-        packSizeDescription (string, optional): description of the package size affected - may be weight, volume or other description
-        allergen (object[]): array of allergens drawn from the controlled list of allergens
-        batchDescription (object[]): an array of `foodAlertsAPI.BatchDescription` objects
-        productCategory (object, optional): a `foodAlertsAPI.ProductCategory` object. Identifies the category of the affected product. 
+        _productName (string): name of the affected product
+        _productCode (string, optional): identifying code for the affected product
+        _packSizeDescription (string, optional): description of the package size affected - may be weight, volume or other description
+        _allergen (string[], optional): list of urls to the allergens present in the product
+        _batchDescription (object[]): an array of `foodAlertsAPI.BatchDescription` objects
+        _productCategory (object, optional): a `foodAlertsAPI.ProductCategory` object. Identifies the category of the affected product. 
                                   This information is used to support search and analysis and does not need to be separately included in the alert presentation.
         
     &#34;&#34;&#34;
@@ -45,29 +45,11 @@ class ProductDetails:
             setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the API
-        self.id = dict[&#34;@id&#34;]
+        self._id = dict[&#34;@id&#34;]
 
         if &#34;batchDescription&#34; in list(dict.keys()):
             batchDescriptions = [BatchDescription(b) for b in dict[&#34;batchDescription&#34;]]
-            self.batchDescription = batchDescriptions
-
-        if &#34;allergen&#34; in list(dict.keys()):
-            allergen = [Allergen(a) for a in dict[&#34;allergen&#34;]]
-            self.allergen = allergen
-
-        # add optional attributes as None
-
-        optionals = [
-            &#34;productCode&#34;,
-            &#34;packSizeDescription&#34;,
-            &#34;allergen&#34;,
-            &#34;batchDescription&#34;,
-            &#34;productCategory&#34;
-        ]
-
-        for entry in optionals:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, None)
+            self._batchDescription = batchDescriptions
 
     def __getattr__(self, attribute):
         return None
@@ -114,7 +96,7 @@ class ProductDetails:
     def allergen(self):
         &#34;&#34;&#34;
         Returns:
-            allergen (object[]): array of allergens drawn from the controlled list of allergens
+            allergen (string[]): list of urls to the allergens present in the product
         &#34;&#34;&#34;
         
         try:
@@ -169,17 +151,17 @@ class ProductDetails:
 <dd>
 <section class="desc"><h2 id="attributes">Attributes</h2>
 <dl>
-<dt><strong><code>productName</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>_productName</code></strong> :&ensp;<code>string</code></dt>
 <dd>name of the affected product</dd>
-<dt><strong><code>productCode</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_productCode</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>identifying code for the affected product</dd>
-<dt><strong><code>packSizeDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_packSizeDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>description of the package size affected - may be weight, volume or other description</dd>
-<dt><strong><code>allergen</code></strong> :&ensp;<code>object</code>[]</dt>
-<dd>array of allergens drawn from the controlled list of allergens</dd>
-<dt><strong><code>batchDescription</code></strong> :&ensp;<code>object</code>[]</dt>
+<dt><strong><code>_allergen</code></strong> :&ensp;<code>string</code>[], optional</dt>
+<dd>list of urls to the allergens present in the product</dd>
+<dt><strong><code>_batchDescription</code></strong> :&ensp;<code>object</code>[]</dt>
 <dd>an array of <a title="foodAlertsAPI.BatchDescription" href="BatchDescription.html"><code>foodAlertsAPI.BatchDescription</code></a> objects</dd>
-<dt><strong><code>productCategory</code></strong> :&ensp;<code>object</code>, optional</dt>
+<dt><strong><code>_productCategory</code></strong> :&ensp;<code>object</code>, optional</dt>
 <dd>a <a title="foodAlertsAPI.ProductCategory" href="ProductCategory.html"><code>foodAlertsAPI.ProductCategory</code></a> object. Identifies the category of the affected product.
 This information is used to support search and analysis and does not need to be separately included in the alert presentation.</dd>
 </dl></section>
@@ -191,12 +173,12 @@ This information is used to support search and analysis and does not need to be 
     &#34;&#34;&#34;
     Attributes:
 
-        productName (string): name of the affected product
-        productCode (string, optional): identifying code for the affected product
-        packSizeDescription (string, optional): description of the package size affected - may be weight, volume or other description
-        allergen (object[]): array of allergens drawn from the controlled list of allergens
-        batchDescription (object[]): an array of `foodAlertsAPI.BatchDescription` objects
-        productCategory (object, optional): a `foodAlertsAPI.ProductCategory` object. Identifies the category of the affected product. 
+        _productName (string): name of the affected product
+        _productCode (string, optional): identifying code for the affected product
+        _packSizeDescription (string, optional): description of the package size affected - may be weight, volume or other description
+        _allergen (string[], optional): list of urls to the allergens present in the product
+        _batchDescription (object[]): an array of `foodAlertsAPI.BatchDescription` objects
+        _productCategory (object, optional): a `foodAlertsAPI.ProductCategory` object. Identifies the category of the affected product. 
                                   This information is used to support search and analysis and does not need to be separately included in the alert presentation.
         
     &#34;&#34;&#34;
@@ -205,29 +187,11 @@ This information is used to support search and analysis and does not need to be 
             setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the API
-        self.id = dict[&#34;@id&#34;]
+        self._id = dict[&#34;@id&#34;]
 
         if &#34;batchDescription&#34; in list(dict.keys()):
             batchDescriptions = [BatchDescription(b) for b in dict[&#34;batchDescription&#34;]]
-            self.batchDescription = batchDescriptions
-
-        if &#34;allergen&#34; in list(dict.keys()):
-            allergen = [Allergen(a) for a in dict[&#34;allergen&#34;]]
-            self.allergen = allergen
-
-        # add optional attributes as None
-
-        optionals = [
-            &#34;productCode&#34;,
-            &#34;packSizeDescription&#34;,
-            &#34;allergen&#34;,
-            &#34;batchDescription&#34;,
-            &#34;productCategory&#34;
-        ]
-
-        for entry in optionals:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, None)
+            self._batchDescription = batchDescriptions
 
     def __getattr__(self, attribute):
         return None
@@ -274,7 +238,7 @@ This information is used to support search and analysis and does not need to be 
     def allergen(self):
         &#34;&#34;&#34;
         Returns:
-            allergen (object[]): array of allergens drawn from the controlled list of allergens
+            allergen (string[]): list of urls to the allergens present in the product
         &#34;&#34;&#34;
         
         try:
@@ -319,8 +283,8 @@ This information is used to support search and analysis and does not need to be 
 <dd>
 <section class="desc"><h2 id="returns">Returns</h2>
 <dl>
-<dt><strong><code>allergen</code></strong> :&ensp;<code>object</code>[]</dt>
-<dd>array of allergens drawn from the controlled list of allergens</dd>
+<dt><strong><code>allergen</code></strong> :&ensp;<code>string</code>[]</dt>
+<dd>list of urls to the allergens present in the product</dd>
 </dl></section>
 <details class="source">
 <summary>
@@ -329,7 +293,7 @@ This information is used to support search and analysis and does not need to be 
 <pre><code class="python">def allergen(self):
     &#34;&#34;&#34;
     Returns:
-        allergen (object[]): array of allergens drawn from the controlled list of allergens
+        allergen (string[]): list of urls to the allergens present in the product
     &#34;&#34;&#34;
     
     try:

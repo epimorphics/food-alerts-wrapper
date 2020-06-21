@@ -29,14 +29,14 @@ class Alert:
         _consumerAdvice (string, optional): text giving the advice to consumers
         _SMSText (string, optional): short description to be used in SMS notifications
         _twitterText (string, optional): short description to be used in Twitter notifications
-        _alertURL (string, optional): URL for the alert on the FSA web site
-        _shortURL (string, optional):     
+        _alertURL (dict, optional): URL for the alert on the FSA web site
+        _shortURL (dict, optional):     
         _relatedMedia (object[], optional): array of `foodAlertsAPI.RelatedMedia` objects
         _problem (object[], optional): array of `foodAlertsAPI.Problem` objects
         _productDetails (object[], optional): array of `foodAlertsAPI.ProductDetails` objects
         _reportingBusiness (object[], optional): a `foodAlertsAPI.Business` object
         _otherBusiness (object[], optional): an array of `foodAlertsAPI.Business` objects
-        _previousAlert (object, optional): a `foodAlertsAPI.Alert` object
+        _previousAlert (string, optional): URL to previous alert. This exists if the Alert is an update to a previous one
     """
 
 
@@ -74,15 +74,35 @@ class Alert:
         if "relatedMedia" in keys:
             try:
                 self._relatedMedia = [RelatedMedia(dict["relatedMedia"])]
-            except AttributeError: 
+            except AttributeError:  
                 if (isinstance(dict["relatedMedia"][0], str)):
                     # if relatedMedia is a list of strings, turn the strings into dictionaries to
                     # instantiate relatedMediaObjects
-                    self._relatedMedia = [RelatedMedia({"title" : t}) for t in dict["relatedMedia"]]
+                    self._relatedMedia = [RelatedMedia({"@id" : i}) for i in dict["relatedMedia"]]
 
                 else:
                     self._relatedMedia = [RelatedMedia(m) for m in dict["relatedMedia"]]
-
+                    
+        if "alertURL" in keys:
+            if (isinstance(dict["alertURL"], str)):
+                self._alertURL = dict["alertURL"]
+            else:
+                self._alertURL = dict["alertURL"]["@id"]
+                
+        if "shortURL" in keys:
+            if (isinstance(dict["shortURL"], str)):
+                self._shortURL = dict["shortURL"]
+            else:
+                self._shortURL = dict["shortURL"]["@id"]
+                
+        if "previousAlert" in keys:
+            if (isinstance(dict["previousAlert"], str)):
+                self._previousAlert = dict["previousAlert"]
+            else:
+                self._previousAlert = dict["previousAlert"]["@id"]
+                
+        
+                
     def __getattr__(self, attribute):
         return None
     
@@ -254,14 +274,14 @@ class Alert:
 
         return value
     
-    def SMSText(self):
+    def SMStext(self):
         """
         Returns:
             SMSText (string, optional): short description to be used in SMS notifications
         """
         
         try:
-            value = self._SMSText
+            value = self._SMStext
         except AttributeError:
             value = None
 

@@ -29,37 +29,113 @@
     
     Attributes:
 
-        bestBeforeDescription (string, optional): &#34;best before&#34; date range for the batch
-        bestBeforeDate (string, optional): &#34;best before&#34; date (or dates) for the batch
-        useByDescription (string, optional): &#34;use by&#34; date range for the batch
-        useByDate (string, optional): &#34;use by&#34; date (or dates) for the batch
-        batchCode (string, optional): batch number or code for the batch
-        lotNumber (string, optional): lot number for the batch
-        batchTextDescription (string, optional): other textual description for the batch        
+        _bestBeforeDescription (string, optional): &#34;best before&#34; date range for the batch
+        _bestBeforeDate (string, optional): &#34;best before&#34; date (or dates) for the batch
+        _useByDescription (string, optional): &#34;use by&#34; date range for the batch
+        _useByDate (string, optional): &#34;use by&#34; date (or dates) for the batch
+        _batchCode (string, optional): batch number or code for the batch
+        _lotNumber (string, optional): lot number for the batch
+        _batchTextDescription (string, optional): other textual description for the batch        
     &#34;&#34;&#34;
 
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, &#34;_&#34;+k, v)
-
-        # add optional attributes as None
-
-        optionals = [
-            &#34;bestBeforeDescription&#34;,
-            &#34;bestBeforeDate&#34;,
-            &#34;useByDescription&#34;,
-            &#34;useByDate&#34;,
-            &#34;batchCode&#34;,
-            &#34;lotNumber&#34;,
-            &#34;batchTextDescription&#34;
-        ]
-
-        for entry in optionals:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, None)
     
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def bestBeforeDescription(self):
+        &#34;&#34;&#34;
+        Returns:
+            bestBeforeDescription (string, optional): &#34;best before&#34; date range for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._bestBeforeDescription
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def bestBeforeDate(self):
+        &#34;&#34;&#34;
+        Returns:
+            bestBeforeDate (string, optional): &#34;best before&#34; date (or dates) for the batch 
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._bestBeforeDate
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def useByDescription(self):
+        &#34;&#34;&#34;
+        Returns:
+            useByDescription (string, optional): &#34;use by&#34; date range for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._useByDescription
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def useByDate(self):
+        &#34;&#34;&#34;
+        Returns:
+            useByDate (string, optional): &#34;use by&#34; date (or dates) for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._useByDate
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def batchCode(self):
+        &#34;&#34;&#34;
+        Returns:
+            batchCode (string, optional): batch number or code for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._batchCode
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def lotNumber(self):
+        &#34;&#34;&#34;
+        Returns:
+            lotNumber (string, optional): lot number for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._lotNumber
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def batchTextDescription(self):
+        &#34;&#34;&#34;
+        Returns:
+            batchTextDescription (string, optional): other textual description for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._batchTextDescription
+        except AttributeError:
+            value = None
+
+        return value
+        </code></pre>
 </details>
 </section>
 <section>
@@ -78,19 +154,19 @@
 <dd>
 <section class="desc"><h2 id="attributes">Attributes</h2>
 <dl>
-<dt><strong><code>bestBeforeDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_bestBeforeDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>"best before" date range for the batch</dd>
-<dt><strong><code>bestBeforeDate</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_bestBeforeDate</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>"best before" date (or dates) for the batch</dd>
-<dt><strong><code>useByDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_useByDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>"use by" date range for the batch</dd>
-<dt><strong><code>useByDate</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_useByDate</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>"use by" date (or dates) for the batch</dd>
-<dt><strong><code>batchCode</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_batchCode</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>batch number or code for the batch</dd>
-<dt><strong><code>lotNumber</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_lotNumber</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>lot number for the batch</dd>
-<dt><strong><code>batchTextDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dt><strong><code>_batchTextDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
 <dd>other textual description for the batch</dd>
 </dl></section>
 <details class="source">
@@ -102,38 +178,305 @@
     
     Attributes:
 
-        bestBeforeDescription (string, optional): &#34;best before&#34; date range for the batch
-        bestBeforeDate (string, optional): &#34;best before&#34; date (or dates) for the batch
-        useByDescription (string, optional): &#34;use by&#34; date range for the batch
-        useByDate (string, optional): &#34;use by&#34; date (or dates) for the batch
-        batchCode (string, optional): batch number or code for the batch
-        lotNumber (string, optional): lot number for the batch
-        batchTextDescription (string, optional): other textual description for the batch        
+        _bestBeforeDescription (string, optional): &#34;best before&#34; date range for the batch
+        _bestBeforeDate (string, optional): &#34;best before&#34; date (or dates) for the batch
+        _useByDescription (string, optional): &#34;use by&#34; date range for the batch
+        _useByDate (string, optional): &#34;use by&#34; date (or dates) for the batch
+        _batchCode (string, optional): batch number or code for the batch
+        _lotNumber (string, optional): lot number for the batch
+        _batchTextDescription (string, optional): other textual description for the batch        
     &#34;&#34;&#34;
 
     def __init__(self, dict):
         for k, v in dict.items():
             setattr(self, &#34;_&#34;+k, v)
-
-        # add optional attributes as None
-
-        optionals = [
-            &#34;bestBeforeDescription&#34;,
-            &#34;bestBeforeDate&#34;,
-            &#34;useByDescription&#34;,
-            &#34;useByDate&#34;,
-            &#34;batchCode&#34;,
-            &#34;lotNumber&#34;,
-            &#34;batchTextDescription&#34;
-        ]
-
-        for entry in optionals:
-            if (entry not in list(dict.keys())):
-                setattr(self, entry, None)
     
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def bestBeforeDescription(self):
+        &#34;&#34;&#34;
+        Returns:
+            bestBeforeDescription (string, optional): &#34;best before&#34; date range for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._bestBeforeDescription
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def bestBeforeDate(self):
+        &#34;&#34;&#34;
+        Returns:
+            bestBeforeDate (string, optional): &#34;best before&#34; date (or dates) for the batch 
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._bestBeforeDate
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def useByDescription(self):
+        &#34;&#34;&#34;
+        Returns:
+            useByDescription (string, optional): &#34;use by&#34; date range for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._useByDescription
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def useByDate(self):
+        &#34;&#34;&#34;
+        Returns:
+            useByDate (string, optional): &#34;use by&#34; date (or dates) for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._useByDate
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def batchCode(self):
+        &#34;&#34;&#34;
+        Returns:
+            batchCode (string, optional): batch number or code for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._batchCode
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def lotNumber(self):
+        &#34;&#34;&#34;
+        Returns:
+            lotNumber (string, optional): lot number for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._lotNumber
+        except AttributeError:
+            value = None
+
+        return value
+        
+    def batchTextDescription(self):
+        &#34;&#34;&#34;
+        Returns:
+            batchTextDescription (string, optional): other textual description for the batch
+        &#34;&#34;&#34;
+        
+        try:
+            value = self._batchTextDescription
+        except AttributeError:
+            value = None
+
+        return value</code></pre>
 </details>
+<h3>Methods</h3>
+<dl>
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.batchCode"><code class="name flex">
+<span>def <span class="ident">batchCode</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>batchCode</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>batch number or code for the batch</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def batchCode(self):
+    &#34;&#34;&#34;
+    Returns:
+        batchCode (string, optional): batch number or code for the batch
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._batchCode
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.batchTextDescription"><code class="name flex">
+<span>def <span class="ident">batchTextDescription</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>batchTextDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>other textual description for the batch</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def batchTextDescription(self):
+    &#34;&#34;&#34;
+    Returns:
+        batchTextDescription (string, optional): other textual description for the batch
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._batchTextDescription
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.bestBeforeDate"><code class="name flex">
+<span>def <span class="ident">bestBeforeDate</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>bestBeforeDate</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>"best before" date (or dates) for the batch</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def bestBeforeDate(self):
+    &#34;&#34;&#34;
+    Returns:
+        bestBeforeDate (string, optional): &#34;best before&#34; date (or dates) for the batch 
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._bestBeforeDate
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.bestBeforeDescription"><code class="name flex">
+<span>def <span class="ident">bestBeforeDescription</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>bestBeforeDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>"best before" date range for the batch</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def bestBeforeDescription(self):
+    &#34;&#34;&#34;
+    Returns:
+        bestBeforeDescription (string, optional): &#34;best before&#34; date range for the batch
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._bestBeforeDescription
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.lotNumber"><code class="name flex">
+<span>def <span class="ident">lotNumber</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>lotNumber</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>lot number for the batch</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def lotNumber(self):
+    &#34;&#34;&#34;
+    Returns:
+        lotNumber (string, optional): lot number for the batch
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._lotNumber
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.useByDate"><code class="name flex">
+<span>def <span class="ident">useByDate</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>useByDate</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>"use by" date (or dates) for the batch</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def useByDate(self):
+    &#34;&#34;&#34;
+    Returns:
+        useByDate (string, optional): &#34;use by&#34; date (or dates) for the batch
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._useByDate
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.useByDescription"><code class="name flex">
+<span>def <span class="ident">useByDescription</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>useByDescription</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>"use by" date range for the batch</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def useByDescription(self):
+    &#34;&#34;&#34;
+    Returns:
+        useByDescription (string, optional): &#34;use by&#34; date range for the batch
+    &#34;&#34;&#34;
+    
+    try:
+        value = self._useByDescription
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
 </dd>
 </dl>
 </section>
@@ -153,6 +496,15 @@
 <ul>
 <li>
 <h4><code><a title="foodAlertsAPI.BatchDescription.BatchDescription" href="#foodAlertsAPI.BatchDescription.BatchDescription">BatchDescription</a></code></h4>
+<ul class="">
+<li><code><a title="foodAlertsAPI.BatchDescription.BatchDescription.batchCode" href="#foodAlertsAPI.BatchDescription.BatchDescription.batchCode">batchCode</a></code></li>
+<li><code><a title="foodAlertsAPI.BatchDescription.BatchDescription.batchTextDescription" href="#foodAlertsAPI.BatchDescription.BatchDescription.batchTextDescription">batchTextDescription</a></code></li>
+<li><code><a title="foodAlertsAPI.BatchDescription.BatchDescription.bestBeforeDate" href="#foodAlertsAPI.BatchDescription.BatchDescription.bestBeforeDate">bestBeforeDate</a></code></li>
+<li><code><a title="foodAlertsAPI.BatchDescription.BatchDescription.bestBeforeDescription" href="#foodAlertsAPI.BatchDescription.BatchDescription.bestBeforeDescription">bestBeforeDescription</a></code></li>
+<li><code><a title="foodAlertsAPI.BatchDescription.BatchDescription.lotNumber" href="#foodAlertsAPI.BatchDescription.BatchDescription.lotNumber">lotNumber</a></code></li>
+<li><code><a title="foodAlertsAPI.BatchDescription.BatchDescription.useByDate" href="#foodAlertsAPI.BatchDescription.BatchDescription.useByDate">useByDate</a></code></li>
+<li><code><a title="foodAlertsAPI.BatchDescription.BatchDescription.useByDescription" href="#foodAlertsAPI.BatchDescription.BatchDescription.useByDescription">useByDescription</a></code></li>
+</ul>
 </li>
 </ul>
 </li>

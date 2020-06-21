@@ -28,7 +28,8 @@
     &#34;&#34;&#34;
     Attributes:
 
-        label (string): name of country for which the alert applies
+        _id (string): country URL
+        _label (string): name of country for which the alert applies
     &#34;&#34;&#34;
 
     def __init__(self, dict):
@@ -36,10 +37,36 @@
             setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the API
-        self.id = dict[&#34;@id&#34;]
+        self._id = dict[&#34;@id&#34;]
 
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def id(self):
+        &#34;&#34;&#34;
+        Returns:
+            id (string): URL for the country
+        &#34;&#34;&#34;
+            
+        try:
+            value = self._id
+        except AttributeError:
+            value = None
+
+        return value
+            
+    def label(self):
+        &#34;&#34;&#34;
+        Returns:
+            label (string, optional): name of country
+        &#34;&#34;&#34;
+            
+        try:
+            value = self._label
+        except AttributeError:
+            value = None
+
+        return value</code></pre>
 </details>
 </section>
 <section>
@@ -58,7 +85,9 @@
 <dd>
 <section class="desc"><h2 id="attributes">Attributes</h2>
 <dl>
-<dt><strong><code>label</code></strong> :&ensp;<code>string</code></dt>
+<dt><strong><code>_id</code></strong> :&ensp;<code>string</code></dt>
+<dd>country URL</dd>
+<dt><strong><code>_label</code></strong> :&ensp;<code>string</code></dt>
 <dd>name of country for which the alert applies</dd>
 </dl></section>
 <details class="source">
@@ -69,7 +98,8 @@
     &#34;&#34;&#34;
     Attributes:
 
-        label (string): name of country for which the alert applies
+        _id (string): country URL
+        _label (string): name of country for which the alert applies
     &#34;&#34;&#34;
 
     def __init__(self, dict):
@@ -77,11 +107,94 @@
             setattr(self, &#34;_&#34;+k, v)
 
         # id is written @id in the API
-        self.id = dict[&#34;@id&#34;]
+        self._id = dict[&#34;@id&#34;]
 
     def __getattr__(self, attribute):
-        return None</code></pre>
+        return None
+    
+    def id(self):
+        &#34;&#34;&#34;
+        Returns:
+            id (string): URL for the country
+        &#34;&#34;&#34;
+            
+        try:
+            value = self._id
+        except AttributeError:
+            value = None
+
+        return value
+            
+    def label(self):
+        &#34;&#34;&#34;
+        Returns:
+            label (string, optional): name of country
+        &#34;&#34;&#34;
+            
+        try:
+            value = self._label
+        except AttributeError:
+            value = None
+
+        return value</code></pre>
 </details>
+<h3>Methods</h3>
+<dl>
+<dt id="foodAlertsAPI.Country.Country.id"><code class="name flex">
+<span>def <span class="ident">id</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>id</code></strong> :&ensp;<code>string</code></dt>
+<dd>URL for the country</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def id(self):
+    &#34;&#34;&#34;
+    Returns:
+        id (string): URL for the country
+    &#34;&#34;&#34;
+        
+    try:
+        value = self._id
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="foodAlertsAPI.Country.Country.label"><code class="name flex">
+<span>def <span class="ident">label</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>label</code></strong> :&ensp;<code>string</code>, optional</dt>
+<dd>name of country</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def label(self):
+    &#34;&#34;&#34;
+    Returns:
+        label (string, optional): name of country
+    &#34;&#34;&#34;
+        
+    try:
+        value = self._label
+    except AttributeError:
+        value = None
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
 </dd>
 </dl>
 </section>
@@ -101,6 +214,10 @@
 <ul>
 <li>
 <h4><code><a title="foodAlertsAPI.Country.Country" href="#foodAlertsAPI.Country.Country">Country</a></code></h4>
+<ul class="">
+<li><code><a title="foodAlertsAPI.Country.Country.id" href="#foodAlertsAPI.Country.Country.id">id</a></code></li>
+<li><code><a title="foodAlertsAPI.Country.Country.label" href="#foodAlertsAPI.Country.Country.label">label</a></code></li>
+</ul>
 </li>
 </ul>
 </li>
