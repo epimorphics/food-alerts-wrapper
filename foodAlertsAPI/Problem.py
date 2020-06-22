@@ -1,4 +1,5 @@
 from foodAlertsAPI.Allergen import Allergen
+from foodAlertsAPI.PathogenRisk import PathogenRisk
 
 
 class Problem:
@@ -23,6 +24,9 @@ class Problem:
         if "allergen" in list(dict.keys()):
             allergen = [Allergen(a) for a in dict["allergen"]]
             self._allergen = allergen
+            
+        if "pathogenRisk" in list(dict.keys()):
+            self._pathogenRisk = PathogenRisk(dict["pathogenRisk"])
 
     def __getattr__(self, attribute):
         return None

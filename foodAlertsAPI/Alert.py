@@ -5,6 +5,7 @@ from foodAlertsAPI.BatchDescription import BatchDescription
 from foodAlertsAPI.Country import Country
 from foodAlertsAPI.Business import Business
 from foodAlertsAPI.RelatedMedia import RelatedMedia
+from foodAlertsAPI.PathogenRisk import PathogenRisk
 from collections import defaultdict
 from typing import List
 
@@ -100,7 +101,6 @@ class Alert:
                 self._previousAlert = dict["previousAlert"]
             else:
                 self._previousAlert = dict["previousAlert"]["@id"]
-                
         
                 
     def __getattr__(self, attribute):
