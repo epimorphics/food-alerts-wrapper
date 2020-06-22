@@ -248,6 +248,11 @@ def testAlertObjectProblemAllergen():
             assert(isinstance(a.notation(), str))
             assert(isinstance(a.riskStatement(), str))
             
+def testAlertObjectProblemAllergenLabels():
+    alert = f.getAlert("FSA-AA-01-2019")
+    assert(all(isinstance(a, str) for a in alert.allergenLabels()))
+
+            
 def testAlertObjectProblemPathogenRisk():
     alert = f.getAlert("FSA-PRIN-42-2019")
         
