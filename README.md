@@ -9,6 +9,9 @@ These functions also parse the HTTP response, so the user can simply access the 
 ## Example
 
 ```python
+from foodAlertsAPI import foodAlertsAPI
+
+f = foodAlertsAPI()
 yearAgo = (datetime.now() - timedelta(days=365)).isoformat()
 alerts = f.getAlerts(yearAgo)   # getting alerts from the past year
 
