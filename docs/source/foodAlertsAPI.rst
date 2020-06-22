@@ -1,7 +1,7 @@
 foodAlertsAPI package
 =====================
 
-foodAlertsAPI.Alert module
+foodAlertsAPI.Alert
 --------------------------
 
 .. automodule:: foodAlertsAPI.Alert
@@ -9,7 +9,7 @@ foodAlertsAPI.Alert module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.Allergen module
+foodAlertsAPI.Allergen
 -----------------------------
 
 .. automodule:: foodAlertsAPI.Allergen
@@ -17,7 +17,7 @@ foodAlertsAPI.Allergen module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.BatchDescription module
+foodAlertsAPI.BatchDescription
 -------------------------------------
 
 .. automodule:: foodAlertsAPI.BatchDescription
@@ -25,7 +25,7 @@ foodAlertsAPI.BatchDescription module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.Business module
+foodAlertsAPI.Business
 -----------------------------
 
 .. automodule:: foodAlertsAPI.Business
@@ -33,7 +33,7 @@ foodAlertsAPI.Business module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.Country module
+foodAlertsAPI.Country
 ----------------------------
 
 .. automodule:: foodAlertsAPI.Country
@@ -41,7 +41,7 @@ foodAlertsAPI.Country module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.HazardCategory module
+foodAlertsAPI.HazardCategory
 -----------------------------------
 
 .. automodule:: foodAlertsAPI.HazardCategory
@@ -49,7 +49,7 @@ foodAlertsAPI.HazardCategory module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.PathogenRisk module
+foodAlertsAPI.PathogenRisk
 ---------------------------------
 
 .. automodule:: foodAlertsAPI.PathogenRisk
@@ -57,7 +57,7 @@ foodAlertsAPI.PathogenRisk module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.Problem module
+foodAlertsAPI.Problem
 ----------------------------
 
 .. automodule:: foodAlertsAPI.Problem
@@ -65,7 +65,7 @@ foodAlertsAPI.Problem module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.ProductCategory module
+foodAlertsAPI.ProductCategory
 ------------------------------------
 
 .. automodule:: foodAlertsAPI.ProductCategory
@@ -73,7 +73,7 @@ foodAlertsAPI.ProductCategory module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.ProductDetails module
+foodAlertsAPI.ProductDetails
 -----------------------------------
 
 .. automodule:: foodAlertsAPI.ProductDetails
@@ -81,7 +81,7 @@ foodAlertsAPI.ProductDetails module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.Reason module
+foodAlertsAPI.Reason
 ---------------------------
 
 .. automodule:: foodAlertsAPI.Reason
@@ -89,7 +89,7 @@ foodAlertsAPI.Reason module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.RelatedMedia module
+foodAlertsAPI.RelatedMedia
 ---------------------------------
 
 .. automodule:: foodAlertsAPI.RelatedMedia
@@ -97,7 +97,7 @@ foodAlertsAPI.RelatedMedia module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.Status module
+foodAlertsAPI.Status
 ---------------------------
 
 .. automodule:: foodAlertsAPI.Status
@@ -105,7 +105,7 @@ foodAlertsAPI.Status module
    :undoc-members:
    :show-inheritance:
 
-foodAlertsAPI.foodAlertsAPI module
+foodAlertsAPI.foodAlertsAPI
 ----------------------------------
 
 .. automodule:: foodAlertsAPI.foodAlertsAPI
