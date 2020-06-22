@@ -5,3 +5,5 @@ __pycache__
 .vscode
 getterGenerator.py
 getters.txt
+docs/_static
+docs/_templates
