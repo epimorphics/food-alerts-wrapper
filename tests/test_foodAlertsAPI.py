@@ -1,4 +1,4 @@
-from foodAlertsAPI import foodAlertsAPI, Alert, Problem, ProductDetails, RelatedMedia, BatchDescription, Allergen, Business
+from foodAlertsAPI import foodAlertsAPI, Alert, Problem, ProductDetails, RelatedMedia, BatchDescription, Allergen, Business, PathogenRisk
 from datetime import date
 
 f = foodAlertsAPI()
@@ -247,7 +247,17 @@ def testAlertObjectProblemAllergen():
             assert(isinstance(a.label(), str))
             assert(isinstance(a.notation(), str))
             assert(isinstance(a.riskStatement(), str))
-    
+            
+def testAlertObjectProblemPathogenRisk():
+    alert = f.getAlert("FSA-PRIN-42-2019")
+        
+    for p in alert.problem():
+        assert(isinstance(p.pathogenRisk(), PathogenRisk))
+        assert(isinstance(p.pathogenRisk().label(), str))
+        assert(isinstance(p.pathogenRisk().notation(), str))
+        assert(isinstance(p.pathogenRisk().riskStatement(), str))
+            
+        
 def testAlertObjectProductDetails():
     # this alert is known to have the productDetails property
     alert1 = f.getAlert("FSA-AA-01-2019")
@@ -302,15 +312,7 @@ def testAlertObjectPreviousAlert():
 
 
 
-# def testAlertObjectProblemPathogenRisk():
-#     alert = f.getAlert("FSA-PRIN-42-2019")
-    
-#     for p in alert.problem():
-#         for r in p.pathogenRisk():
-#             assert(isinstance(a, Allergen))
-#             assert(isinstance(a.label(), str))
-#             assert(isinstance(a.notation(), str))
-#             assert(isinstance(a.riskStatement(), str))
+
 
 # test that allergen alerts have allergens
 
