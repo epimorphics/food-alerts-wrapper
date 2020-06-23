@@ -38,4 +38,6 @@ ax1.axis('equal')
 plt.show()
 ```
 
+![Allergens pie chart](top_allergens.png)
+
 The example above plots a pie chart of the 10 most frequently occurring allergens in alerts over the past year. The entirety of data acquisition and parsing has been accomplished using only `getAlerts()` and `allergenLabels()`, allowing for succinct and readable code. 
