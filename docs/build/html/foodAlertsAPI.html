@@ -1,0 +1,1965 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>foodAlertsAPI package &mdash; Food Alerts Wrapper 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to Food Alerts Wrapper’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Food Alerts Wrapper
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">foodAlertsAPI package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.Alert">foodAlertsAPI.Alert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.Allergen">foodAlertsAPI.Allergen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.BatchDescription">foodAlertsAPI.BatchDescription</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.Business">foodAlertsAPI.Business</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.Country">foodAlertsAPI.Country</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.HazardCategory">foodAlertsAPI.HazardCategory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.PathogenRisk">foodAlertsAPI.PathogenRisk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.Problem">foodAlertsAPI.Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.ProductCategory">foodAlertsAPI.ProductCategory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.ProductDetails">foodAlertsAPI.ProductDetails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.Reason">foodAlertsAPI.Reason</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.RelatedMedia">foodAlertsAPI.RelatedMedia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.Status">foodAlertsAPI.Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foodAlertsAPI.foodAlertsAPI">foodAlertsAPI.foodAlertsAPI</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Food Alerts Wrapper</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>foodAlertsAPI package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/foodAlertsAPI.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="foodalertsapi-package">
+<h1>foodAlertsAPI package<a class="headerlink" href="#foodalertsapi-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-foodAlertsAPI.Alert">
+<span id="foodalertsapi-alert"></span><h2>foodAlertsAPI.Alert<a class="headerlink" href="#module-foodAlertsAPI.Alert" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.Alert.Alert">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.Alert.</code><code class="sig-name descname">Alert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Alert is the base class representing the details of an FSA Food Alert. Optional attributes have value <cite>None</cite>
+if unspecified. This applies to all classes.</p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._id">
+<code class="sig-name descname">_id</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._id" title="Permalink to this definition">¶</a></dt>
+<dd><p>url to alert in the FSA page, same as the alertURL attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._title">
+<code class="sig-name descname">_title</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._title" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._shortTitle">
+<code class="sig-name descname">_shortTitle</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._shortTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>“None” if the API does not provide this value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._description">
+<code class="sig-name descname">_description</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._description" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._created">
+<code class="sig-name descname">_created</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._created" title="Permalink to this definition">¶</a></dt>
+<dd><p>represents date in ISO format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._modified">
+<code class="sig-name descname">_modified</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>represents datetime in ISO format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._notation">
+<code class="sig-name descname">_notation</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._notation" title="Permalink to this definition">¶</a></dt>
+<dd><p>unique identifier for alert used in the <cite>foodAlertsAPI.foodAlertsAPI</cite> getAlert() function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._country">
+<code class="sig-name descname">_country</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._country" title="Permalink to this definition">¶</a></dt>
+<dd><p>a <cite>foodAlertsAPI.Country</cite> object. None if unspecified by the API indicating that the alert may apply to any country in the UK</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._status">
+<code class="sig-name descname">_status</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._status" title="Permalink to this definition">¶</a></dt>
+<dd><p>the alert status, usually “Published”, but in rare cases may be “Withdrawn”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._type">
+<code class="sig-name descname">_type</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._type" title="Permalink to this definition">¶</a></dt>
+<dd><p>an array of strings (URLs, one corresponding to the Alert object in the API,
+and another to the type of alert corresponding to the Alert object (one of “AA” - allergen, “FAFA” - food action, or “PRIN” - product recall))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string[]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._actionTaken">
+<code class="sig-name descname">_actionTaken</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._actionTaken" title="Permalink to this definition">¶</a></dt>
+<dd><p>description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._consumerAdvice">
+<code class="sig-name descname">_consumerAdvice</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._consumerAdvice" title="Permalink to this definition">¶</a></dt>
+<dd><p>text giving the advice to consumers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._SMSText">
+<code class="sig-name descname">_SMSText</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._SMSText" title="Permalink to this definition">¶</a></dt>
+<dd><p>short description to be used in SMS notifications</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._twitterText">
+<code class="sig-name descname">_twitterText</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._twitterText" title="Permalink to this definition">¶</a></dt>
+<dd><p>short description to be used in Twitter notifications</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._alertURL">
+<code class="sig-name descname">_alertURL</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._alertURL" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for the alert on the FSA web site</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._shortURL">
+<code class="sig-name descname">_shortURL</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._shortURL" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._relatedMedia">
+<code class="sig-name descname">_relatedMedia</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._relatedMedia" title="Permalink to this definition">¶</a></dt>
+<dd><p>array of <cite>foodAlertsAPI.RelatedMedia</cite> objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object[], optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._problem">
+<code class="sig-name descname">_problem</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._problem" title="Permalink to this definition">¶</a></dt>
+<dd><p>array of <cite>foodAlertsAPI.Problem</cite> objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object[], optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._productDetails">
+<code class="sig-name descname">_productDetails</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._productDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>array of <cite>foodAlertsAPI.ProductDetails</cite> objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object[], optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._reportingBusiness">
+<code class="sig-name descname">_reportingBusiness</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._reportingBusiness" title="Permalink to this definition">¶</a></dt>
+<dd><p>a <cite>foodAlertsAPI.Business</cite> object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object[], optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._otherBusiness">
+<code class="sig-name descname">_otherBusiness</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._otherBusiness" title="Permalink to this definition">¶</a></dt>
+<dd><p>an array of <cite>foodAlertsAPI.Business</cite> objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object[], optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Alert.Alert._previousAlert">
+<code class="sig-name descname">_previousAlert</code><a class="headerlink" href="#foodAlertsAPI.Alert.Alert._previousAlert" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL to previous alert. This exists if the Alert is an update to a previous one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.SMStext">
+<code class="sig-name descname">SMStext</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.SMStext" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>short description to be used in SMS notifications</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>SMSText (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.actionTaken">
+<code class="sig-name descname">actionTaken</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.actionTaken" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>description of the action taken, or in the case of FAFAs actions to be taken by enforcement authority</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>actionTaken (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.alertURL">
+<code class="sig-name descname">alertURL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.alertURL" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>URL for the alert on the FSA web site</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>alertURL (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.allergenLabels">
+<code class="sig-name descname">allergenLabels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.allergenLabels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of allergens in this Alert</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of allergens as strings</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>allergens (string[])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.consumerAdvice">
+<code class="sig-name descname">consumerAdvice</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.consumerAdvice" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>text giving the advice to consumers</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>consumerAdvice (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.country">
+<code class="sig-name descname">country</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.country" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a <cite>foodAlertsAPI.Country</cite> object. None if unspecified by the API indicating that the alert may apply to any country in the UK</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>country (object, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.countryLabel">
+<code class="sig-name descname">countryLabel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.countryLabel" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the country that the alerts applies to in string format. None if unspecified</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>country.label (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.created">
+<code class="sig-name descname">created</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.created" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>represents date in ISO format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>created (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.description">
+<code class="sig-name descname">description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.description" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>alert description. None if the API does not provide this value</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>description (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.id">
+<code class="sig-name descname">id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>url to alert in the FSA page, same as the alertURL attribute.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>id (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.modified">
+<code class="sig-name descname">modified</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.modified" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>represents datetime in ISO format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>modified (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.notation">
+<code class="sig-name descname">notation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.notation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>unique identifier for alert used in the <cite>foodAlertsAPI.foodAlertsAPI</cite> getAlert() function</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>notation (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.otherBusiness">
+<code class="sig-name descname">otherBusiness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.otherBusiness" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an array of <cite>foodAlertsAPI.Business</cite> objects</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>otherBusiness (object[], optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.pathogenRiskLabels">
+<code class="sig-name descname">pathogenRiskLabels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.pathogenRiskLabels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of pathogen risks in this Alert</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of pathogen risks as strings</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pathogenRisks (string[])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.previousAlert">
+<code class="sig-name descname">previousAlert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.previousAlert" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a <cite>foodAlertsAPI.Alert</cite> object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>previousAlert (object, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.problem">
+<code class="sig-name descname">problem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.problem" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>array of <cite>foodAlertsAPI.Problem</cite> objects</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>problem (object[], optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.productDetails">
+<code class="sig-name descname">productDetails</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.productDetails" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>array of <cite>foodAlertsAPI.ProductDetails</cite> objects</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>productDetails (object[], optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.relatedMedia">
+<code class="sig-name descname">relatedMedia</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.relatedMedia" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>array of <cite>foodAlertsAPI.RelatedMedia</cite> objects</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>relatedMedia (object[], optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.reportingBusiness">
+<code class="sig-name descname">reportingBusiness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.reportingBusiness" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>common name for the reporting business</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>reportingBusiness (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.shortTitle">
+<code class="sig-name descname">shortTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.shortTitle" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>compact version of title. None if the API does not provide this value</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>shortTitle (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.shortURL">
+<code class="sig-name descname">shortURL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.shortURL" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>short URL to alert used in SMS and twitter texts</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>shortURL (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.status">
+<code class="sig-name descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the alert status in string format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>status (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.title">
+<code class="sig-name descname">title</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.title" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>alert title</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>title (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.twitterText">
+<code class="sig-name descname">twitterText</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.twitterText" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>short description to be used in Twitter notifications</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>twitterText (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Alert.Alert.type">
+<code class="sig-name descname">type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Alert.Alert.type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>one of “AA”, “FAFA”, or “PRIN”</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>type (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.Allergen">
+<span id="foodalertsapi-allergen"></span><h2>foodAlertsAPI.Allergen<a class="headerlink" href="#module-foodAlertsAPI.Allergen" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.Allergen.Allergen">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.Allergen.</code><code class="sig-name descname">Allergen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Allergen.Allergen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Array of allergens drawn from the controlled list of allergens.
+For an Allergen Alert there will also be at least one allergen present on the problem statement.</p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Allergen.Allergen._label">
+<code class="sig-name descname">_label</code><a class="headerlink" href="#foodAlertsAPI.Allergen.Allergen._label" title="Permalink to this definition">¶</a></dt>
+<dd><p>name for the allergen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Allergen.Allergen._notation">
+<code class="sig-name descname">_notation</code><a class="headerlink" href="#foodAlertsAPI.Allergen.Allergen._notation" title="Permalink to this definition">¶</a></dt>
+<dd><p>a unique identifier for the allergen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Allergen.Allergen._riskStatement">
+<code class="sig-name descname">_riskStatement</code><a class="headerlink" href="#foodAlertsAPI.Allergen.Allergen._riskStatement" title="Permalink to this definition">¶</a></dt>
+<dd><p>text describing the risk from the allergen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Allergen.Allergen.label">
+<code class="sig-name descname">label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Allergen.Allergen.label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the allergen name</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>label (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Allergen.Allergen.notation">
+<code class="sig-name descname">notation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Allergen.Allergen.notation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>unique identifier for the allergen</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>notation (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Allergen.Allergen.riskStatement">
+<code class="sig-name descname">riskStatement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Allergen.Allergen.riskStatement" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>text describing the risk from the allergen</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>riskStatement (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.BatchDescription">
+<span id="foodalertsapi-batchdescription"></span><h2>foodAlertsAPI.BatchDescription<a class="headerlink" href="#module-foodAlertsAPI.BatchDescription" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.BatchDescription.</code><code class="sig-name descname">BatchDescription</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription._bestBeforeDescription">
+<code class="sig-name descname">_bestBeforeDescription</code><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription._bestBeforeDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>“best before” date range for the batch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription._bestBeforeDate">
+<code class="sig-name descname">_bestBeforeDate</code><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription._bestBeforeDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>“best before” date (or dates) for the batch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription._useByDescription">
+<code class="sig-name descname">_useByDescription</code><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription._useByDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>“use by” date range for the batch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription._useByDate">
+<code class="sig-name descname">_useByDate</code><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription._useByDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>“use by” date (or dates) for the batch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription._batchCode">
+<code class="sig-name descname">_batchCode</code><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription._batchCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>batch number or code for the batch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription._lotNumber">
+<code class="sig-name descname">_lotNumber</code><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription._lotNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>lot number for the batch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription._batchTextDescription">
+<code class="sig-name descname">_batchTextDescription</code><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription._batchTextDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>other textual description for the batch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.batchCode">
+<code class="sig-name descname">batchCode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription.batchCode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>batch number or code for the batch</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>batchCode (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.batchTextDescription">
+<code class="sig-name descname">batchTextDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription.batchTextDescription" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>other textual description for the batch</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>batchTextDescription (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.bestBeforeDate">
+<code class="sig-name descname">bestBeforeDate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription.bestBeforeDate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>“best before” date (or dates) for the batch</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bestBeforeDate (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.bestBeforeDescription">
+<code class="sig-name descname">bestBeforeDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription.bestBeforeDescription" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>“best before” date range for the batch</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bestBeforeDescription (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.lotNumber">
+<code class="sig-name descname">lotNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription.lotNumber" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>lot number for the batch</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>lotNumber (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.useByDate">
+<code class="sig-name descname">useByDate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription.useByDate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>“use by” date (or dates) for the batch</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>useByDate (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.BatchDescription.BatchDescription.useByDescription">
+<code class="sig-name descname">useByDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.BatchDescription.BatchDescription.useByDescription" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>“use by” date range for the batch</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>useByDescription (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.Business">
+<span id="foodalertsapi-business"></span><h2>foodAlertsAPI.Business<a class="headerlink" href="#module-foodAlertsAPI.Business" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.Business.Business">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.Business.</code><code class="sig-name descname">Business</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Business.Business" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Business.Business._commonName">
+<code class="sig-name descname">_commonName</code><a class="headerlink" href="#foodAlertsAPI.Business.Business._commonName" title="Permalink to this definition">¶</a></dt>
+<dd><p>name by which the organisation is commonly known</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Business.Business._identifier">
+<code class="sig-name descname">_identifier</code><a class="headerlink" href="#foodAlertsAPI.Business.Business._identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>unique identifier for the organisation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Business.Business._legalName">
+<code class="sig-name descname">_legalName</code><a class="headerlink" href="#foodAlertsAPI.Business.Business._legalName" title="Permalink to this definition">¶</a></dt>
+<dd><p>legal (registered) name of the organisation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Business.Business.commonName">
+<code class="sig-name descname">commonName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Business.Business.commonName" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name by which the organisation is commonly known</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>commonName (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Business.Business.identifier">
+<code class="sig-name descname">identifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Business.Business.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>unique identifier for the organisation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>identifier (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Business.Business.legalName">
+<code class="sig-name descname">legalName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Business.Business.legalName" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>legal (registered) name of the organisation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>legalName (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.Country">
+<span id="foodalertsapi-country"></span><h2>foodAlertsAPI.Country<a class="headerlink" href="#module-foodAlertsAPI.Country" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.Country.Country">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.Country.</code><code class="sig-name descname">Country</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Country.Country" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Country.Country._id">
+<code class="sig-name descname">_id</code><a class="headerlink" href="#foodAlertsAPI.Country.Country._id" title="Permalink to this definition">¶</a></dt>
+<dd><p>country URL</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Country.Country._label">
+<code class="sig-name descname">_label</code><a class="headerlink" href="#foodAlertsAPI.Country.Country._label" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of country for which the alert applies</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Country.Country.id">
+<code class="sig-name descname">id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Country.Country.id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>URL for the country</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>id (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Country.Country.label">
+<code class="sig-name descname">label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Country.Country.label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name of country</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>label (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.HazardCategory">
+<span id="foodalertsapi-hazardcategory"></span><h2>foodAlertsAPI.HazardCategory<a class="headerlink" href="#module-foodAlertsAPI.HazardCategory" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.HazardCategory.HazardCategory">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.HazardCategory.</code><code class="sig-name descname">HazardCategory</code><a class="headerlink" href="#foodAlertsAPI.HazardCategory.HazardCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classifies the problem as into one of the hazard categories.
+This information is useful for analysis and retrieval but does not directly affect the default textual presentation of the alert.
+Support for this field is under discussion.</p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.HazardCategory.HazardCategory._label">
+<code class="sig-name descname">_label</code><a class="headerlink" href="#foodAlertsAPI.HazardCategory.HazardCategory._label" title="Permalink to this definition">¶</a></dt>
+<dd><p>name for the hazard category</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.HazardCategory.HazardCategory._notation">
+<code class="sig-name descname">_notation</code><a class="headerlink" href="#foodAlertsAPI.HazardCategory.HazardCategory._notation" title="Permalink to this definition">¶</a></dt>
+<dd><p>unique identifier for the hazard category</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="foodAlertsAPI.HazardCategory.label">
+<code class="sig-prename descclassname">foodAlertsAPI.HazardCategory.</code><code class="sig-name descname">label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.HazardCategory.label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name for the hazard category</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>label (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="foodAlertsAPI.HazardCategory.notation">
+<code class="sig-prename descclassname">foodAlertsAPI.HazardCategory.</code><code class="sig-name descname">notation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.HazardCategory.notation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>unique identifier for the hazard category</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>notation (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.PathogenRisk">
+<span id="foodalertsapi-pathogenrisk"></span><h2>foodAlertsAPI.PathogenRisk<a class="headerlink" href="#module-foodAlertsAPI.PathogenRisk" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.PathogenRisk.</code><code class="sig-name descname">PathogenRisk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.PathogenRisk.PathogenRisk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classifies the problem as being due to actual or possible contamination with a pathogen.</p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk._label">
+<code class="sig-name descname">_label</code><a class="headerlink" href="#foodAlertsAPI.PathogenRisk.PathogenRisk._label" title="Permalink to this definition">¶</a></dt>
+<dd><p>name for the pathogen risk</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk._notation">
+<code class="sig-name descname">_notation</code><a class="headerlink" href="#foodAlertsAPI.PathogenRisk.PathogenRisk._notation" title="Permalink to this definition">¶</a></dt>
+<dd><p>unique identifier for the pathogen risk</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk._pathogen">
+<code class="sig-name descname">_pathogen</code><a class="headerlink" href="#foodAlertsAPI.PathogenRisk.PathogenRisk._pathogen" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL to page of the pathogen involved</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk._riskStatement">
+<code class="sig-name descname">_riskStatement</code><a class="headerlink" href="#foodAlertsAPI.PathogenRisk.PathogenRisk._riskStatement" title="Permalink to this definition">¶</a></dt>
+<dd><p>text describing the risk from this pathogen, or possible pathogen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk.label">
+<code class="sig-name descname">label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.PathogenRisk.PathogenRisk.label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name for the pathogen risk</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>label (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk.notation">
+<code class="sig-name descname">notation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.PathogenRisk.PathogenRisk.notation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>unique identifier for the pathogen risk</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>notation (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk.pathogen">
+<code class="sig-name descname">pathogen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.PathogenRisk.PathogenRisk.pathogen" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>indicates the actual pathogen involved. The PathogenRisk may represent actual or possible contamination with this pathogen</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pathogen (object)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.PathogenRisk.PathogenRisk.riskStatement">
+<code class="sig-name descname">riskStatement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.PathogenRisk.PathogenRisk.riskStatement" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>text describing the risk from this pathogen, or possible pathogen</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>riskStatement (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.Problem">
+<span id="foodalertsapi-problem"></span><h2>foodAlertsAPI.Problem<a class="headerlink" href="#module-foodAlertsAPI.Problem" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.Problem.Problem">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.Problem.</code><code class="sig-name descname">Problem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Problem.Problem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Problem.Problem._riskStatement">
+<code class="sig-name descname">_riskStatement</code><a class="headerlink" href="#foodAlertsAPI.Problem.Problem._riskStatement" title="Permalink to this definition">¶</a></dt>
+<dd><p>text describing the problem in terms of the risk to consumers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Problem.Problem._allergen">
+<code class="sig-name descname">_allergen</code><a class="headerlink" href="#foodAlertsAPI.Problem.Problem._allergen" title="Permalink to this definition">¶</a></dt>
+<dd><p>a list of <cite>foodAlertsAPI.Allergen</cite> objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object[]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Problem.Problem._hazardCategory">
+<code class="sig-name descname">_hazardCategory</code><a class="headerlink" href="#foodAlertsAPI.Problem.Problem._hazardCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>a <cite>foodAlertsAPI.HazardCategory</cite> object. Classifies the problem as into one of the hazard categories.
+Support for this field is under discussion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Problem.Problem._pathogenRisk">
+<code class="sig-name descname">_pathogenRisk</code><a class="headerlink" href="#foodAlertsAPI.Problem.Problem._pathogenRisk" title="Permalink to this definition">¶</a></dt>
+<dd><p>classifies the problem as being due to actual or possible contamination with a pathogen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Problem.Problem._reason">
+<code class="sig-name descname">_reason</code><a class="headerlink" href="#foodAlertsAPI.Problem.Problem._reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>a <cite>foodAlertsAPI.Reason</cite> object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Problem.Problem.allergen">
+<code class="sig-name descname">allergen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Problem.Problem.allergen" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list of <cite>foodAlertsAPI.Allergen</cite> objects</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>allergen (object[])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Problem.Problem.allergenLabels">
+<code class="sig-name descname">allergenLabels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Problem.Problem.allergenLabels" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of allergens in string format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>allergenLabels (string[], optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Problem.Problem.hazardCategory">
+<code class="sig-name descname">hazardCategory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Problem.Problem.hazardCategory" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>a <cite>foodAlertsAPI.HazardCategory</cite> object. Classifies the problem as into one of the hazard categories.</dt><dd><p>Support for this field is under discussion.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>hazardCategory (object, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Problem.Problem.hazardCategoryLabel">
+<code class="sig-name descname">hazardCategoryLabel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Problem.Problem.hazardCategoryLabel" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>hazard category in string format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>hazardCategoryLabel (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Problem.Problem.hazardCategoryNotation">
+<code class="sig-name descname">hazardCategoryNotation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Problem.Problem.hazardCategoryNotation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>unique identifier for hazard category in string format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>hazardCategoryNotation (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Problem.Problem.pathogenRisk">
+<code class="sig-name descname">pathogenRisk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Problem.Problem.pathogenRisk" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>classifies the problem as being due to actual or possible contamination with a pathogen.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pathogenRisk (object, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Problem.Problem.pathogenRiskLabels">
+<code class="sig-name descname">pathogenRiskLabels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Problem.Problem.pathogenRiskLabels" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>pathogen risks in string format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pathogenRiskLabels (string[], optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Problem.Problem.reason">
+<code class="sig-name descname">reason</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Problem.Problem.reason" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a <cite>foodAlertsAPI.Reason</cite> object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>reason (object, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Problem.Problem.riskStatement">
+<code class="sig-name descname">riskStatement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Problem.Problem.riskStatement" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>text describing the problem in terms of the risk to consumers</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>riskStatement (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.ProductCategory">
+<span id="foodalertsapi-productcategory"></span><h2>foodAlertsAPI.ProductCategory<a class="headerlink" href="#module-foodAlertsAPI.ProductCategory" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.ProductCategory.ProductCategory">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.ProductCategory.</code><code class="sig-name descname">ProductCategory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.ProductCategory.ProductCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.ProductDetails">
+<span id="foodalertsapi-productdetails"></span><h2>foodAlertsAPI.ProductDetails<a class="headerlink" href="#module-foodAlertsAPI.ProductDetails" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.ProductDetails.</code><code class="sig-name descname">ProductDetails</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails._productName">
+<code class="sig-name descname">_productName</code><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails._productName" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of the affected product</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails._productCode">
+<code class="sig-name descname">_productCode</code><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails._productCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>identifying code for the affected product</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails._packSizeDescription">
+<code class="sig-name descname">_packSizeDescription</code><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails._packSizeDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>description of the package size affected - may be weight, volume or other description</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails._allergen">
+<code class="sig-name descname">_allergen</code><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails._allergen" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of urls to the allergens present in the product</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string[], optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails._batchDescription">
+<code class="sig-name descname">_batchDescription</code><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails._batchDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>an array of <cite>foodAlertsAPI.BatchDescription</cite> objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object[]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails._productCategory">
+<code class="sig-name descname">_productCategory</code><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails._productCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>a <cite>foodAlertsAPI.ProductCategory</cite> object. Identifies the category of the affected product.
+This information is used to support search and analysis and does not need to be separately included in the alert presentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.allergen">
+<code class="sig-name descname">allergen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails.allergen" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of urls to the allergens present in the product</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>allergen (string[])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.batchDescription">
+<code class="sig-name descname">batchDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails.batchDescription" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an array of <cite>foodAlertsAPI.BatchDescription</cite> objects</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>batchDescription (object[])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.packSizeDescription">
+<code class="sig-name descname">packSizeDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails.packSizeDescription" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>description of the package size affected - may be weight, volume or other description</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>packSizeDescription (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.productCategory">
+<code class="sig-name descname">productCategory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails.productCategory" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>a <cite>foodAlertsAPI.ProductCategory</cite> object. Identifies the category of the affected product.</dt><dd><p>This information is used to support search and analysis and does not need to be separately included in the alert presentation.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>productCategory (object, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.productCode">
+<code class="sig-name descname">productCode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails.productCode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>identifying code for the affected product</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>productCode (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.ProductDetails.ProductDetails.productName">
+<code class="sig-name descname">productName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.ProductDetails.ProductDetails.productName" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name of the affected product</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>productName (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.Reason">
+<span id="foodalertsapi-reason"></span><h2>foodAlertsAPI.Reason<a class="headerlink" href="#module-foodAlertsAPI.Reason" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.Reason.Reason">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.Reason.</code><code class="sig-name descname">Reason</code><a class="headerlink" href="#foodAlertsAPI.Reason.Reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classifies the reason for the problem as being one of a standard set of reasons.
+This information is useful for analysis and retrieval but does not directly affect the default textual presentation of the alert.
+Support for this field is under discussion.</p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Reason.Reason._label">
+<code class="sig-name descname">_label</code><a class="headerlink" href="#foodAlertsAPI.Reason.Reason._label" title="Permalink to this definition">¶</a></dt>
+<dd><p>name for the reason</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Reason.Reason._notation">
+<code class="sig-name descname">_notation</code><a class="headerlink" href="#foodAlertsAPI.Reason.Reason._notation" title="Permalink to this definition">¶</a></dt>
+<dd><p>unique identifier for the reason</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Reason.Reason.label">
+<code class="sig-name descname">label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Reason.Reason.label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name for the reason</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>label (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Reason.Reason.notation">
+<code class="sig-name descname">notation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Reason.Reason.notation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>unique identifier for the reason</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>notation (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.RelatedMedia">
+<span id="foodalertsapi-relatedmedia"></span><h2>foodAlertsAPI.RelatedMedia<a class="headerlink" href="#module-foodAlertsAPI.RelatedMedia" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.RelatedMedia.RelatedMedia">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.RelatedMedia.</code><code class="sig-name descname">RelatedMedia</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.RelatedMedia.RelatedMedia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.RelatedMedia.RelatedMedia._id">
+<code class="sig-name descname">_id</code><a class="headerlink" href="#foodAlertsAPI.RelatedMedia.RelatedMedia._id" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for the related media</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.RelatedMedia.RelatedMedia._title">
+<code class="sig-name descname">_title</code><a class="headerlink" href="#foodAlertsAPI.RelatedMedia.RelatedMedia._title" title="Permalink to this definition">¶</a></dt>
+<dd><p>title for the related media</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.RelatedMedia.RelatedMedia.id">
+<code class="sig-name descname">id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.RelatedMedia.RelatedMedia.id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>URL for the related media</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>id (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.RelatedMedia.RelatedMedia.title">
+<code class="sig-name descname">title</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.RelatedMedia.RelatedMedia.title" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>title for the related media</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>title (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.Status">
+<span id="foodalertsapi-status"></span><h2>foodAlertsAPI.Status<a class="headerlink" href="#module-foodAlertsAPI.Status" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.Status.Status">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.Status.</code><code class="sig-name descname">Status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Status.Status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Status.Status._id">
+<code class="sig-name descname">_id</code><a class="headerlink" href="#foodAlertsAPI.Status.Status._id" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL for the status</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="foodAlertsAPI.Status.Status._label">
+<code class="sig-name descname">_label</code><a class="headerlink" href="#foodAlertsAPI.Status.Status._label" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of the status of the Alert, normally this will be ‘Published’ but in rare cases may be changed to ‘Withdrawn’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Status.Status.id">
+<code class="sig-name descname">id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Status.Status.id" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>URL for the status</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>id (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.Status.Status.label">
+<code class="sig-name descname">label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.Status.Status.label" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name of the status of the Alert, normally this will be ‘Published’ but in rare cases may be changed to ‘Withdrawn’</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>label (string, optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-foodAlertsAPI.foodAlertsAPI">
+<span id="foodalertsapi-foodalertsapi"></span><h2>foodAlertsAPI.foodAlertsAPI<a class="headerlink" href="#module-foodAlertsAPI.foodAlertsAPI" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="foodAlertsAPI.foodAlertsAPI.foodAlertsAPI">
+<em class="property">class </em><code class="sig-prename descclassname">foodAlertsAPI.foodAlertsAPI.</code><code class="sig-name descname">foodAlertsAPI</code><a class="headerlink" href="#foodAlertsAPI.foodAlertsAPI.foodAlertsAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="foodAlertsAPI.foodAlertsAPI.foodAlertsAPI.getAlert">
+<code class="sig-name descname">getAlert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.foodAlertsAPI.foodAlertsAPI.getAlert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific alert based on its notation, e.g. (FSA-AA-01-2018)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ID</strong> (<em>string</em>) – the alert ID</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A <cite>foodAlertsAPI.Alert</cite> object</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – occurs when an invalid value for the notation is provided</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.foodAlertsAPI.foodAlertsAPI.getAlerts">
+<code class="sig-name descname">getAlerts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">quantifier</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">detailed</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sortBy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.foodAlertsAPI.foodAlertsAPI.getAlerts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets alerts from the FSA Food Alerts API</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>quantifier</strong> – the quantifier can be an int n, in which case the function returns the last n
+alerts. The quantifier can also be a date string in ISO format, in which case
+the function returns the alerts published since the given date</p></li>
+<li><p><strong>detailed</strong> (<em>bool</em><em>, </em><em>optional</em>) – determines whether the Alert objects returned will contain all properties. When this
+is set to false, only the summary properties are included. Defaults to False if unspecified</p></li>
+<li><p><strong>limit</strong> (<em>int</em><em>, </em><em>optional</em>) – specifies the maximum number of Alert objects that can be returned</p></li>
+<li><p><strong>offset</strong> (<em>int</em><em>, </em><em>optional</em>) – return the list of items starting with the nth item, together with limit this enables paging through a long set of results</p></li>
+<li><p><strong>sortBy</strong> (<em>string</em><em>, </em><em>optional</em>) – reorder the list of results in ascending order of the given property (or property chain).
+To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order</p></li>
+<li><p><strong>filters</strong> (<em>dict</em><em>, </em><em>optional</em>) – filters based on alert object properties, e.g. {“type”:”AA”}</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of <cite>foodAlertsAPI.Alert</cite> objects</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – occurs when an invalid value for the quantifier or optional arguments is provided</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="foodAlertsAPI.foodAlertsAPI.foodAlertsAPI.searchAlerts">
+<code class="sig-name descname">searchAlerts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">detailed</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sortBy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filters</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#foodAlertsAPI.foodAlertsAPI.foodAlertsAPI.searchAlerts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for query in alerts from the FSA Food Alerts API</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>string</em>) – the search query</p></li>
+<li><p><strong>detailed</strong> (<em>bool</em><em>, </em><em>optional</em>) – determines whether the Alert objects returned will contain all properties. When this
+is set to false, only the summary properties are included. Defaults to False if unspecified</p></li>
+<li><p><strong>limit</strong> (<em>int</em><em>, </em><em>optional</em>) – specifies the maximum number of Alert objects that can be returned</p></li>
+<li><p><strong>offset</strong> (<em>int</em><em>, </em><em>optional</em>) – return the list of items starting with the nth item, together with limit this enables paging through a long set of results</p></li>
+<li><p><strong>sortBy</strong> (<em>string</em><em>, </em><em>optional</em>) – reorder the list of results in ascending order of the given property (or property chain).
+To sort in descending order use sortBy=-prop. More than one sort can be included in which case they will be applied in order</p></li>
+<li><p><strong>filters</strong> (<em>dict</em><em>, </em><em>optional</em>) – filters based on alert object properties, e.g. {“type”:”AA”}</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of <cite>foodAlertsAPI.Alert</cite> objects</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – occurs when an invalid value for the query or optional arguments is provided</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Food Alerts Wrapper’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Adrian David
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
