@@ -3,21 +3,6 @@ from datetime import date
 
 f = foodAlertsAPI()
 
-"""
-Classes tests
-
------------------------
-
-getAlerts() tests
-
-1. check that getAlerts returns array of Alert objects
-2. check that getAlerts limit filter works
-3. check that getAlerts type filters work
-4. check that getAlerts offset parameter works - can't test because non deterministic API?
-5. check that getAlerts sortby parameter works
- 
-"""
-
 # getAlerts()
 
 def testGetAlertsReturnsAlertList():
@@ -47,7 +32,6 @@ def testGetAlertsSortByWorks():
     
     assert all(date.fromisoformat(alerts[i].created()) <= date.fromisoformat(alerts[i+1].created()) for i in range(len(alerts)-1))
     
-
 # searchAlerts()
 
 def testSearchAlertsReturnsAlertList():
@@ -314,14 +298,3 @@ def testAlertObjectPreviousAlert():
     alert2 = f.getAlerts(1, detailed=True, filters={"notation":"FSA-AA-10-2019-update-1"})[0]
     assert(alert2.previousAlert() != None)
     assert(isinstance(alert2.previousAlert(), str))
-
-
-
-
-
-# test that allergen alerts have allergens
-
-# test the rarely occuring props by getting specific alerts
-
-# test getAllergens() and getPathogenRisks()
-    
