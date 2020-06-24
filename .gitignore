@@ -1,5 +1,6 @@
 /build
 /dist
+/html_docs
 __pycache__
 *.egg-info
 .vscode
