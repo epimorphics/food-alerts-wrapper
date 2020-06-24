@@ -1,5 +1,7 @@
 from foodAlertsAPI import foodAlertsAPI, Alert, Problem, ProductDetails, RelatedMedia, BatchDescription, Allergen, Business, PathogenRisk
 from datetime import date
+from backports.datetime_fromisoformat import MonkeyPatch
+MonkeyPatch.patch_fromisoformat()
 
 f = foodAlertsAPI()
 
