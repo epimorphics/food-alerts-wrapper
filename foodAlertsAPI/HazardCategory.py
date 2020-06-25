@@ -12,30 +12,32 @@ class HazardCategory:
 
     def __init__(self):
         for k, v in dict.items():
-            setattr(self, "_"+k, v)
+            setattr(self, "_" + k, v)
 
     def __getattr__(self, attribute):
         return None
-    
+
+
 def label(self):
     """
     Returns:
         label (string): name for the hazard category
     """
-        
+
     try:
         value = self._label
     except AttributeError:
         value = None
 
     return value
-        
+
+
 def notation(self):
     """
     Returns:
         notation (string): unique identifier for the hazard category
     """
-        
+
     try:
         value = self._notation
     except AttributeError:

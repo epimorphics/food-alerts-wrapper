@@ -1,10 +1,19 @@
 import requests
-from foodAlertsAPI.Alert import Alert;
+from foodAlertsAPI.Alert import Alert
+
 
 class foodAlertsAPI:
 
     # a negative limit value would return all entries
-    def getAlerts(self, quantifier=None, detailed=False, limit=None, offset=None, sortBy=None, filters={}):
+    def getAlerts(
+        self,
+        quantifier=None,
+        detailed=False,
+        limit=None,
+        offset=None,
+        sortBy=None,
+        filters={},
+    ):
         """Gets alerts from the FSA Food Alerts API
 
         Args:
@@ -39,31 +48,40 @@ class foodAlertsAPI:
 
         if sortBy != None:
             params["_sort"] = sortBy
-            
+
         # combining the two dictionaries, params and filters
-        
+
         params = {**params, **filters}
         # if quantifier is an int, then use the limit param
         try:
             limit = int(quantifier)
-            r = requests.get(f"https://data.food.gov.uk/food-alerts/id?_limit={limit}", params=params)
+            r = requests.get(
+                f"https://data.food.gov.uk/food-alerts/id?_limit={limit}", params=params
+            )
 
         except ValueError:
             # if quantifier is not an int, try if it works as an iso datetime string
-            try: 
+            try:
                 since = quantifier
-                r = requests.get(f"https://data.food.gov.uk/food-alerts/id?since={since}", params=params)
+                r = requests.get(
+                    f"https://data.food.gov.uk/food-alerts/id?since={since}",
+                    params=params,
+                )
                 r.raise_for_status()
-        
-            except requests.HTTPError:
-                raise ValueError("""Quantifier must be an integer or an ISO datetime string""")
 
-        items = r.json()["items"]   
+            except requests.HTTPError:
+                raise ValueError(
+                    """Quantifier must be an integer or an ISO datetime string"""
+                )
+
+        items = r.json()["items"]
         alerts = [Alert(a) for a in items]
 
         return alerts
- 
-    def searchAlerts(self, query, detailed=False, limit=None, offset=None, sortBy=None, filters={}):
+
+    def searchAlerts(
+        self, query, detailed=False, limit=None, offset=None, sortBy=None, filters={}
+    ):
         """Search for query in alerts from the FSA Food Alerts API
 
         Args:
@@ -96,16 +114,18 @@ class foodAlertsAPI:
 
         if sortBy != None:
             params["_sort"] = sortBy
-            
+
         params = {**params, **filters}
 
         try:
-            r = requests.get(f"https://data.food.gov.uk/food-alerts/id?search={query}", params=params)
+            r = requests.get(
+                f"https://data.food.gov.uk/food-alerts/id?search={query}", params=params
+            )
             r.raise_for_status()
 
-            items = r.json()["items"]   
+            items = r.json()["items"]
             alerts = [Alert(a) for a in items]
-        
+
         except requests.HTTPError:
             raise ValueError("""Query must be a valid search query string""")
 
@@ -123,15 +143,14 @@ class foodAlertsAPI:
         Raises:
             ValueError: occurs when an invalid value for the notation is provided
         """
-        
+
         try:
             r = requests.get(f"https://data.food.gov.uk/food-alerts/id/{ID}")
             r.raise_for_status()
 
             alert = Alert(r.json()["items"][0])
-        
+
         except requests.HTTPError:
             raise ValueError("Argument must be a valid alert ID")
 
         return alert
-    

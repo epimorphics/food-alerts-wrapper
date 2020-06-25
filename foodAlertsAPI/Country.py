@@ -8,33 +8,33 @@ class Country:
 
     def __init__(self, dict):
         for k, v in dict.items():
-            setattr(self, "_"+k, v)
+            setattr(self, "_" + k, v)
 
         # id is written @id in the API
         self._id = dict["@id"]
 
     def __getattr__(self, attribute):
         return None
-    
+
     def id(self):
         """
         Returns:
             id (string): URL for the country
         """
-            
+
         try:
             value = self._id
         except AttributeError:
             value = None
 
         return value
-            
+
     def label(self):
         """
         Returns:
             label (string, optional): name of country
         """
-            
+
         try:
             value = self._label
         except AttributeError:
