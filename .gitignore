@@ -8,3 +8,4 @@ getterGenerator.py
 getters.txt
 docs/_static
 docs/_templates
+.coverage

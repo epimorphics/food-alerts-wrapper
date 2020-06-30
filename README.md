@@ -1,6 +1,6 @@
 # FSA Food Alerts API Python Wrapper
 
-This is a Python wrapper for the FSA Food Alerts API, created with the aim of making interactions with the API much simpler so developers can focus on processing and analysing the data it provides.
+This is a Python wrapper for the [FSA Food Alerts API](https://data.food.gov.uk/food-alerts/ui/reference), created with the aim of making interactions with the API much simpler so developers can focus on processing and analysing the data it provides.
 
 This Python 3 wrapper is created using the [requests](https://requests.readthedocs.io/en/master/) package. It abstracts the details of HTTP requests away so that the user can just interact with API data. Using the wrapper, developers can access data from the API by simply calling intuitive functions, such as `getAlerts()` and `searchAlerts()`.
 
