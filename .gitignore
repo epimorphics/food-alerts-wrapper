@@ -10,3 +10,4 @@ docs/_static
 docs/_templates
 .coverage
 pypi-token.txt
+testpypi-token.txt

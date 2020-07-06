@@ -41,7 +41,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Allergens column chart](top_allergens.png)
+![Allergens column chart](https://github.com/epimorphics/food-alerts-wrapper/raw/master/top_allergens.png)
 
 The example above plots a column chart of the 10 most frequently occurring allergens in alerts over the past year. The entirety of data acquisition and parsing has been accomplished using only `getAlerts()` and `allergenLabels()`, allowing for succinct and readable code. 
 

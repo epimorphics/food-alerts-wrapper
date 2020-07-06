@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="food-alerts-wrapper",
-    version="0.1.0",
+    version="0.1.1",
     author="Adrian David",
     author_email="adrian.david@epimorphics.com",
     description="A python wrapper for the FSA food alerts API",
