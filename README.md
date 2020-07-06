@@ -12,35 +12,38 @@ These functions also parse the HTTP response, so the user can simply access the 
 from foodAlertsAPI import foodAlertsAPI
 
 f = foodAlertsAPI()
+
 yearAgo = (datetime.now() - timedelta(days=365)).isoformat()
-alerts = f.getAlerts(yearAgo)   # getting alerts from the past year
+alerts = f.getAlerts(yearAgo)
 
 allergenCounts = defaultdict(int)
 
+alert: Alert  # type hinting for code completion
 for alert in alerts:
-    allergens = alert.allergenLabels()  # convenience functions such as allergenLabels() make it easy to access attributes in a complex data structure
+    allergens = alert.allergenLabels()
     for allergen in allergens:
         allergenCounts[allergen] += 1
 
 # get the 10 most frequently occurring allergens
-sortedAllergens = [(k, v) for k, v in sorted(allergenCounts.items(), key=lambda item: item[1], reverse=True)][:10]
-totalAllergensCount = sum(v for k, v in sortedAllergens)
+sortedAllergens = [
+    (k, v)
+    for k, v in sorted(
+        allergenCounts.items(), key=lambda item: item[1], reverse=True
+    )][:10]
 
 labels = [k for (k, v) in sortedAllergens]
-sizes = [v/totalAllergensCount for k, v in sortedAllergens]
+heights = [v for k, v in sortedAllergens]
 
-fig1, ax1 = plt.subplots()
-ax1.pie(sizes, labels=labels, autopct='%1.1f%%')
-ax1.set_title('10 Most Common Allergens in the Past Year')
-ax1.title.set_position([.5, 1.075])
-ax1.axis('equal')
-
+plt.bar(labels, heights, color="green")
+plt.xticks(rotation="vertical")
+plt.title("10 Most Common Allergens in the Past Year")
+plt.tight_layout()
 plt.show()
 ```
 
-![Allergens pie chart](top_allergens.png)
+![Allergens column chart](top_allergens.png)
 
-The example above plots a pie chart of the 10 most frequently occurring allergens in alerts over the past year. The entirety of data acquisition and parsing has been accomplished using only `getAlerts()` and `allergenLabels()`, allowing for succinct and readable code. 
+The example above plots a column chart of the 10 most frequently occurring allergens in alerts over the past year. The entirety of data acquisition and parsing has been accomplished using only `getAlerts()` and `allergenLabels()`, allowing for succinct and readable code. 
 
 ## Documentation Summary
 
