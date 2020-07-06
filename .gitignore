@@ -9,3 +9,4 @@ getters.txt
 docs/_static
 docs/_templates
 .coverage
+pypi-token.txt
