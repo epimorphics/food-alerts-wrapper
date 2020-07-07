@@ -6,6 +6,9 @@ This Python 3 wrapper is created using the [requests](https://requests.readthedo
 
 These functions also parse the HTTP response, so the user can simply access the response data as Python objects. 
 
+A usage example is listed below, as well as an excerpt from the documentation. The full documentation can be found [here](https://food-alerts-wrapper.readthedocs.io/en/latest/).
+
+
 ## Example
 
 ```python
